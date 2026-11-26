@@ -853,6 +853,7 @@
           <option value="food">🍽️ 식비</option>
           <option value="spa">💆 스파·마사지</option>
           <option value="tour">🎢 투어·빈원더스</option>
+          <option value="shop">🛍️ 쇼핑</option>
           <option value="etc">🚕 교통·기타</option>
         </select></label>
         <label class="fld"><span>결제 시점</span><select id="costPay"><option value="pre">사전 결제</option><option value="local">현지 지출</option></select></label>
@@ -1108,7 +1109,7 @@ var SPOTS = [
     confirm:{ by:'트립온 예약 확정', name:'JANG KYOUNGHWA', pax:'장경화 님 명의 · 3인',
       when:'2/15(월) 15:00 ~ 2/17(수) 16:00 (2박)', plan:'디럭스 킹 오션뷰 62㎡ · 16시 레이트 체크아웃',
       note:'경화 님 명의 예약 · 프런트 제시용' },
-    note:'30층 루프탑 수영장은 29°C 온수지만 바람이 찰 수 있어 한낮 이용·겉옷 지참. 16시 체크아웃 후에는 카드키 반납으로 수영장·샤워실 출입 불가. 엑스트라베드(소아 무료) 명시는 바우처에서 확인.',
+    note:'30층 루프탑 수영장은 29°C 온수지만 바람이 찰 수 있어 한낮 이용·겉옷 지참. 16시 체크아웃 후에는 카드키 반납으로 수영장·샤워실 출입 불가. 3인 침구는 소파베드가 기본 포함(무료)이라 추가 베드 요청이 필요 없다.',
     q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202, who:['kyounghwa','siyoon'] },
 
   { id:'d4-6', day:4, t:'17:15', kind:'spa', tag:'스파', title:'Tyni 키즈 & 패밀리 스파',
@@ -1413,9 +1414,10 @@ var CATS = {
   food: { n:'식비',          ic:'🍽️', c:'#3E7A50' },
   spa:  { n:'스파·마사지',    ic:'💆', c:'#8A6C9C' },
   tour: { n:'투어·빈원더스',  ic:'🎢', c:'#C08029' },
+  shop: { n:'쇼핑',          ic:'🛍️', c:'#B4536B' },
   etc:  { n:'교통·기타',      ic:'🚕', c:'#2C7E77' }
 };
-/* 2026-11 확인 기준 초기값 — 기기에서 고치면 그 값이 우선이고 이 배열은 첫 실행에만 쓰인다 */
+/* 2026-11 확인 기준 초기값 — 기기에서 고치면 그 값이 우선이고 이 배열은 첫 실행과 기본 항목 버전(COST_VER)이 바뀔 때 쓰인다 */
 var DEFAULT_COSTS = [
   { id:'c-air',     ic:'✈️', name:'항공 3인 왕복', amt:1651600, cur:'KRW', cat:'air',  pay:'pre',   memo:'에어로케이 KU7243 · 6개월 할부' },
   { id:'c-amiana',  ic:'🏨', name:'아미아나 2박',   amt:11340000, cur:'VND', cat:'stay', pay:'pre',   memo:'12/30 삼성카드 결제 · 무료취소 12/30 전' },
@@ -1423,7 +1425,9 @@ var DEFAULT_COSTS = [
   { id:'c-lemore',  ic:'🛏️', name:'르모어 0.5박',   amt:70000,   cur:'KRW', cat:'stay', pay:'local', memo:'예약 내역 확인 전 추정 (6~8만)' },
   { id:'c-food',    ic:'🍽️', name:'식사 5일',      amt:560000,  cur:'KRW', cat:'food', pay:'local', memo:'아미아나 100만 동 크레딧 차감 후 · 52~60만' },
   { id:'c-pickup',  ic:'🚐', name:'공항 픽업',      amt:19000,   cur:'KRW', cat:'etc',  pay:'pre',   memo:'2/12 23:15~23:45 · 약 1.8~2만 원' },
-  { id:'c-reserve', ic:'🎟️', name:'스파·빈원더스·교통·쇼핑', amt:1150000, cur:'KRW', cat:'etc', pay:'local', memo:'배정 여유 — 확정되면 실제 금액으로 바꾸기' }
+  { id:'c-spa',     ic:'💆', name:'스파 · 마사지 (5곳)', amt:410000, cur:'KRW', cat:'spa',  pay:'local', memo:'유스파·아미아나 머드스파·Tyni·베나자·그랜드스파 3인 합계' },
+  { id:'c-vin',     ic:'🎡', name:'빈원더스 · 교통 (투어·그랩)', amt:250000, cur:'KRW', cat:'tour', pay:'local', memo:'빈원더스 3인 약 15만 + 포나가르 + 공항·시내 그랩·시클로 약 10만' },
+  { id:'c-shop',    ic:'🛍️', name:'쇼핑 · 기념품', amt:490000, cur:'KRW', cat:'shop', pay:'local', memo:'담시장·Kissa·롯데마트·센트럴마켓·4U마트 쇼핑 예산' }
 ];
 
 /* ---------------- 예산 — 투어·입장 · 교통 ---------------- */
@@ -1470,7 +1474,7 @@ var BOOKINGS = [
     q:'Amiana Resort Nha Trang' },
   { ic:'🏨', t:'하얏트 리젠시 나트랑 (2박)', st:'예약 확정', rows:[
       ['예약처','트립온 · 장경화 님 계정'],['객실','오션뷰 디럭스 킹 62㎡'],['기간','2/15(월) ~ 2/17(수)'],
-      ['혜택','무료 16시 레이트 체크아웃 · 제휴스파 40% 쿠폰'],['금액','476,663원'],['확인','엑베(소아 무료) 바우처 명시 미확인'] ],
+      ['혜택','무료 16시 레이트 체크아웃 · 제휴스파 40% 쿠폰'],['금액','476,663원'],['침구','킹베드 + 소파베드 기본 포함 (무료)'] ],
     q:'Hyatt Regency Nha Trang' },
   { ic:'🛏️', t:'르모어 호텔 (0.5박)', st:'예약 확정', rows:[
       ['일시','2/12(금) 00:00~00:40 체크인'],['위치','33A Tô Hiến Thành (시내)'],
@@ -1496,7 +1500,7 @@ var CHECK = [
     { id:'tk', l:'항공 e-티켓 · 예약번호 KU7243', s:'RF557 / RF558 · 오프라인 캡처' },
     { id:'card', l:'아미아나 등록 삼성카드 실물', s:'체크인 시 카드 확인 — 명의 일치' },
     { id:'mail', l:'아미아나 확정 메일 캡처', s:'PDF 바우처가 없으니 메일이 바우처' },
-    { id:'hy', l:'하얏트 바우처 (경화 님 트립온)', s:'16시 LCO·엑베 요청 확인' },
+    { id:'hy', l:'하얏트 바우처 (경화 님 트립온)', s:'16시 LCO · 소파베드 기본 포함(무료)' },
     { id:'ins', l:'여행자보험', s:'가입 여부 결정 필요' }
   ]},
   { g:'입국·결제', items:[
@@ -1539,22 +1543,24 @@ var OPEN = [
 
 /* ================= state ================= */
 var LS = 'nhatrangTrip.v1';
+/* 기본 예산 항목 버전 — 숫자를 올리면 브라우저에 저장된 예전 기본 항목을 새 기본값으로 교체한다(체크·프로필은 유지). */
+var COST_VER = 2;
 var state = load();
 function load(){
-  var d = { checks:{}, profile:'', planDay:'all', costs:null };
+  var d = { checks:{}, profile:'', planDay:'all', costs:null, costVer:COST_VER };
   try{
     var raw = localStorage.getItem(LS);
     if(raw){
       var p = JSON.parse(raw);
       if(p && p.checks) d.checks = p.checks;
       if(p && p.profile) d.profile = p.profile;
-      if(p && Object.prototype.toString.call(p.costs) === '[object Array]') d.costs = p.costs;
+      if(p && Object.prototype.toString.call(p.costs) === '[object Array]' && p.costVer === COST_VER) d.costs = p.costs;
     }
   }catch(e){}
   if(!d.costs) d.costs = DEFAULT_COSTS.map(function(c){ return { id:c.id, ic:c.ic, name:c.name, amt:c.amt, cur:c.cur, cat:c.cat, pay:c.pay, memo:c.memo }; });
   return d;
 }
-function save(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
+function save(){ try{ state.costVer = COST_VER; localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
 function $(s,r){ return (r||document).querySelector(s); }
 function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -2341,9 +2347,8 @@ function renderBudget(){
     + '<div class="table">'
     + '<div class="tr"><span class="l"><b>아미아나 BBQ 뷔페</b><i>성인 790,000++ ×2 · 아동 395,000++ ×1 — 세금·봉사료 15~18% 별도</i></span><span class="r soon">'+esc(bothVnd(1975000,1975000))+'</span></div>'
     + '<div class="tr"><span class="l"><b>시윤이 조식 (아미아나)</b><i>312,000 VND/박 · 만 8~11세 약관 · 2박</i></span><span class="r soon">'+esc(bothVnd(624000,624000))+'</span></div>'
-    + '<div class="tr"><span class="l"><b>하얏트 엑베(소아 무료) 여부</b><i>바우처에 Extra Bed 명시 미확인 — 무료면 0원</i></span><span class="r dim">확인 필요</span></div>'
     + '</div>'
-    + '<p class="footnote">위 세 가지는 <b>식사 5일</b> 항목에 이미 들어 있는지 예약 내역에서 한 번 더 확인하세요. BBQ와 시윤이 조식이 빠져 있다면 항목으로 따로 추가하면 됩니다.</p>';
+    + '<p class="footnote">위 두 가지는 <b>식사 5일</b> 항목에 이미 들어 있는지 예약 내역에서 한 번 더 확인하세요. BBQ와 시윤이 조식이 빠져 있다면 항목으로 따로 추가하면 됩니다. <b>하얏트</b>는 3인 침구가 소파베드 기본 포함(무료)이라 추가 침구 부과가 없습니다.</p>';
 
   html += '<div class="sec"><h2>🍽️ 점심·저녁 식당별 예상 비용</h2><span>2/13–2/17 · 11곳</span></div>'
     + '<div class="sumline">'
@@ -2356,7 +2361,7 @@ function renderBudget(){
   html += '<div class="sec"><h2>💆 마사지·스파 예약 확인 &amp; 비용</h2><span>5곳 · 예약 진행 중</span></div>'
     + '<div class="sumline">'
     +   '<div class="sl"><b>예약 끝난 곳 0곳</b><i>12/14 머드스파 → 1/31 트립온 쿠폰 조건 → 2/10 그랜드 스파·유스파 카톡 순서로 마무리하면 됩니다.</i></div>'
-    +   '<div class="sv">115만 원<em>약 '+num(vndOfKrw(1150000)/10000)+'만 동 · 배정</em></div>'
+    +   '<div class="sv">41만 원<em>약 '+num(vndOfKrw(410000)/10000)+'만 동 · 배정</em></div>'
     + '</div>'
     + SPA.map(spaCard).join('')
     + '<p class="footnote">스파 가격은 홈페이지에 공개되지 않아 대부분 예약할 때 확정됩니다. 확정된 금액이 나오면 위 <b>예산 항목</b>에 「스파·마사지」로 추가하세요.</p>';
