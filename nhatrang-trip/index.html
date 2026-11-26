@@ -183,6 +183,32 @@
   .chip.spa{color:#A75848;background:#FBEBE7}
   .chip.pick{color:#B23A31;background:#FCEDEA}
 
+  /* ============ 직원 제시용 예약 확인증 ============ */
+  .confirm{margin:8px 0 0;border:2px solid #1E4A72;border-radius:12px;background:#FBFCFE;padding:8px 10px 7px;box-shadow:0 2px 7px rgba(30,74,114,.10)}
+  .confirm .ch{display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;color:#1E4A72;letter-spacing:-.02em;line-height:1.3}
+  .confirm .ch span{margin-left:auto;font-size:8px;font-weight:600;color:#8FA1B2;letter-spacing:0}
+  .confirm .cr{display:grid;grid-template-columns:44px 1fr;gap:5px;padding:3px 0;border-top:1px dashed #D3DFEA;font-size:10.5px;line-height:1.5}
+  .confirm .ch + .cr{margin-top:6px}
+  .confirm .cr .k{font-size:9px;font-weight:700;color:#5E7E9B;padding-top:2px;letter-spacing:-.02em}
+  .confirm .cr .v{min-width:0;color:#1E4A72;font-weight:700;letter-spacing:-.01em;overflow-wrap:break-word}
+  .confirm .cr .v b{font-weight:800}
+  .confirm .cr.big{padding:5px 0}
+  .confirm .cr.big .v b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:800;letter-spacing:.01em;line-height:1.2}
+  .confirm .cr .v b.txt{font-family:inherit;font-size:12.5px;letter-spacing:-.03em}
+  .confirm .cr .v em{font-style:normal;font-size:9px;font-weight:600;color:#5E7E9B;margin-left:4px;letter-spacing:-.01em}
+  .confirm .cfoot{margin:6px 0 0;padding-top:5px;border-top:1px dashed #D3DFEA;font-size:9px;color:#5E7E9B;line-height:1.45;letter-spacing:-.01em}
+
+  /* ============ 추천 메뉴 · 예상 가격 ============ */
+  .menubox{margin:8px 0 0;background:#FDF7EC;border:1px solid #EDDEC6;border-radius:12px;padding:8px 10px 7px}
+  .menubox .mh{font-size:9.5px;font-weight:800;color:#A08447;letter-spacing:.01em}
+  .menubox .ml{margin:5px 0 0}
+  .menubox .mi{display:flex;align-items:baseline;gap:4px;font-size:10.5px;line-height:1.5;padding:1.5px 0;min-width:0}
+  .menubox .mi .n{color:#3E362B;font-weight:600;letter-spacing:-.025em;min-width:0}
+  .menubox .mi .ld{flex:1 1 auto;min-width:8px;border-bottom:1px dotted #D9C7A7;transform:translateY(-2px)}
+  .menubox .mi .p{flex:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:700;color:#8A6524;white-space:nowrap;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .menubox .ms{margin-top:5px;padding-top:5px;border-top:1px dashed #E6D5B8;text-align:right;font-size:10.5px;font-weight:800;color:#B26A18;letter-spacing:-.025em;line-height:1.4}
+  .menubox .mf{margin-top:2px;text-align:right;font-size:8.5px;color:#A6906C;line-height:1.45;letter-spacing:-.015em}
+
   /* ============ MAP ============ */
   .filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 8px}
   .filters::-webkit-scrollbar{display:none}
@@ -782,8 +808,10 @@ var SPOTS = [
 
   { id:'d2-6', day:2, t:'12:30', kind:'food', tag:'점심', title:'냐고비엣 (Nhà Gỗ Việt)',
     sub:'25A Tô Hiến Thành · 르모어 바로 앞', addr:'25A Tô Hiến Thành, Nha Trang', addrVn:'Nhà Gỗ Viet (Nha Trang)',
-    hours:'09:00–21:00', badge:'3인 35~40만 동 (약 2만 원대/인)', badgeType:'info',
-    note:'상우 님 지정. 베트남 가정식·해산물. 반쎄오(직원분이 직접 쌈을 싸 주는 방식)·분짜·쌀국수·모닝글로리·볶음밥이 무난하다. 13:45까지 마치고 짐 찾으러 복귀.',
+    hours:'09:00–21:00', badge:'상우 님 지정', badgeType:'info',
+    note:'르모어 바로 앞이라 체크아웃 동선에 딱. 반쎄오는 직원분이 직접 싸 주신다. 13:45까지 마침. 짐 찾으러 복귀.',
+    menuList:{ items:[['반쎄오 (직원이 쌈 싸 줌)','85,000~155,000동'],['소고기 · 왕갈비 쌀국수','89,000동~'],['분짜 · 모닝글로리 볶음 · 볶음밥','']],
+      sum:'3인 약 35~40만 동 · 2만 원대', foot:'금액이 안 적힌 메뉴는 합계에 포함' },
     q:'Nha Go Viet 25A To Hien Thanh Nha Trang', lat:12.240986, lng:109.192467 },
 
   { id:'d2-7', day:2, t:'13:45', kind:'move', tag:'이동', title:'짐 찾기 → 7인승 그랩 → 아미아나',
@@ -793,7 +821,10 @@ var SPOTS = [
 
   { id:'d2-8', day:2, t:'14:25', kind:'stay', tag:'숙소', title:'아미아나 리조트 체크인 (2박)',
     sub:'디럭스 킹 오션뷰 칠드런 테마 룸 · 55㎡', addr:'Phạm Văn Đồng, Bắc Nha Trang', addrVn:'Amiana Resort Nha Trang',
-    badge:'#BBA26111521764955 · 숙소 확정', badgeType:'ok',
+    badge:'숙소 확정', badgeType:'ok',
+    confirm:{ no:'BBA26111521764955', name:'LEE SANGWOO', pax:'성인 2 · 아동 1',
+      when:'2/13(토) 14:25 ~ 2/15(월) 12:00 (2박)', plan:'Deluxe King Ocean View (Children Themed · 55㎡)',
+      note:'공홈 예약 · 크레딧 1,000,000 VND · 12/30 결제' },
     note:'Amiana Deluxe Collection — 2022년 완공 신축 호텔동 55㎡. 킹베드 + 시윤이 전용 고정형 보트베드 1.1×2m(엑베 불가). 리조트 크레딧 1,000,000 VND 포함(미사용 환불 불가), 매일 티 아워 15:00~16:00, 시내 무료 셔틀(예약제 11:00·15:00 / 11:25·15:25).',
     q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872, who:['sangwoo','siyoon'] },
 
@@ -810,8 +841,13 @@ var SPOTS = [
 
   { id:'d2-11', day:2, t:'18:30', kind:'food', tag:'저녁', title:'아미아나 토요일 BBQ 뷔페',
     sub:'리조트 우든덱 · 라이브 밴드', addr:'아미아나 리조트 내 (해변 앞 우든덱)', addrVn:'Amiana Resort BBQ',
-    hours:'화·토 17:00–21:00', badge:'확정 #972599 · 18:30 성인2·아동1 (현장 결제)', badgeType:'ok',
-    note:'성인 790,000++ / 아동(6~11세) 395,000++ 동. 표기 요금에 세금·봉사료 15~18%가 붙는다. 리조트 크레딧을 여기서 쓰고, 체크인 때 #972599로 바닷가 앞줄·무대 앞자리를 요청하면 좋다.',
+    hours:'화·토 17:00–21:00', badge:'확정 · 18:30 성인2·아동1', badgeType:'ok',
+    confirm:{ no:'972599', name:'LEE SANGWOO', pax:'성인 2 · 아동 1',
+      when:'2/13(토) 18:30 · Ocean Bar', plan:'바닷가 앞줄 자리 요청', plabel:'플랜',
+      note:'현장 결제 · 크레딧 1,000,000동 차감' },
+    menuList:{ items:[['성인 뷔페 × 2','790,000++동'],['아동(6~11세) × 1','395,000++동'],['로컬 맥주 · 음료','무제한'],['세금 · 봉사료 15~18%','별도'],['공홈 예약 크레딧','-1,000,000동']],
+      sum:'3인 실부담 약 6.5~6.8만 원', foot:'크레딧 100만 동 차감 후' },
+    note:'리조트 크레딧을 여기서 쓰고, 체크인 때 #972599로 바닷가 앞줄·무대 앞자리를 요청하면 좋다.',
     q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872, who:['sangwoo'] },
 
   { id:'d2-12', day:2, t:'22:00', kind:'sight', tag:'바', title:'오션바 (풀바 23:00까지)',
@@ -828,6 +864,8 @@ var SPOTS = [
   { id:'d3-2', day:3, t:'12:30', kind:'food', tag:'점심', title:'아미아나 풀바 점심',
     sub:'메인풀 옆 풀바 (또는 룸 배달)', addr:'아미아나 리조트 내', addrVn:'Amiana Pool Bar',
     note:'오후 머드스파 전에 가볍게. 크레딧 사용처.',
+    menuList:{ items:[['버거 · 피자 · 파스타'],['쌀국수'],['음료 · 맥주']],
+      sum:'3인 약 4~6만 원', foot:'리조트 다이닝 · 룸 배달 가능 · 크레딧 차감' },
     q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
 
   { id:'d3-3', day:3, t:'16:00', kind:'spa', tag:'머드스파', title:'프라이빗 머드스파',
@@ -843,7 +881,9 @@ var SPOTS = [
 
   { id:'d3-5', day:3, t:'18:30', kind:'food', tag:'저녁', title:'동하이 씨푸드 (Đông Hải)',
     sub:'24 Tô Hiến Thành · 르모어 옆 · 2·3층 에어컨', addr:'24 Tô Hiến Thành, Nha Trang', addrVn:'Nhà Hàng Hải Sản Đông Hải',
-    hours:'11:00–23:00', badge:'나트랑 도깨비 10% 할인 · 랍스터 포함 약 7.7만 원', badgeType:'info',
+    hours:'11:00–23:00', badge:'나트랑 도깨비 10% 할인', badgeType:'info',
+    menuList:{ items:[['버터 · 갈릭 랍스터','싯가'],['갈릭 새우 · 조개류','싯가'],['모닝글로리 · 해산물 볶음밥 · 음료','']],
+      sum:'3인 약 9~13만 원', foot:'랍스터는 싯가 — 주문 전 중량·가격 확인' },
     note:'랍스터·새우·조개 위주로 주문. 2·3층은 에어컨석. 결제 전 도깨비 제휴 할인 적용 확인.',
     q:'Nha Hang Hai San Dong Hai Nha Trang', lat:12.239354, lng:109.192162 },
 
@@ -865,7 +905,9 @@ var SPOTS = [
 
   { id:'d4-3', day:4, t:'13:00', kind:'food', tag:'점심', title:'안어이 퍼 (Anh Ơi Phở)',
     sub:'80 Hồng Bàng · 하얏트 도보 9분', addr:'80 Đ. Hồng Bàng, Nha Trang', addrVn:'Anh Ơi Phở',
-    hours:'09:00–21:00', badge:'왕갈비 쌀국수 18만 동 · 분짜 16만 동', badgeType:'info',
+    hours:'09:00–21:00', badge:'13:40 마쳐야 포나가르 14:00', badgeType:'info',
+    menuList:{ items:[['스페셜 소고기 쌀국수','80,000~110,000동'],['왕갈비 쌀국수','180,000동'],['분짜','160,000동'],['넴 · 짜조 · 음료','']],
+      sum:'3인 약 2~3만 원' },
     note:'환전소가 도보 3분 거리. 14:00 포나가르로 이동하려면 13:40에는 마쳐야 한다.',
     q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
 
@@ -877,7 +919,10 @@ var SPOTS = [
 
   { id:'d4-5', day:4, t:'15:00', kind:'stay', tag:'숙소', title:'하얏트 리젠시 체크인 (2박)',
     sub:'오션뷰 디럭스 킹 62㎡ · 16시 LCO', addr:'44 Trần Phú, Nha Trang', addrVn:'Hyatt Regency Nha Trang',
-    badge:'경화 님 트립온 예약 · 숙소 확정', badgeType:'ok',
+    badge:'숙소 확정', badgeType:'ok',
+    confirm:{ by:'트립온 예약 확정', name:'JANG KYOUNGHWA', pax:'장경화 님 명의 · 3인',
+      when:'2/15(월) 15:00 ~ 2/17(수) 16:00 LCO (2박)', plan:'디럭스 킹 오션뷰 62㎡ · 16시 레이트 체크아웃',
+      note:'경화 님 명의 예약 · 프런트 제시용' },
     note:'30층 루프탑 수영장은 29°C 온수지만 바람이 찰 수 있어 한낮 이용·겉옷 지참. 16시 체크아웃 후에는 카드키 반납으로 수영장·샤워실 출입 불가. 엑스트라베드(소아 무료) 명시는 바우처에서 확인.',
     q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202, who:['kyounghwa','siyoon'] },
 
@@ -889,7 +934,9 @@ var SPOTS = [
 
   { id:'d4-7', day:4, t:'19:00', kind:'food', tag:'저녁', title:'나트랑 왕뚜껑 (한식 BBQ)',
     sub:'233 Nguyễn Thiện Thuật · 롯데마트까지 그랩 5분', addr:'233 Nguyễn Thiện Thuật, Nha Trang', addrVn:'나트랑 왕뚜껑 Korean BBQ & Samgyeopsal',
-    hours:'11:00–14:30 / 16:30–24:00', badge:'3인 약 5~6만 원 · 20:15 롯데마트', badgeType:'ok',
+    hours:'11:00–14:30 / 16:30–24:00', badge:'확정 · 20:15 롯데마트', badgeType:'ok',
+    menuList:{ items:[['삼겹살 · 목살 세트'],['된장찌개 · 김치찌개 · 계란찜'],['소주 · 맥주']],
+      sum:'3인 약 5~6만 원' },
     note:'상우 님 확정. 브레이크타임 14:30~16:30이라 19:00 저녁 OK. Tyni 스파(53 Lê Thánh Tôn)에서 그랩 5분, 롯데마트 골드코스트까지 그랩 5분(약 1.5km). 20:00 전 마무리하고 20:15 롯데마트로.',
     q:'Nha Trang Wang Ttukkeong Korean BBQ 233 Nguyen Thien Thuat', lat:12.234697, lng:109.194606 },
 
@@ -929,7 +976,9 @@ var SPOTS = [
 
   { id:'d5-4', day:5, t:'13:00', kind:'food', tag:'점심', title:'야미 월드 가든 (Yummy Land)',
     sub:'빈원더스 내 · 롯데리아 제외', addr:'Hòn Tre 섬', addrVn:'Yummy Land VinWonders',
-    hours:'10:00–18:00', badge:'가격 미확인 · 현장 결제', badgeType:'info',
+    hours:'10:00–18:00', badge:'현장 결제 · 공원 안 가격', badgeType:'info',
+    menuList:{ items:[['빅브라더 버거 · 콤보'],['피자 · 라이스볼'],['음료']],
+      sum:'3인 약 2~3.5만 원', foot:'빈원더스 내 · 현장 결제' },
     note:'공원 안 식당은 가격이 높다. 물·간식은 편의점에서 미리.',
     q:'Yummy Land VinWonders Nha Trang', lat:12.219894, lng:109.24084 },
 
@@ -951,7 +1000,9 @@ var SPOTS = [
   { id:'d5-8', day:5, t:'19:00', kind:'food', tag:'저녁', title:'라라씨푸드 (Lala Seafood)',
     sub:'109B Đ. Hồng Bàng · 2층 에어컨석 · 빈원더스 선착장에서 그랩 14~16분', addr:'109B Đ. Hồng Bàng, Nha Trang', addrVn:'Lala Seafood',
     hours:'10:00–23:00 (브레이크타임 없음)', badge:'도깨비 10% · 현금 결제 권장(카드 3%)', badgeType:'ok',
-    note:'상우 님 확정. 2층 실내 에어컨석이 시원해 저녁에 편하다. 나트랑 도깨비 10% 할인은 회원 등급 무관 적용되지만 카드로 계산하면 3% 수수료가 붙어 현금이 유리. 19시 피크 웨이팅 15~30분 — 18:50 도착 권장. 식사 후 20:30 베나자 풋스파까지 도보 5~6분.',
+    note:'상우 님 확정. 2층 실내 에어컨석이 시원해 저녁에 편하다. 19시 피크 웨이팅 15~30분 — 18:50 도착 권장. 식사 후 20:30 베나자 풋스파까지 도보 5~6분.',
+    menuList:{ items:[['랍스터 구이 (100g)','175,000 / 195,000동'],['갈릭 새우 · 조개류','싯가'],['볶음밥 · 모닝글로리','']],
+      sum:'3인 약 8~12만 원', foot:'도깨비 10% 할인 · 현금 권장(카드 3%)' },
     q:'Lala Seafood 109B Hong Bang Nha Trang', lat:12.239424, lng:109.191259 },
 
   { id:'d5-9', day:5, t:'20:30', kind:'spa', tag:'마사지', title:'베나자 풋스파 (후보)',
@@ -979,7 +1030,9 @@ var SPOTS = [
 
   { id:'d6-4', day:6, t:'12:00', kind:'food', tag:'점심', title:'마담프엉 (Madam Phuong)',
     sub:'111 Hồng Bàng · 하얏트 도보 8분', addr:'111 Đ. Hồng Bàng, Nha Trang', addrVn:'Madam Phuong',
-    hours:'11:00–22:00', badge:'3인 2~3만 원대', badgeType:'info',
+    hours:'11:00–22:00', badge:'하얏트 도보 8분 · 리뷰 4.5', badgeType:'info',
+    menuList:{ items:[['분짜'],['반쎄오'],['모닝글로리 · 볶음밥']],
+      sum:'3인 약 2.5~3.5만 원' },
     note:'베트남 가정식 인기집(리뷰 4.5·6,184). 웨이팅 있으면 옆 골목 대안으로.',
     q:'Madam Phuong 111 Hong Bang Nha Trang', lat:12.239287, lng:109.191302 },
 
@@ -1007,7 +1060,9 @@ var SPOTS = [
 
   { id:'d6-9', day:6, t:'18:00', kind:'food', tag:'저녁', title:'노르덴 스테이크하우스 (Norden)',
     sub:'79 Bạch Đằng · 18:00~19:30 · 로얄살롱에서 도보 2분(약 120m)', addr:'79 Bạch Đằng, Nha Trang', addrVn:'Norden Scandinavian Steakhouse',
-    hours:'10:00–23:00 (브런치 10:00–15:00 · 마지막 예약 22:00)', badge:'확정 · 3인 약 8~11만 원 · 카드 OK', badgeType:'ok',
+    hours:'10:00–23:00 (브런치 10:00–15:00 · 마지막 예약 22:00)', badge:'확정 · 카드 OK', badgeType:'ok',
+    menuList:{ items:[['2인 커플 · 패밀리 세트','949,000~2,499,000동'],['웻에이징 와규 · 안심','1인 400,000~800,000동'],['파스타 · 키즈메뉴',''],['봉사료 5% · VAT','별도']],
+      sum:'3인 약 8~11만 원', foot:'토마호크는 40~45분 — 예약 시 메모' },
     note:'상우 님 확정. 25일 이상 웻에이징 와규·블랙앵거스, 오픈 파이어 그릴. 실내 에어컨·키즈 메뉴(키즈 버거·구운 닭)·하이체어 OK, 구글 4.9. 1인 40~80만 동 + 봉사료 5%·VAT. 토마호크(1.3~1.4kg·2~3인)는 40~45분 걸리니 예약 메모에 미리 적기. 당일 16:00까지(2시간 전) 공홈 폼/WhatsApp(+84 935 740 239)으로 3인 예약 — 20분 내 확정. 마사지 끝나고 그대로 걸어와 18:00 입장, 19:30 계산 후 19:40 로얄살롱 복귀.',
     q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 },
 
@@ -1085,23 +1140,23 @@ var FOOD = [
   { d:2, time:'2/13 09:30', name:'CCCP 코코넛 커피 + 반미', vn:'22 Tô Hiến Thành', kind:'카페 · 아침',
     menu:'코코넛 커피, 근처 반미 포장', price:'커피 4~6만 동', tip:'상우 님 지정. 2층 창가.', hours:'06:00–23:00', q:'CCCP Coffee 22 To Hien Thanh Nha Trang', lat:12.240015, lng:109.192156 },
   { d:2, time:'2/13 12:30', name:'냐고비엣 (Nhà Gỗ Việt)', vn:'25A Tô Hiến Thành', kind:'점심 · 베트남 가정식',
-    menu:'반쎄오(직원이 직접 쌈)·분짜·쌀국수·모닝글로리·볶음밥 · 3인 35~40만 동', price:'약 2만 원대/인', tip:'르모어 바로 앞이라 체크아웃 동선에 딱. 반쎄오는 직원분이 직접 싸 주신다. 13:45까지 마무리.', hours:'09:00–21:00', q:'Nha Go Viet 25A To Hien Thanh Nha Trang', lat:12.240986, lng:109.192467 },
+    menu:'반쎄오(직원이 직접 쌈)·분짜·소고기·왕갈비 쌀국수·모닝글로리·볶음밥', price:'3인 35~40만 동 (약 2만 원대/인)', tip:'르모어 바로 앞이라 체크아웃 동선에 딱. 반쎄오는 직원분이 직접 싸 주신다. 13:45까지 마무리.', hours:'09:00–21:00', q:'Nha Go Viet 25A To Hien Thanh Nha Trang', lat:12.240986, lng:109.192467 },
   { d:2, time:'2/13 18:30', name:'아미아나 토요일 BBQ 뷔페', vn:'아미아나 리조트 우든덱', kind:'저녁 · 뷔페 (확정 #972599)',
-    menu:'성인 790,000++ / 아동 395,000++ 동 · 해산물·라이브 밴드', price:'3인 약 21만 동++ (세금·봉사료 15~18% 별도)', tip:'리조트 크레딧 100만 동을 여기서. 체크인 때 #972599로 바닷가 앞줄 요청.', hours:'화·토 17:00–21:00', q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
+    menu:'성인 790,000++ / 아동 395,000++ 동 · 로컬 맥주·음료 무제한', price:'3인 약 21만 동++ → 크레딧 차감 후 6.5~6.8만 원', tip:'리조트 크레딧 100만 동을 여기서. 체크인 때 #972599로 바닷가 앞줄 요청.', hours:'화·토 17:00–21:00', q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
   { d:3, time:'2/14 12:30', name:'아미아나 풀바', vn:'리조트 메인풀 옆', kind:'점심 · 리조트',
-    menu:'샌드위치·볼·음료 (또는 룸 배달)', price:'가격 미확인 · 크레딧 사용', tip:'머드스파 전에 가볍게. 과식하면 스파가 힘들다.', hours:'리조트 운영시간', q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
+    menu:'버거·피자·파스타·쌀국수·음료 (또는 룸 배달)', price:'3인 약 4~6만 원 · 크레딧 사용', tip:'머드스파 전에 가볍게. 과식하면 스파가 힘들다.', hours:'리조트 운영시간', q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
   { d:3, time:'2/14 18:30', name:'동하이 씨푸드 (Đông Hải)', vn:'24 Tô Hiến Thành', kind:'저녁 · 해산물',
-    menu:'랍스터·새우·조개 · 도깨비 10% 할인', price:'랍스터 포함 약 7.7만 원', tip:'2·3층 에어컨석. 결제 전 제휴 할인 적용 확인.', hours:'11:00–23:00', q:'Nha Hang Hai San Dong Hai Nha Trang', lat:12.239354, lng:109.192162 },
+    menu:'버터·갈릭 랍스터·새우·조개 · 모닝글로리·해산물 볶음밥', price:'3인 약 9~13만 원 (랍스터 싯가)', tip:'2·3층 에어컨석. 결제 전 제휴 할인 적용 확인.', hours:'11:00–23:00', q:'Nha Hang Hai San Dong Hai Nha Trang', lat:12.239354, lng:109.192162 },
   { d:4, time:'2/15 13:00', name:'안어이 퍼 (Anh Ơi Phở)', vn:'80 Hồng Bàng', kind:'점심 · 쌀국수',
-    menu:'왕갈비 쌀국수 18만 동 · 분짜 16만 동', price:'3인 약 5만 동대', tip:'하얏트 도보 9분, 환전소 도보 3분. 국물 위주라 아이도 무난.', hours:'09:00–21:00', q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
+    menu:'스페셜 소고기 쌀국수 8~11만 동 · 왕갈비 쌀국수 18만 동 · 분짜 16만 동', price:'3인 약 2~3만 원', tip:'하얏트 도보 9분, 환전소 도보 3분. 국물 위주라 아이도 무난.', hours:'09:00–21:00', q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
   { d:4, time:'2/15 19:00', name:'나트랑 왕뚜껑', vn:'233 Nguyễn Thiện Thuật', kind:'저녁 · 한식 BBQ (확정)',
     menu:'삼겹살·목살·된장찌개·공기밥', price:'3인 약 5~6만 원', tip:'브레이크타임 14:30~16:30. 20:00 전 마무리 → 20:15 롯데마트(그랩 5분).', hours:'11:00–14:30 / 16:30–24:00', img:'samgyeopsal', q:'Nha Trang Wang Ttukkeong 233 Nguyen Thien Thuat', lat:12.234697, lng:109.194606 },
   { d:5, time:'2/16 13:00', name:'야미 월드 가든 (Yummy Land)', vn:'빈원더스 내', kind:'점심 · 공원 식당',
-    menu:'패스트푸드·아시안 (롯데리아 제외)', price:'가격 미확인 · 현장 결제', tip:'공원 안은 비싸다. 물·간식은 밖에서 사 가는 게 낫다.', hours:'10:00–18:00', q:'Yummy Land VinWonders Nha Trang', lat:12.219894, lng:109.24084 },
+    menu:'빅브라더 버거·콤보 · 피자·라이스볼 · 음료 (롯데리아 제외)', price:'3인 약 2~3.5만 원 · 현장 결제', tip:'공원 안은 비싸다. 물·간식은 밖에서 사 가는 게 낫다.', hours:'10:00–18:00', q:'Yummy Land VinWonders Nha Trang', lat:12.219894, lng:109.24084 },
   { d:5, time:'2/16 19:00', name:'라라씨푸드 (Lala Seafood)', vn:'109B Đ. Hồng Bàng', kind:'저녁 · 해산물 (확정)',
-    menu:'랍스터 치즈구이 · 블랙타이거 새우구이 · 해산물 볶음밥 · 해산물 라면', price:'랍스터 100g 17.5만~19.5만 동 · 3인 약 7~10만 원(무게·시세 따라)', tip:'2층 에어컨석으로. 도깨비 10%(등급 무관) 적용되나 카드 3% 수수료 → 현금 유리. 19시 피크라 18:50 도착.', hours:'10:00–23:00', img:'lala-seafood', q:'Lala Seafood 109B Hong Bang Nha Trang', lat:12.239424, lng:109.191259 },
+    menu:'랍스터 치즈구이 · 블랙타이거 새우구이 · 해산물 볶음밥 · 해산물 라면', price:'랍스터 100g 17.5만·19.5만 동 · 3인 약 8~12만 원(무게·시세 따라)', tip:'2층 에어컨석으로. 도깨비 10%(등급 무관) 적용되나 카드 3% 수수료 → 현금 유리. 19시 피크라 18:50 도착.', hours:'10:00–23:00', img:'lala-seafood', q:'Lala Seafood 109B Hong Bang Nha Trang', lat:12.239424, lng:109.191259 },
   { d:6, time:'2/17 12:00', name:'마담프엉 (Madam Phuong)', vn:'111 Hồng Bàng', kind:'점심 · 베트남 가정식',
-    menu:'반쎄오·분·해산물 가정식', price:'3인 2~3만 원대', tip:'하얏트 도보 8분. 웨이팅 있으면 옆 골목 대안.', hours:'11:00–22:00', q:'Madam Phuong 111 Hong Bang Nha Trang', lat:12.239287, lng:109.191302 },
+    menu:'분짜·반쎄오·모닝글로리·볶음밥', price:'3인 약 2.5~3.5만 원', tip:'하얏트 도보 8분. 웨이팅 있으면 옆 골목 대안.', hours:'11:00–22:00', q:'Madam Phuong 111 Hong Bang Nha Trang', lat:12.239287, lng:109.191302 },
   { d:6, time:'2/17 18:00', name:'노르덴 스테이크하우스 (Norden)', vn:'79 Bạch Đằng', kind:'저녁 · 스테이크 (확정)',
     menu:'25일 웻에이징 와규·블랙앵거스 · 토마호크 1.3~1.4kg(2~3인) · 티본 · 피카냐 · 세트 949k 동', price:'1인 40~80만 동 + 봉사료 5%·VAT · 3인 약 8~11만 원', tip:'18:00~19:30. 로얄살롱에서 도보 2분. 당일 16:00까지 공홈/WhatsApp 예약. 19:40 로얄살롱 복귀 → 20:00 공항 샌딩.', hours:'10:00–23:00', img:'norden-steak', q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 }
 ];
@@ -1386,6 +1441,30 @@ function renderDayPills(){
     });
   });
 }
+/* 직원 제시용 예약 확인증 · 추천 메뉴 박스 */
+function confirmBox(c){
+  if(!c) return '';
+  function row(k,v,cls){ return '<div class="cr'+(cls?' '+cls:'')+'"><span class="k">'+esc(k)+'</span><span class="v">'+v+'</span></div>'; }
+  var r = '';
+  if(c.no) r += row('예약번호','<b>'+esc(c.no)+'</b>','big');
+  else if(c.by) r += row('예약처','<b class="txt">'+esc(c.by)+'</b>','big');
+  if(c.name) r += row('성명','<b>'+esc(c.name)+'</b>'+(c.pax?'<em>'+esc(c.pax)+'</em>':''));
+  if(c.when) r += row('일시','<b>'+esc(c.when)+'</b>');
+  if(c.plan) r += row(c.plabel||'객실','<b>'+esc(c.plan)+'</b>');
+  return '<div class="confirm"><div class="ch">📱 직원 제시용 예약 확인증<span>Staff Confirmation</span></div>'+r
+    + (c.note? '<div class="cfoot">'+esc(c.note)+'</div>' : '')+'</div>';
+}
+function menuBox(m){
+  if(!m || !m.items || !m.items.length) return '';
+  var rows = m.items.map(function(it){
+    var p = it[1] ? '<span class="ld"></span><span class="p">'+esc(it[1])+'</span>' : '';
+    return '<div class="mi"><span class="n">'+esc(it[0])+'</span>'+p+'</div>';
+  }).join('');
+  return '<div class="menubox"><div class="mh">추천 메뉴 · 예상 가격</div><div class="ml">'+rows+'</div>'
+    + (m.sum? '<div class="ms">'+esc(m.sum)+'</div>' : '')
+    + (m.foot? '<div class="mf">'+esc(m.foot)+'</div>' : '')+'</div>';
+}
+
 function renderDays(){
   var html = '';
   var ds = (planDay==='all') ? [1,2,3,4,5,6] : [planDay];
@@ -1410,7 +1489,9 @@ function renderDays(){
         +   '<div class="ttl">'+esc(s.title)+'</div>'
         +   '<div class="sub">'+esc(s.sub)+'</div>'
         +   (s.badge ? '<span class="badge '+(s.badgeType||'info')+'">'+esc(s.badge)+'</span>' : '')
+        +   confirmBox(s.confirm)
         +   (ph ? '<figure class="cphoto" data-photo="'+pk+'"><img src="'+ph.src+'" alt="'+esc(ph.cap)+'" loading="lazy" width="'+ph.w+'" height="'+ph.h+'"><figcaption>'+esc(ph.cap)+'</figcaption><span class="zoom">사진 크게 보기</span></figure>' : '')
+        +   menuBox(s.menuList)
         +   '<div class="cfacts">'
         +     '<a class="cf map" href="'+gmapDir(q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a>'
         +     '<button class="cf" data-addr="'+s.id+'">📋 주소</button>'
