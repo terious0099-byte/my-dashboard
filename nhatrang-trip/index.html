@@ -2270,13 +2270,14 @@ function catRowsHTML(t){
 }
 function costRow(c){
   var k = krwOf(c), cat = CATS[c.cat || 'etc'] || CATS.etc;
-  var conv = c.cur === 'VND' ? ('≒ ' + won(Math.round(k))) : ('≒ ' + num(Math.round(c.amt / FX.rate)) + '동');
+  var orig = c.cur === 'VND' ? num(c.amt) + '동' : won(c.amt);
+  var other = c.cur === 'VND' ? ('≒ ' + won(Math.round(k))) : ('≒ ' + num(Math.round(c.amt / FX.rate)) + '동');
   return '<div class="crow" data-edit="'+esc(c.id)+'" role="button" tabindex="0">'
     + '<span class="cic">'+(c.ic || cat.ic)+'</span>'
     + '<div class="ct2"><div class="nm">'+esc(c.name)
     +   '<span class="tag '+(c.pay === 'pre' ? 'pre' : 'local')+'">'+(c.pay === 'pre' ? '사전 결제' : '현지 지출')+'</span></div>'
-    +   '<div class="sub3">'+(c.cur === 'VND' ? num(c.amt)+'동' : won(c.amt))+' · '+esc(cat.n)+(c.memo ? ' · '+esc(c.memo) : '')+'</div></div>'
-    + '<div class="amt2"><b>'+num(Math.round(k))+'원</b><i>'+conv+'</i></div>'
+    +   '<div class="sub3">'+esc(cat.n)+(c.memo ? ' · '+esc(c.memo) : '')+'</div></div>'
+    + '<div class="amt2"><b>'+orig+'</b><i>'+other+'</i></div>'
     + '<button class="del" data-del="'+esc(c.id)+'" aria-label="'+esc(c.name)+' 삭제">×</button>'
     + '</div>';
 }
