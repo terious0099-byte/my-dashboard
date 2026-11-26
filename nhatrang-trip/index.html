@@ -324,8 +324,59 @@
   .sact a,.sact button{flex:1;justify-content:center;display:flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;padding:10px 8px;border-radius:11px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--dim)}
   .sact .pri{background:var(--coral);border-color:var(--coral);color:#fff}
 
+  /* ============ PLAN · DAY FILTER / MAP TOGGLE ============ */
+  .maptoggle{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;box-shadow:var(--sh);margin:0 0 9px}
+  .maptoggle .mtl{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:650;color:var(--dim);letter-spacing:-.01em}
+  .switch{width:44px;height:25px;border-radius:999px;border:1px solid var(--line2);background:#EDE4D5;position:relative;padding:0;transition:.18s;flex:none}
+  .switch i{position:absolute;left:2px;top:2px;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(70,55,38,.28);transition:.18s}
+  .switch.on{background:var(--ocean);border-color:var(--ocean)}
+  .switch.on i{left:21px}
+  .planmap{display:none;margin:0 0 10px}
+  .planmap.on{display:block;animation:fade .18s ease}
+  #plan-map{height:220px;border-radius:14px;overflow:hidden;border:1px solid var(--line2);box-shadow:var(--sh);z-index:0}
+  .planmap-note{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--dim2);margin:5px 2px 0}
+  .planmap-note a{color:var(--ocean);font-weight:650;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(30,110,140,.35)}
+  .daypills{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:1px 2px 10px;margin:0 -2px}
+  .daypills::-webkit-scrollbar{display:none}
+  .dpill{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 9px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--dim);line-height:1.2;box-shadow:0 1px 2px rgba(70,55,38,.04);transition:.15s}
+  .dpill b{font-size:11.5px;font-weight:750;letter-spacing:-.02em;white-space:nowrap}
+  .dpill span{font-size:9.5px;font-weight:600;color:var(--dim2);white-space:nowrap}
+  .dpill.on{background:var(--ocean);border-color:var(--ocean);color:#fff;box-shadow:0 7px 15px -9px rgba(30,110,140,.95)}
+  .dpill.on span{color:rgba(255,255,255,.85)}
+
+  /* ============ CARD PHOTOS ============ */
+  .cphoto{position:relative;display:block;margin:8px 0 0;border-radius:11px;overflow:hidden;background:var(--sand);cursor:zoom-in;line-height:0}
+  .sphoto{position:relative;display:block;margin:2px 0 11px;border-radius:13px;overflow:hidden;background:var(--sand);cursor:zoom-in;line-height:0}
+  .cphoto img{width:100%;height:176px;object-fit:cover;display:block}
+  .sphoto img{width:100%;height:196px;object-fit:cover;display:block}
+  .cphoto figcaption,.sphoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 10px 8px;font-size:10.5px;font-weight:600;color:#fff;line-height:1.3;text-shadow:0 1px 3px rgba(0,0,0,.42);background:linear-gradient(180deg,rgba(20,16,12,0),rgba(20,16,12,.66))}
+  .sphoto figcaption{padding:26px 12px 10px;font-size:11.5px}
+  .cphoto .zoom,.sphoto .zoom{position:absolute;right:7px;bottom:7px;font-size:9px;font-weight:700;color:#fff;background:rgba(20,16,12,.46);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px 7px;line-height:1.55;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+  .sphoto .zoom{font-size:9.5px;padding:3px 8px}
+  .cfacts{display:flex;gap:5px;margin-top:9px}
+  .cfacts .cf{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:650;color:var(--dim);text-decoration:none;padding:7px 5px;border-radius:9px;border:1px solid var(--line);background:var(--card);line-height:1.2;white-space:nowrap}
+  .cfacts .cf:active{transform:scale(.97)}
+  .cfacts .cf.map{color:#B4433A;border-color:#F1D5CF;background:#FFF7F5}
+  .cfacts .cf.det{background:var(--card2);color:var(--ink)}
+
+  /* ============ LIGHTBOX ============ */
+  .lb{position:fixed;inset:0;z-index:95;display:none;background:rgba(12,10,8,.95);align-items:center;justify-content:center;flex-direction:column;padding:calc(env(safe-area-inset-top) + 16px) 12px calc(env(safe-area-inset-bottom) + 16px)}
+  .lb.on{display:flex;animation:fade .16s ease}
+  .lb img{max-width:100%;max-height:76vh;border-radius:10px;object-fit:contain;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  .lb .lbcap{max-width:780px;margin-top:13px;text-align:center;color:#fff}
+  .lb .lbcap b{display:block;font-size:13px;font-weight:700;letter-spacing:-.01em}
+  .lb .lbcap span{display:block;font-size:10px;color:rgba(255,255,255,.58);margin-top:3px}
+  .lb .lbx{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:12px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font-size:14px;line-height:1}
+
   #toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:rgba(36,31,26,.92);color:#fff;font-size:11.5px;font-weight:600;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:80}
   #toast.on{opacity:1;transform:translate(-50%,0)}
+
+  @media(min-width:640px){
+    .cphoto img{height:230px}
+    .sphoto img{height:270px}
+    .daypills{flex-wrap:wrap;overflow:visible}
+    .dpill{flex-direction:row;gap:5px;padding:7px 13px}
+  }
 
   @media(min-width:900px){
     body{font-size:14px}
@@ -407,11 +458,21 @@
       <div class="sec" style="margin-top:2px"><h2>예약 요약</h2><span>누르면 상세</span></div>
       <div class="ov-scroll" id="ovcards"></div>
 
-      <div class="sec"><h2>일정</h2><span id="planHint">카드를 누르면 장소 상세</span></div>
+      <div class="sec"><h2>일정</h2><span id="planHint">전체 6일</span></div>
+      <div class="maptoggle">
+        <span class="mtl"><span aria-hidden="true">🗺️</span>지도 함께 보기</span>
+        <button class="switch" id="planMapSw" role="switch" aria-checked="false" aria-label="일정과 함께 지도 보기"><i></i></button>
+      </div>
+      <div class="planmap" id="planmap">
+        <div id="plan-map"></div>
+        <div class="planmap-note"><span>핀을 누르면 장소명이 뜹니다</span><a href="#" id="planMapTab">지도 탭에서 크게 보기 ›</a></div>
+      </div>
+      <div class="daypills" id="daypills"></div>
       <div id="days"></div>
       <p class="footnote">
-        일차 제목을 누르면 접히고 펴집니다. 일정 카드를 누르면 <b>주소·영업시간·할인 팁</b>이 담긴 상세가 열리고,
-        왼쪽 번호 핀을 누르면 같은 상세가 열립니다. 지도 탭의 같은 번호가 그 위치입니다.<br>
+        위 <b>DAY 버튼</b>을 누르면 그날 일정만, <b>전체</b>를 누르면 6일이 모두 펼쳐집니다.
+        일정 카드를 누르면 <b>주소·영업시간·할인 팁</b>이 담긴 상세가 열리고, 왼쪽 번호 핀을 누르면 같은 상세가 열립니다. 지도 탭의 같은 번호가 그 위치입니다.<br>
+        카드의 사진을 누르면 <b>크게 보기</b>가 열립니다. 사진 출처는 Wikimedia Commons(CC 라이선스)와 아미아나 리조트 공식 사진입니다.<br>
         프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다.
       </p>
     </section>
@@ -459,12 +520,20 @@
       <div class="t"><div class="sday" id="spDay">DAY 1</div><h3 id="spTitle">장소</h3></div>
       <button class="x" id="spClose" aria-label="닫기">✕</button>
     </div>
+    <div id="spPhoto"></div>
     <div id="spRows"></div>
     <div class="sact">
-      <a class="pri" id="spMap" href="#" target="_blank" rel="noopener">🗺️ 구글맵 길찾기</a>
-      <a id="spSearch" href="#" target="_blank" rel="noopener">🔎 장소 검색</a>
+      <a class="pri" id="spMap" href="#" target="_blank" rel="noopener">🗺️ 길찾기</a>
+      <button id="spCopy">📋 주소 복사</button>
+      <a id="spSearch" href="#" target="_blank" rel="noopener">🔎 검색</a>
     </div>
   </div>
+</div>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button class="lbx" id="lbClose" aria-label="닫기">✕</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lbcap"><b id="lbCap"></b><span id="lbCredit"></span></div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -822,6 +891,42 @@ var SPOTS = [
 ];
 
 /* ---------------- FOOD ---------------- */
+/* ---------------------------------------------------------------
+   PHOTOS — 일정 카드·장소 상세에 붙는 실제 사진 (images/ 에 직접 저장)
+   출처: Wikimedia Commons (CC 라이선스) · 아미아나 리조트 공식 사이트
+   --------------------------------------------------------------- */
+var PHOTO = {
+  'cjj-airport'  : { src:'images/cjj-airport.jpg',   cap:'청주국제공항 여객터미널',            credit:'사진 Wikimedia Commons · Sonata (CC BY-SA 3.0)', w:1000, h:750 },
+  'cxr-airport'  : { src:'images/cxr-airport.jpg',   cap:'깜란국제공항 (CXR) 터미널',           credit:'사진 Wikimedia Commons · Castelfranco (CC BY-SA 4.0)', w:1000, h:338 },
+  'nha-trang-city':{ src:'images/nha-trang-city.jpg',cap:'나트랑 시내 · 쩐푸 강변',              credit:'사진 Wikimedia Commons · Dragfyre (CC BY-SA 3.0)', w:1000, h:750 },
+  'nha-trang-beach':{src:'images/nha-trang-beach.jpg',cap:'쩐푸 해변 — 하얏트가 마주한 바다',    credit:'사진 Wikimedia Commons · Ken Eckert (CC BY-SA 4.0)', w:1000, h:750 },
+  'nha-trang-bay': { src:'images/nha-trang-bay.jpg', cap:'나트랑 만과 섬',                     credit:'사진 Wikimedia Commons · Minh Duc Ly (Public domain)', w:1000, h:666 },
+  'amiana-resort': { src:'images/amiana-resort.jpg', cap:'아미아나 리조트 라군 풀 (저녁)',       credit:'사진 아미아나 리조트 공식 사이트', w:1000, h:445 },
+  'dam-market'   : { src:'images/dam-market.jpg',    cap:'담시장 (Chợ Đầm) 정문',              credit:'사진 Wikimedia Commons · Christophe95 (CC BY-SA 4.0)', w:1000, h:750 },
+  'coconut-coffee':{ src:'images/coconut-coffee.jpg',cap:'코코넛 커피 한 잔',                   credit:'사진 Wikimedia Commons · Phương Huy (CC BY-SA 4.0)', w:1000, h:1381 },
+  'pho'          : { src:'images/pho.jpg',            cap:'베트남 쌀국수 포 (Phở)',             credit:'사진 Wikimedia Commons · Codename5281 (CC BY-SA 3.0)', w:1000, h:666 },
+  'po-nagar'     : { src:'images/po-nagar.jpg',       cap:'포나가르 참 탑 (Tháp Bà)',          credit:'사진 Wikimedia Commons · Makarenko Sasha (CC BY-SA 3.0)', w:1000, h:547 },
+  'seafood'      : { src:'images/seafood.jpg',        cap:'나트랑산 조개(응헤우) — 씨푸드집 대표 메뉴', credit:'사진 Wikimedia Commons · Phương Huy (Public domain)', w:1000, h:750 },
+  'sushi'        : { src:'images/sushi.jpg',          cap:'스시 뷔페 — 쿠우쿠우 메뉴 예시',      credit:'사진 Wikimedia Commons · Joli Rumi (CC BY-SA 4.0)', w:1000, h:563 },
+  'samgyeopsal'  : { src:'images/samgyeopsal.jpg',    cap:'삼겹살 구이 — 왕뚜껑 메뉴 예시',      credit:'사진 Wikimedia Commons · hellochris (CC BY 2.0)', w:1000, h:750 },
+  'vinpearl-cable':{ src:'images/vinpearl-cable.jpg', cap:'빈펄 케이블카 — 바다 위 3.3km',       credit:'사진 Wikimedia Commons · P. Hughes (CC BY 4.0)', w:1000, h:664 },
+  'vinwonders'   : { src:'images/vinwonders.jpg',     cap:'빈원더스 워터파크',                  credit:'사진 Wikimedia Commons · RG72 (CC BY-SA 4.0)', w:1000, h:750 },
+  'night-market' : { src:'images/night-market.jpg',   cap:'나트랑 야시장',                      credit:'사진 Wikimedia Commons · The Erica Chang (CC BY 3.0)', w:1000, h:750 }
+};
+
+/* 일정 ID → 사진. 사진이 있는 카드에만 이미지가 붙는다. */
+var SPOT_IMG = {
+  'd1-2':'cjj-airport',
+  'd1-4':'cxr-airport', 'd1-5':'cxr-airport', 'd1-6':'nha-trang-city',
+  'd2-3':'coconut-coffee', 'd2-4':'dam-market', 'd2-8':'amiana-resort', 'd2-9':'nha-trang-bay',
+  'd3-1':'nha-trang-bay', 'd3-5':'seafood',
+  'd4-3':'pho', 'd4-4':'po-nagar', 'd4-5':'nha-trang-beach', 'd4-7':'sushi', 'd4-10':'night-market',
+  'd5-2':'vinpearl-cable', 'd5-3':'vinwonders', 'd5-5':'vinwonders', 'd5-8':'samgyeopsal',
+  'd6-11':'cxr-airport'
+};
+function photoKey(s){ return s ? (s.img || SPOT_IMG[s.id] || '') : ''; }
+function photoFor(s){ var k = photoKey(s); return k ? PHOTO[k] : null; }
+
 var FOOD = [
   { d:2, time:'2/13 09:30', name:'CCCP 코코넛 커피 + 반미', vn:'22 Tô Hiến Thành', kind:'카페 · 아침',
     menu:'코코넛 커피, 근처 반미 포장', price:'커피 4~6만 동', tip:'상우 님 지정. 2층 창가.', hours:'06:00–23:00', q:'CCCP Coffee 22 To Hien Thanh Nha Trang', lat:12.240015, lng:109.192156 },
@@ -981,7 +1086,7 @@ var OPEN = [
 var LS = 'nhatrangTrip.v1';
 var state = load();
 function load(){
-  var d = { checks:{}, profile:'' };
+  var d = { checks:{}, profile:'', planDay:'all' };
   try{
     var raw = localStorage.getItem(LS);
     if(raw){ var p = JSON.parse(raw); if(p && p.checks) d.checks = p.checks; if(p && p.profile) d.profile = p.profile; }
@@ -1085,41 +1190,86 @@ function renderOV(){
 }
 
 /* ================= days ================= */
+var planDay = (state.planDay && state.planDay!=='all') ? parseInt(state.planDay,10) : 'all';
+var planMapOn = false;
+function planPhotoCount(d){ return daySpots(d).filter(function(s){ return !!photoFor(s); }).length; }
+function updatePlanHint(){
+  if(planDay==='all'){
+    var ph = SPOTS.filter(function(s){ return !!photoFor(s); }).length;
+    $('#planHint').textContent = '전체 6일 · '+SPOTS.length+'곳 · 사진 '+ph+'장';
+  } else {
+    $('#planHint').textContent = 'DAY '+planDay+' · '+DAY[planDay].date+' · '+daySpots(planDay).length+'곳 · 사진 '+planPhotoCount(planDay)+'장';
+  }
+}
+function renderDayPills(){
+  var html = '<button class="dpill'+(planDay==='all'?' on':'')+'" data-d="all"><b>전체</b><span>6일 모두</span></button>';
+  for(var d=1; d<=6; d++){
+    html += '<button class="dpill'+(planDay===d?' on':'')+'" data-d="'+d+'"><b>DAY '+d+'</b><span>'+DAY[d].date+'</span></button>';
+  }
+  $('#daypills').innerHTML = html;
+  $$('#daypills .dpill').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = b.getAttribute('data-d');
+      planDay = (v==='all') ? 'all' : parseInt(v,10);
+      state.planDay = planDay; save();
+      renderDayPills(); renderDays(); updatePlanHint();
+      if(planMapOn) refreshPlanMap();
+      var box = $('#daypills');
+      if(box.getBoundingClientRect().top < 60){
+        window.scrollTo({ top: box.getBoundingClientRect().top + window.scrollY - 58, behavior:'smooth' });
+      }
+    });
+  });
+}
 function renderDays(){
   var html = '';
-  for(var d=1; d<=6; d++){
-    var D = DAY[d], list = daySpots(d);
-    var open = (d===1);
+  var ds = (planDay==='all') ? [1,2,3,4,5,6] : [planDay];
+  ds.forEach(function(d){
+    var D = DAY[d], list = daySpots(d), phs = planPhotoCount(d);
+    var open = (planDay!=='all') || (d===1);
     html += '<div class="day'+(open?' on':'')+'" data-day="'+d+'" style="--dc:'+D.color+'">'
       + '<button class="dayhead" data-toggle="'+d+'">'
       +   '<span class="dnum">D'+d+'</span>'
       +   '<span class="dmeta"><b>'+D.date+' · '+esc(D.title)+'</b><i>'+esc(D.sub)+'</i></span>'
-      +   '<span class="dcount">'+list.length+'</span><span class="chev">▾</span>'
+      +   '<span class="dcount">'+list.length+'곳</span><span class="chev">▾</span>'
       + '</button><div class="daybody">'
-      + '<div class="daysum"><i>'+esc(D.short)+'</i><i>'+list.length+'개 일정</i></div>'
+      + '<div class="daysum"><i>'+esc(D.short)+'</i><i>'+list.length+'개 일정</i>'+(phs? '<i>사진 '+phs+'</i>' : '')+'</div>'
       + '<div class="tl">';
     list.forEach(function(s){
-      var n = spotNo(s);
+      var n = spotNo(s), ph = photoFor(s), pk = photoKey(s);
+      var q = s.q || s.addr || s.title;
       html += '<div class="item" data-spot="'+s.id+'">'
         + '<div class="rail"><button class="pin" style="--dc:'+D.color+'" data-open="'+s.id+'">'+n+'</button></div>'
         + '<div class="card2'+(s.badgeType==='warn'?' warnbg':'')+'" data-open="'+s.id+'">'
-        +   '<div class="ctop"><span class="time">'+esc(s.t)+'</span><span class="chip '+s.kind+'">'+esc(s.tag)+'</span><span class="more">상세 ›</span></div>'
+        +   '<div class="ctop"><span class="time">'+esc(s.t)+'</span><span class="chip '+s.kind+'">'+esc(s.tag)+'</span><span class="more">›</span></div>'
         +   '<div class="ttl">'+esc(s.title)+'</div>'
         +   '<div class="sub">'+esc(s.sub)+'</div>'
         +   (s.badge ? '<span class="badge '+(s.badgeType||'info')+'">'+esc(s.badge)+'</span>' : '')
+        +   (ph ? '<figure class="cphoto" data-photo="'+pk+'"><img src="'+ph.src+'" alt="'+esc(ph.cap)+'" loading="lazy" width="'+ph.w+'" height="'+ph.h+'"><figcaption>'+esc(ph.cap)+'</figcaption><span class="zoom">사진 크게 보기</span></figure>' : '')
+        +   '<div class="cfacts">'
+        +     '<a class="cf map" href="'+gmapDir(q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a>'
+        +     '<button class="cf" data-addr="'+s.id+'">📋 주소</button>'
+        +     '<button class="cf det" data-open="'+s.id+'">상세</button>'
+        +   '</div>'
         + '</div></div>';
     });
     html += '</div></div></div>';
-  }
+  });
   $('#days').innerHTML = html;
   $$('.dayhead').forEach(function(b){
-    b.addEventListener('click', function(){
-      var day = b.parentNode;
-      day.classList.toggle('on');
-    });
+    b.addEventListener('click', function(){ b.parentNode.classList.toggle('on'); });
   });
-  $$('[data-open]').forEach(function(b){
+  $$('#days [data-open]').forEach(function(b){
     b.addEventListener('click', function(e){ e.stopPropagation(); openSpot(b.getAttribute('data-open')); });
+  });
+  $$('#days .cphoto').forEach(function(f){
+    f.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); openPhoto(f.getAttribute('data-photo')); });
+  });
+  $$('#days .cfacts a').forEach(function(a){
+    a.addEventListener('click', function(e){ e.stopPropagation(); });
+  });
+  $$('#days [data-addr]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.stopPropagation(); copyAddr(b.getAttribute('data-addr')); });
   });
   applyHighlight();
 }
@@ -1132,6 +1282,10 @@ function openSpot(id){
   $('#spPin').style.setProperty('--dc', D.color);
   $('#spDay').textContent = 'DAY '+s.day+' · '+D.date+' · '+s.t;
   $('#spTitle').textContent = s.title;
+  var ph = photoFor(s), pk = photoKey(s);
+  $('#spPhoto').innerHTML = ph ? '<figure class="sphoto" data-photo="'+pk+'"><img src="'+ph.src+'" alt="'+esc(ph.cap)+'"><figcaption>'+esc(ph.cap)+'</figcaption><span class="zoom">사진 크게 보기</span></figure>' : '';
+  if(ph){ $('#spPhoto .sphoto').addEventListener('click', function(){ openPhoto(pk); }); }
+  $('#spCopy').setAttribute('data-addr', s.id);
   var rows = '';
   if(s.addr) rows += '<div class="srow"><span class="k">주소</span><span class="v">'+esc(s.addr)+(s.addrVn? '<span class="vn">'+esc(s.addrVn)+'</span>' : '')+'</span></div>';
   if(s.hours) rows += '<div class="srow"><span class="k">영업시간</span><span class="v">'+esc(s.hours)+'</span></div>';
@@ -1146,6 +1300,8 @@ function openSpot(id){
 }
 function openBooking(i){
   var b = BOOKINGS[i]; if(!b) return;
+  $('#spPhoto').innerHTML = '';
+  $('#spCopy').removeAttribute('data-addr');
   $('#spPin').textContent = b.ic;
   $('#spPin').style.setProperty('--dc','var(--ocean)');
   $('#spDay').textContent = '예약 상세';
@@ -1286,6 +1442,99 @@ function renderMapList(){
     });
   });
 }
+
+/* ================= plan tab · mini map ================= */
+var pMap=null, pLayer=null;
+function initPlanMap(){
+  if(pMap) return;
+  pMap = L.map('plan-map', { zoomControl:false, scrollWheelZoom:false, attributionControl:true });
+  L.tileLayer(TILE_A, { maxZoom:19, maxNativeZoom:18, attribution:'© Esri, HERE, Garmin, OSM' }).addTo(pMap);
+  pLayer = L.layerGroup().addTo(pMap);
+  pMap.on('zoomend', drawPlanMarkers);
+  refreshPlanMap();
+}
+function refreshPlanMap(){ drawPlanMarkers(); fitPlan(); }
+function drawPlanMarkers(){
+  if(!pMap || !pLayer) return;
+  pLayer.clearLayers();
+  var zoom = pMap.getZoom() || 13;
+  var list = SPOTS.filter(function(s){ return s.lat && (planDay==='all' || s.day===planDay); });
+  /* 확대 전에는 가까운 핀을 숫자 동그라미로 묶어 겹침을 줄인다 */
+  var clusters = [];
+  list.forEach(function(s){
+    var xy = pMap.project([s.lat,s.lng], zoom), hit = null;
+    for(var i=0;i<clusters.length;i++){
+      if(clusters[i].xy.distanceTo(xy) < 14){ hit = clusters[i]; break; }
+    }
+    if(hit){ hit.items.push(s); } else { clusters.push({ xy:xy, items:[s] }); }
+  });
+  clusters.forEach(function(c){
+    var s0 = c.items[0];
+    if(c.items.length > 1){
+      var ll = pMap.unproject(c.xy, zoom);
+      var m = L.marker(ll, { icon:clusterIcon(DAY[s0.day].color, c.items.length) }).addTo(pLayer);
+      m.bindPopup(c.items.map(function(s){ return '<b>'+spotNo(s)+'</b> · '+esc(s.title); }).join('<br>'), { maxWidth:240 });
+      m.on('click', function(){ pMap.setView(ll, Math.min(zoom+2, 17)); });
+    } else {
+      var m1 = L.marker([s0.lat,s0.lng], { icon:pinIcon(DAY[s0.day].color, spotNo(s0), 0, false) }).addTo(pLayer);
+      m1.bindPopup('<b>'+spotNo(s0)+'</b> · '+esc(s0.title)+' <span style="color:#8B8172">'+esc(s0.t)+'</span>', { maxWidth:230 });
+    }
+  });
+}
+function fitPlan(){
+  if(!pMap) return;
+  if(planDay==='all'){ pMap.fitBounds(CITY_BOUNDS, { padding:[24,24], maxZoom:14 }); return; }
+  var pts = SPOTS.filter(function(s){ return s.lat && s.day===planDay; }).map(function(s){ return [s.lat,s.lng]; });
+  if(!pts.length) return;
+  pMap.fitBounds(pts.length===1 ? [pts[0],pts[0]] : pts, { padding:[36,36], maxZoom:15 });
+}
+function togglePlanMap(on){
+  planMapOn = !!on;
+  $('#planMapSw').classList.toggle('on', planMapOn);
+  $('#planMapSw').setAttribute('aria-checked', planMapOn ? 'true' : 'false');
+  $('#planmap').classList.toggle('on', planMapOn);
+  if(planMapOn){
+    initPlanMap();
+    setTimeout(function(){ if(pMap){ pMap.invalidateSize(); refreshPlanMap(); } }, 90);
+  }
+}
+
+/* ================= lightbox · 주소 복사 ================= */
+function openPhoto(key){
+  var p = PHOTO[key]; if(!p) return;
+  $('#lbImg').src = p.src;
+  $('#lbImg').alt = p.cap;
+  $('#lbCap').textContent = p.cap;
+  $('#lbCredit').textContent = p.credit || '';
+  $('#lightbox').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closePhoto(){
+  $('#lightbox').classList.remove('on');
+  $('#lbImg').src = '';
+  if(!$('#spotSheet').classList.contains('on')) document.body.style.overflow = '';
+}
+function fallbackCopy(t){
+  var ta = document.createElement('textarea');
+  ta.value = t; ta.style.position='fixed'; ta.style.top='-1000px'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+}
+function copyAddr(id){
+  var s = spot(id); if(!s) return;
+  var t = [s.addr, s.addrVn].filter(function(x){ return !!x; }).join(' / ') || s.title;
+  function done(){ toast('주소를 복사했어요 · '+(s.addr || s.title)); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done, function(){ fallbackCopy(t); done(); });
+  } else { fallbackCopy(t); done(); }
+}
+$('#lbClose').addEventListener('click', closePhoto);
+$('#lightbox').addEventListener('click', function(e){ if(e.target===$('#lightbox') || e.target===$('#lbImg')) closePhoto(); });
+$('#spCopy').addEventListener('click', function(){ var id=this.getAttribute('data-addr'); if(id) copyAddr(id); });
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape' && $('#lightbox').classList.contains('on')) closePhoto();
+});
 
 /* ================= food ================= */
 function renderFood(){
@@ -1453,7 +1702,7 @@ function switchTab(name){
     initMap();
     setTimeout(function(){ if(map){ map.invalidateSize(); fitView(); } }, 90);
   }
-  if(name==='plan'){ setTimeout(applyHighlight, 20); }
+  if(name==='plan'){ setTimeout(function(){ if(pMap) pMap.invalidateSize(); applyHighlight(); }, 20); }
 }
 
 /* ================= boot ================= */
@@ -1461,12 +1710,16 @@ renderDday();
 renderProfiles();
 renderPfcard();
 renderOV();
+renderDayPills();
+updatePlanHint();
 renderDays();
 renderFood();
 renderBudget();
 renderPrep();
 renderMapFilters();
 $$('#nav button').forEach(function(b){ b.addEventListener('click', function(){ switchTab(b.getAttribute('data-tab')); }); });
+$('#planMapSw').addEventListener('click', function(){ togglePlanMap(!planMapOn); });
+$('#planMapTab').addEventListener('click', function(e){ e.preventDefault(); switchTab('map'); });
 setTimeout(function(){ renderDday(); }, 30000);
 </script>
 </body>
