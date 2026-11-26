@@ -356,6 +356,10 @@
   .sphoto figcaption{padding:26px 12px 10px;font-size:11.5px}
   .cphoto .zoom,.sphoto .zoom{position:absolute;right:7px;bottom:7px;font-size:9px;font-weight:700;color:#fff;background:rgba(20,16,12,.46);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px 7px;line-height:1.55;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
   .sphoto .zoom{font-size:9.5px;padding:3px 8px}
+  .fphoto{position:relative;display:block;margin:9px 0 2px;border-radius:11px;overflow:hidden;background:var(--sand);cursor:zoom-in;line-height:0}
+  .fphoto img{width:100%;height:152px;object-fit:cover;display:block}
+  .fphoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 7px;font-size:10px;font-weight:600;color:#fff;line-height:1.3;text-shadow:0 1px 3px rgba(0,0,0,.42);background:linear-gradient(180deg,rgba(20,16,12,0),rgba(20,16,12,.66))}
+  .fphoto .zoom{position:absolute;right:7px;bottom:7px;font-size:9px;font-weight:700;color:#fff;background:rgba(20,16,12,.46);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px 7px;line-height:1.55}
   .cfacts{display:flex;gap:5px;margin-top:9px}
   .cfacts .cf{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:650;color:var(--dim);text-decoration:none;padding:7px 5px;border-radius:9px;border:1px solid var(--line);background:var(--card);line-height:1.2;white-space:nowrap}
   .cfacts .cf:active{transform:scale(.97)}
@@ -709,7 +713,7 @@ var DAY = {
   3:{ date:'2/14 (일)', title:'머드스파 · 동하이 씨푸드', color:'#3E7A50', sub:'발렌타인데이 · 리조트 하루', short:'머드스파' },
   4:{ date:'2/15 (월)', title:'하얏트 이동 · 포나가르 & 왕뚜껑', color:'#C08029', sub:'안어이 퍼 → 참 탑 → 왕뚜껑 저녁', short:'이동·시내' },
   5:{ date:'2/16 (화)', title:'빈원더스 (평일)', color:'#8A6C9C', sub:'케이블카 10:00 · 18:15 퇴장', short:'빈원더스' },
-  6:{ date:'2/17 (수)', title:'귀국 · 16시 레이트 체크아웃', color:'#2C7E77', sub:'23:30 CXR → 2/18 06:20 CJJ', short:'귀국' }
+  6:{ date:'2/17 (수)', title:'귀국 · LCO · 로얄살롱 & 노르덴', color:'#2C7E77', sub:'마사지 16:00 → 노르덴 18:00 → 20:00 샌딩', short:'귀국' }
 };
 
 /* ---------------------------------------------------------------
@@ -970,7 +974,7 @@ var SPOTS = [
 
   { id:'d6-3', day:6, t:'11:00', kind:'stay', tag:'정리', title:'해변 · 짐 정리',
     sub:'11:00–12:00 · 체크아웃 준비', addr:'44 Trần Phú', addrVn:'Hyatt Regency Nha Trang',
-    note:'바우처·영수증·디파짓 확인. 액체류는 위탁으로.',
+    note:'바우처·영수증·디파짓 확인. 액체류는 위탁으로. 15:45에 방을 나와 짐 3개를 그대로 로얄살롱에 맡기니 캐리어를 다 세워 둔다.',
     q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202 },
 
   { id:'d6-4', day:6, t:'12:00', kind:'food', tag:'점심', title:'마담프엉 (Madam Phuong)',
@@ -985,35 +989,36 @@ var SPOTS = [
     q:'Central Market Nha Trang', lat:12.242057, lng:109.191827 },
 
   { id:'d6-6', day:6, t:'15:15', kind:'stay', tag:'복귀', title:'하얏트 복귀 · 샤워',
-    sub:'15:15–16:00', addr:'44 Trần Phú', addrVn:'Hyatt Regency Nha Trang',
-    note:'16:00 레이트 체크아웃. 짐은 벨데스크에 맡기고 마사지·저녁.',
+    sub:'15:15–15:45 · 15:45 체크아웃', addr:'44 Trần Phú', addrVn:'Hyatt Regency Nha Trang',
+    note:'16:00 마사지 시작에 맞춰 15:45에는 방을 나선다. 씻는 건 여기서 — 16:00 LCO 뒤에는 수영장·샤워실을 쓸 수 없다.',
     q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202 },
 
-  { id:'d6-7', day:6, t:'16:00', kind:'stay', tag:'LCO', title:'16시 레이트 체크아웃',
-    sub:'짐은 벨데스크 보관 후 시내', addr:'44 Trần Phú', addrVn:'Hyatt Regency Nha Trang',
-    badge:'16시 LCO 개런티 (트립온 예약 혜택)', badgeType:'ok',
-    note:'카드키를 반납하면 수영장·샤워실은 쓸 수 없다. 공항 가기 전 씻을 곳은 방에서 미리.',
-    q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202, who:['kyounghwa'] },
-
-  { id:'d6-8', day:6, t:'16:30', kind:'spa', tag:'마사지', title:'마사지 (로얄살롱 / 라운지스파)',
-    sub:'4A Ngô Đức Kế · 하얏트 도보 3분', addr:'4A Đ. Ngô Đức Kế, Nha Trang', addrVn:'Royal Salon',
-    hours:'09:00–22:00', badge:'트립온 40% 쿠폰 후보 · 16:30', badgeType:'info',
-    note:'귀국 전 마지막 마사지. 로얄살롱(4.8·5,301) 또는 라운지스파 중 예약 되는 곳. 여기서 노르덴까지 도보 2분 — 90분 코스(16:30~18:00)여도 18:15 입장에 여유가 있다.',
+  { id:'d6-7', day:6, t:'15:45', kind:'stay', tag:'LCO', title:'체크아웃 · 로얄살롱 짐 보관',
+    sub:'16시 LCO 개런티 · 하얏트에서 로얄살롱까지 도보 약 500m', addr:'44 Trần Phú → 4A Đ. Ngô Đức Kế', addrVn:'Hyatt Regency Nha Trang → Royal Salon',
+    badge:'16시 LCO 개런티 (트립온 예약 혜택) · 짐 3개 무료 보관', badgeType:'ok',
+    note:'카드키 반납 뒤에는 수영장·샤워실 출입이 안 되니 씩는 건 방에서. 짐 3개는 로얄살롱이 무료 보관하고, 20:00 공항 조인 샌딩을 여기서 탄다.',
     q:'Royal Salon Nha Trang', lat:12.241688, lng:109.191442, who:['kyounghwa'] },
 
-  { id:'d6-9', day:6, t:'18:15', kind:'food', tag:'저녁', title:'노르덴 스테이크하우스 (Norden)',
-    sub:'79 Bạch Đằng · 하얏트 도보 7분 · 18:15 입장', addr:'79 Bạch Đằng, Nha Trang', addrVn:'Norden Scandinavian Steakhouse',
+  { id:'d6-8', day:6, t:'16:00', kind:'spa', tag:'마사지', title:'로얄살롱 VIP 90분 코스',
+    sub:'16:00–17:30 · 무료 짐 보관 · 20:00 공항 샌딩', addr:'4A Đ. Ngô Đức Kế, Nha Trang', addrVn:'Royal Salon',
+    hours:'09:00–22:00', badge:'VIP 90분 · 짐 보관 + 20:00 샌딩 사전 예약 필수', badgeType:'warn',
+    note:'로얄살롱(4.8·5,301) 카톡 채널로 미리 확정할 것: ① VIP 90분 16:00~17:30 3인 ② 짐 3개 무료 보관 ③ 20:00 공항 조인 샌딩 탑승 가능 여부 ④ 트립온 40% 쿠폰 적용. 17:30 종료 후 노르덴까지 약 120m·도보 2분.',
+    q:'Royal Salon Nha Trang', lat:12.241688, lng:109.191442, who:['kyounghwa'] },
+
+  { id:'d6-9', day:6, t:'18:00', kind:'food', tag:'저녁', title:'노르덴 스테이크하우스 (Norden)',
+    sub:'79 Bạch Đằng · 18:00~19:30 · 로얄살롱에서 도보 2분(약 120m)', addr:'79 Bạch Đằng, Nha Trang', addrVn:'Norden Scandinavian Steakhouse',
     hours:'10:00–23:00 (브런치 10:00–15:00 · 마지막 예약 22:00)', badge:'확정 · 3인 약 8~11만 원 · 카드 OK', badgeType:'ok',
-    note:'상우 님 확정. 25일 이상 웻에이징 와규·블랙앵거스, 오픈 파이어 그릴. 실내 에어컨·키즈 메뉴(키즈 버거·구운 닭)·하이체어 OK, 구글 4.9. 1인 40~80만 동 + 봉사료 5%·VAT. 토마호크(1.3~1.4kg·2~3인)는 40~45분 걸리니 예약 메모에 미리 적기. 당일 2시간 전까지 공홈 폼/WhatsApp(+84 935 740 239)으로 3인 예약 — 20분 내 확정. 19:45 공항 출발이라 19:30에는 계산.',
+    note:'상우 님 확정. 25일 이상 웻에이징 와규·블랙앵거스, 오픈 파이어 그릴. 실내 에어컨·키즈 메뉴(키즈 버거·구운 닭)·하이체어 OK, 구글 4.9. 1인 40~80만 동 + 봉사료 5%·VAT. 토마호크(1.3~1.4kg·2~3인)는 40~45분 걸리니 예약 메모에 미리 적기. 당일 16:00까지(2시간 전) 공홈 폼/WhatsApp(+84 935 740 239)으로 3인 예약 — 20분 내 확정. 마사지 끝나고 그대로 걸어와 18:00 입장, 19:30 계산 후 19:40 로얄살롱 복귀.',
     q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 },
 
-  { id:'d6-10', day:6, t:'19:45', kind:'move', tag:'이동', title:'7인승 그랩 → 깜란공항',
-    sub:'약 45분~1시간 · 35km', addr:'Trần Phú → Nguyễn Tất Thành', addrVn:'',
-    note:'19:45 출발이면 20:45 도착, 23:30 출발에 2시간 45분 여유. 짐 많은 7인승으로 미리 예약.',
+  { id:'d6-10', day:6, t:'19:40', kind:'move', tag:'이동', title:'로얄살롱 복귀 · 짐 찾기 → 20:00 공항 샌딩',
+    sub:'무료 조인 샌딩 20:00 출발 · 깜란공항 20:45~21:00 도착', addr:'4A Đ. Ngô Đức Kế → Nguyễn Tất Thành', addrVn:'Royal Salon → Cam Ranh International Airport',
+    badge:'조인 샌딩 사전 예약 필수', badgeType:'warn',
+    note:'노르덴에서 19:30 계산 후 걸어서 19:40 로얄살롱 복귀 → 맡긴 짐 3개 찾아 20:00 샌딩 탑승. 35km·약 45분~1시간, 20:45~21:00 공항 도착이라 23:30 RF558에 2시간 30분 여유. 샌딩 좌석·픽업 위치는 마사지 예약할 때 함께 확정.',
     q:'Cam Ranh International Airport', lat:11.99808, lng:109.2190 },
 
   { id:'d6-11', day:6, t:'20:45', kind:'air', tag:'공항', title:'깜란국제공항 도착 · 수속',
-    sub:'RF558 23:30 출발', addr:'Nguyễn Tất Thành, Bắc Cam Ranh', addrVn:'Sân bay Quốc tế Cam Ranh',
+    sub:'조인 샌딩 도착 20:45~21:00 · RF558 23:30 출발', addr:'Nguyễn Tất Thành, Bắc Cam Ranh', addrVn:'Sân bay Quốc tế Cam Ranh',
     hours:'24시간', note:'면세·기념품은 여기서 마무리. 액체류·칼류 위탁 확인.',
     q:'Cam Ranh International Airport', lat:11.99808, lng:109.2190 },
 
@@ -1090,15 +1095,15 @@ var FOOD = [
   { d:4, time:'2/15 13:00', name:'안어이 퍼 (Anh Ơi Phở)', vn:'80 Hồng Bàng', kind:'점심 · 쌀국수',
     menu:'왕갈비 쌀국수 18만 동 · 분짜 16만 동', price:'3인 약 5만 동대', tip:'하얏트 도보 9분, 환전소 도보 3분. 국물 위주라 아이도 무난.', hours:'09:00–21:00', q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
   { d:4, time:'2/15 19:00', name:'나트랑 왕뚜껑', vn:'233 Nguyễn Thiện Thuật', kind:'저녁 · 한식 BBQ (확정)',
-    menu:'삼겹살·목살·된장찌개·공기밥', price:'3인 약 5~6만 원', tip:'브레이크타임 14:30~16:30. 20:00 전 마무리 → 20:15 롯데마트(그랩 5분).', hours:'11:00–14:30 / 16:30–24:00', q:'Nha Trang Wang Ttukkeong 233 Nguyen Thien Thuat', lat:12.234697, lng:109.194606 },
+    menu:'삼겹살·목살·된장찌개·공기밥', price:'3인 약 5~6만 원', tip:'브레이크타임 14:30~16:30. 20:00 전 마무리 → 20:15 롯데마트(그랩 5분).', hours:'11:00–14:30 / 16:30–24:00', img:'samgyeopsal', q:'Nha Trang Wang Ttukkeong 233 Nguyen Thien Thuat', lat:12.234697, lng:109.194606 },
   { d:5, time:'2/16 13:00', name:'야미 월드 가든 (Yummy Land)', vn:'빈원더스 내', kind:'점심 · 공원 식당',
     menu:'패스트푸드·아시안 (롯데리아 제외)', price:'가격 미확인 · 현장 결제', tip:'공원 안은 비싸다. 물·간식은 밖에서 사 가는 게 낫다.', hours:'10:00–18:00', q:'Yummy Land VinWonders Nha Trang', lat:12.219894, lng:109.24084 },
   { d:5, time:'2/16 19:00', name:'라라씨푸드 (Lala Seafood)', vn:'109B Đ. Hồng Bàng', kind:'저녁 · 해산물 (확정)',
-    menu:'랍스터 치즈구이 · 블랙타이거 새우구이 · 해산물 볶음밥 · 해산물 라면', price:'랍스터 100g 17.5만~19.5만 동 · 3인 약 7~10만 원(무게·시세 따라)', tip:'2층 에어컨석으로. 도깨비 10%(등급 무관) 적용되나 카드 3% 수수료 → 현금 유리. 19시 피크라 18:50 도착.', hours:'10:00–23:00', q:'Lala Seafood 109B Hong Bang Nha Trang', lat:12.239424, lng:109.191259 },
+    menu:'랍스터 치즈구이 · 블랙타이거 새우구이 · 해산물 볶음밥 · 해산물 라면', price:'랍스터 100g 17.5만~19.5만 동 · 3인 약 7~10만 원(무게·시세 따라)', tip:'2층 에어컨석으로. 도깨비 10%(등급 무관) 적용되나 카드 3% 수수료 → 현금 유리. 19시 피크라 18:50 도착.', hours:'10:00–23:00', img:'lala-seafood', q:'Lala Seafood 109B Hong Bang Nha Trang', lat:12.239424, lng:109.191259 },
   { d:6, time:'2/17 12:00', name:'마담프엉 (Madam Phuong)', vn:'111 Hồng Bàng', kind:'점심 · 베트남 가정식',
     menu:'반쎄오·분·해산물 가정식', price:'3인 2~3만 원대', tip:'하얏트 도보 8분. 웨이팅 있으면 옆 골목 대안.', hours:'11:00–22:00', q:'Madam Phuong 111 Hong Bang Nha Trang', lat:12.239287, lng:109.191302 },
-  { d:6, time:'2/17 18:15', name:'노르덴 스테이크하우스 (Norden)', vn:'79 Bạch Đằng', kind:'저녁 · 스테이크 (확정)',
-    menu:'25일 웻에이징 와규·블랙앵거스 · 토마호크 1.3~1.4kg(2~3인) · 티본 · 피카냐 · 세트 949k 동', price:'1인 40~80만 동 + 봉사료 5%·VAT · 3인 약 8~11만 원', tip:'하얏트 도보 7분. 당일 2시간 전 공홈/WhatsApp 예약. 19:45 공항 출발이라 19:30 계산.', hours:'10:00–23:00', q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 }
+  { d:6, time:'2/17 18:00', name:'노르덴 스테이크하우스 (Norden)', vn:'79 Bạch Đằng', kind:'저녁 · 스테이크 (확정)',
+    menu:'25일 웻에이징 와규·블랙앵거스 · 토마호크 1.3~1.4kg(2~3인) · 티본 · 피카냐 · 세트 949k 동', price:'1인 40~80만 동 + 봉사료 5%·VAT · 3인 약 8~11만 원', tip:'18:00~19:30. 로얄살롱에서 도보 2분. 당일 16:00까지 공홈/WhatsApp 예약. 19:40 로얄살롱 복귀 → 20:00 공항 샌딩.', hours:'10:00–23:00', img:'norden-steak', q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 }
 ];
 
 /* ---------------- SPA ---------------- */
@@ -1111,8 +1116,8 @@ var SPA = [
     price:'가격 미확인', tip:'아이와 부모가 동시에 받는 구성. 리뷰 4.9(882).', hours:'08:30–22:00', badge:'', q:'Tyni Kid Family Spa Nha Trang', lat:12.243384, lng:109.193602 },
   { time:'2/16 20:30', name:'베나자 풋스파 (Venaja)', vn:'2 Ngô Đức Kế', kind:'발 마사지 · 트립온 40% 쿠폰 후보',
     price:'트립온 40% 할인 적용 시 확인', tip:'라라씨푸드에서 도보 5~6분. 1인 1매·유효기간·사전 예약 조건 확인. 베나자 VIP 카드(콩카페 8% 등) 연계.', hours:'10:00–23:00', badge:'쿠폰', q:'Venaja Foot Spa Nha Trang', lat:12.241922, lng:109.191653 },
-  { time:'2/17 16:30', name:'로얄살롱 / 라운지스파', vn:'4A Ngô Đức Kế', kind:'귀국 전 마사지 · 트립온 40% 쿠폰 후보',
-    price:'쿠폰 적용 시 확인', tip:'로얄살롱(4.8·5,301) 또는 라운지스파 중 예약 되는 곳. 노르덴까지 도보 2분 — 18:15 입장 여유.', hours:'09:00–22:00', badge:'쿠폰', q:'Royal Salon Nha Trang', lat:12.241688, lng:109.191442 }
+  { time:'2/17 16:00', name:'로얄살롱 VIP 90분 코스', vn:'4A Ngô Đức Kế', kind:'VIP 90분 · 무료 짐 보관 · 공항 샌딩',
+    price:'쿠폰 적용 시 확인', tip:'카톡 채널로 사전 예약 필수 — 16:00~17:30 3인 VIP 90분 · 짐 3개 무료 보관 · 20:00 공항 조인 샌딩 탑승 · 트립온 40% 쿠폰 적용을 한 번에 확인. 17:30 종료 → 노르덴 도보 2분.', hours:'09:00–22:00', badge:'사전 예약 필수', q:'Royal Salon Nha Trang', lat:12.241688, lng:109.191442 }
 ];
 
 /* ---------------- SHOP ---------------- */
@@ -1157,11 +1162,12 @@ var STEPS = [
   { d:'12/14', t:'10:00 아미아나 머드스파 예약 접수', s:'이용일(2/14) 2개월 전부터 접수. 알림 등록됨 — 3인 프라이빗으로 신청하고 확정되면 2/14 18:00 그랩 시간 조정.' },
   { d:'12/27', t:'10:00 아미아나 무료취소 마감 확인', s:'12/30 결제 전 마지막 점검일. 알림 등록됨. 이 날까지는 위약금 없이 취소 가능.' },
   { d:'12/30', t:'아미아나 삼성카드 선결제', s:'11,340,000 VND(589,500원) 자동 결제. 등록 카드 실물을 체크인 때 지참해야 하므로 챙길 카드 고정.' },
-  { d:'~1/31', t:'트립온 40% 쿠폰 조건 · 마사지 예약', s:'1인 1매·유효기간·사전 예약 여부 확인 후 2/16 베나자, 2/17 로얄살롱/라운지스파 예약.' },
+  { d:'~1/31', t:'트립온 40% 쿠폰 조건 · 마사지 예약', s:'1인 1매·유효기간·사전 예약 여부 확인 후 2/16 베나자, 2/17 로얄살롱(16:00~17:30 VIP 90분) 예약.' },
+  { d:'~2/10', t:'로얄살롱 카톡 예약 · 공항 샌딩 확정', s:'VIP 90분 3인 16:00~17:30, 짐 3개 무료 보관, 20:00 공항 조인 샌딩 탑승, 트립온 40% 쿠폰 적용을 한 번에 확인·예약. 샌딩 좌석·픽업 위치까지.' },
   { d:'2/01', t:'10:00 아미아나 셔틀·BBQ 잔여 확인', s:'알림 등록됨. 시내 셔틀(11:00·15:00) 이용 여부, BBQ 좌석·크레딧 사용 방법 확인.' },
   { d:'2/11', t:'19:20 에어로케이 온라인 체크인', s:'RF557 무료 온라인 체크인 오픈 — 3연석 노림. 알림 등록됨. 귀국편 B석(3인 27,000원) 선점 여부도 이 무렵 결정.' },
   { d:'2/12', t:'출국', s:'16:00 대전 출발 → 17:00 청주공항 → 19:30 RF557 → 22:30 깜란 → 00:00 르모어.', now:false },
-  { d:'2/17', t:'16:00 노르덴 저녁 예약', s:'18:15 3인. 공홈 예약 폼 또는 WhatsApp +84 935 740 239 — 2시간 전까지. 토마호크 주문은 메모에. 19:45 공항 출발이라 19:30 계산.' }
+  { d:'2/17', t:'16:00 노르덴 18:00 예약', s:'3인. 공홈 예약 폼 또는 WhatsApp +84 935 740 239 — 2시간 전까지. 토마호크 주문은 메모에. 19:30 계산 → 19:40 로얄살롱 복귀 → 20:00 공항 샌딩.' }
 ];
 
 var BOOKINGS = [
@@ -1204,7 +1210,11 @@ var CHECK = [
     { id:'grab', l:'그랩 카드 자동결제 등록', s:'2/13 오전까지 현금 거의 불필요' },
     { id:'usd', l:'공항 비상금 10~20달러', s:'깜란공항 환전 최소로' },
     { id:'pick', l:'픽업 기사 연락처 저장', s:'23:15 출구 대기' },
-    { id:'fast', l:'패스트트랙 여부 결정', s:'3인 4.5~5.5만 원 · 미정' }
+    { id:'fast', l:'패스트트랙 여부 결정', s:'3인 4.5~5.5만 원 · 미정' },
+  ]},
+  { g:'귀국일', items:[
+    { id:'sanding', l:'20:00 공항 조인 샌딩 예약', s:'로얄살롱 무료 짐 보관 · 탑승 확정' },
+    { id:'norden', l:'노르덴 18:00 예약 (당일 16:00까지)', s:'토마호크 40~45분 · 예약 메모에' }
   ]},
   { g:'짐', items:[
     { id:'rash', l:'보온 래쉬가드 · 타월', s:'2월 밤 물이 차게 느껴짐' },
@@ -1224,7 +1234,8 @@ var CHECK = [
 ];
 
 var OPEN = [
-  { ic:'🍽️', t:'2/17 노르덴 당일 예약', d:'식당은 노르덴 스테이크하우스(79 Bạch Đằng)로 확정. 당일 16:00~16:15에 공홈 예약 폼이나 WhatsApp(+84 935 740 239)으로 18:15 3인 — 20분 내 확정. 토마호크는 40~45분 걸리니 예약 메모에 함께.' },
+  { ic:'🍽️', t:'2/17 노르덴 18:00 예약', d:'식당은 노르덴 스테이크하우스(79 Bạch Đằng)로 확정. 당일 16:00까지(2시간 전) 공홈 예약 폼이나 WhatsApp(+84 935 740 239)으로 18:00 3인 — 20분 내 확정. 토마호크는 40~45분 걸리니 예약 메모에 함께.' },
+  { ic:'💆', t:'로얄살롱 VIP 90분·공항 샌딩 예약', d:'2/17 16:00~17:30 3인 VIP 90분 + 짐 3개 무료 보관 + 20:00 공항 조인 샌딩 탑승 + 트립온 40% 쿠폰 적용을 로얄살롱 카톡 채널로 미리 확인·예약. 샌딩은 사전 예약 필수.' },
   { ic:'🛂', t:'2/12 입국 패스트트랙', d:'22:30 도착 뒤 22:40 에어부산·23시대 4편. 20~30분 지연 시 혼잡 — 3인 4.5~5.5만 원을 보험으로 쓸지. 2027-02 초 실제 스케줄 확인 후 결정.' },
   { ic:'🛏️', t:'르모어 조식·무료취소 기한 확인', d:'숙소는 확정. 결제액·조식 포함 여부·무료취소 기한만 예약 내역에서 확인하면 된다.' },
   { ic:'✈️', t:'RF558 일반 B석 선점 여부', d:'15열 이후 3인 27,000원. 야간 비행이라 창가·복도 배치를 미리 잡을지 결정.' },
@@ -1692,6 +1703,7 @@ function renderFood(){
     var D = DAY[f.d];
     return '<div class="fcard" style="--dc:'+D.color+'">'
       + '<div class="fh"><span class="fno">'+(i+1)+'</span><div class="ft"><b>'+esc(f.name)+'</b><i>'+esc(f.vn)+'</i></div><span class="when">'+esc(f.time)+'</span></div>'
+      + (function(){ var ph = f.img ? PHOTO[f.img] : null; return ph ? '<figure class="fphoto" data-photo="'+f.img+'"><img src="'+ph.src+'" alt="'+esc(ph.cap)+'" loading="lazy" width="'+ph.w+'" height="'+ph.h+'"><figcaption>'+esc(ph.cap)+'</figcaption><span class="zoom">사진 크게 보기</span></figure>' : ''; })()
       + '<div class="frow"><span class="k">종류</span><span class="v">'+esc(f.kind)+'</span></div>'
       + '<div class="frow"><span class="k">대표</span><span class="v">'+esc(f.menu)+'</span></div>'
       + '<div class="frow"><span class="k">가격</span><span class="v"><b>'+esc(f.price)+'</b></span></div>'
@@ -1700,6 +1712,10 @@ function renderFood(){
       + '<div class="facts"><a class="btn pri" href="'+gmapDir(f.q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a>'
       + '<a class="btn ghost" href="'+gmapSearch(f.q)+'" target="_blank" rel="noopener">🔎 정보</a></div></div>';
   }).join('');
+
+  $$('#foodlist .fphoto').forEach(function(fg){
+    fg.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); openPhoto(fg.getAttribute('data-photo')); });
+  });
 
   $('#spalist').innerHTML = SPA.map(function(s){
     return '<div class="fcard" style="--dc:var(--coral)">'
