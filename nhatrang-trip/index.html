@@ -78,13 +78,13 @@
 
   /* ============ NAV ============ */
   nav{
-    position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);
+    position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(7,1fr);
     background:rgba(253,250,243,.95);backdrop-filter:blur(18px) saturate(150%);
     -webkit-backdrop-filter:blur(18px) saturate(150%);border-top:1px solid var(--line);
     padding:6px 4px calc(5px + env(safe-area-inset-bottom));
   }
-  nav button{background:none;border:0;color:#9C9285;font-size:9.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:3px 0 2px;letter-spacing:-.01em;white-space:nowrap}
-  nav button .ic{font-size:17px;line-height:1;filter:grayscale(.55) opacity(.75);transition:.15s}
+  nav button{background:none;border:0;color:#9C9285;font-size:9px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:3px 0 2px;letter-spacing:-.02em;white-space:nowrap}
+  nav button .ic{font-size:16px;line-height:1;filter:grayscale(.55) opacity(.75);transition:.15s}
   nav button.on{color:var(--coral)}
   nav button.on .ic{filter:none;transform:translateY(-1px)}
 
@@ -371,6 +371,88 @@
   .lb .lbcap span{display:block;font-size:10px;color:rgba(255,255,255,.58);margin-top:3px}
   .lb .lbx{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:12px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font-size:14px;line-height:1}
 
+  /* ============ WEATHER WIDGET ============ */
+  .wxcard{background:linear-gradient(158deg,#EDF7F9 0%,#FFFDF9 64%);border:1px solid #D8E6E9;border-radius:16px;padding:11px 12px 10px;box-shadow:var(--sh)}
+  .wxhead{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9.5px;color:var(--dim2);font-weight:650}
+  .wxhead b{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:750;color:var(--ink);letter-spacing:-.02em}
+  .wxhead .src{font-size:9px;color:var(--dim2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wxmain{display:flex;align-items:center;gap:10px;margin-top:7px}
+  .wxmain .ic{font-size:32px;line-height:1;flex:none}
+  .wxmain .big{flex:1;min-width:0}
+  .wxmain .t{font-size:26px;font-weight:800;letter-spacing:-.05em;line-height:1.05;color:var(--ocean);font-variant-numeric:tabular-nums}
+  .wxmain .d{font-size:11px;font-weight:700;color:var(--dim);margin-top:2px;letter-spacing:-.01em}
+  .wxside{flex:none;text-align:right;font-size:8.5px;color:var(--dim2);line-height:1.45;letter-spacing:-.01em}
+  .wxside b{display:block;font-size:12.5px;font-weight:800;color:var(--ocean);letter-spacing:-.03em;margin:1px 0;font-variant-numeric:tabular-nums}
+  .wxmeta{font-size:9.5px;color:var(--dim2);margin-top:5px;letter-spacing:-.01em}
+  .wxdays{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:9px;padding-top:9px;border-top:1px dashed #D9E6E9}
+  .wxday{text-align:center;border-radius:9px;padding:4px 0 3px;background:rgba(255,255,255,.8);border:1px solid #E6EEF0}
+  .wxday.today{background:#EAF3F7;border-color:#CFE0E8}
+  .wxday .dw{font-size:8.5px;font-weight:700;color:var(--dim2);letter-spacing:-.03em;display:block}
+  .wxday .de{display:block;font-size:12.5px;line-height:1;margin:2px 0}
+  .wxday .dt{font-size:8.5px;font-weight:700;color:var(--dim);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.05em;display:block}
+  .wxday .dt i{font-style:normal;color:var(--dim2);font-weight:600}
+  .wxfall{display:flex;gap:6px;align-items:flex-start;font-size:10.5px;color:#7C6534;background:#FDF6E9;border:1px solid #F0E1C4;border-radius:10px;padding:7px 9px;margin-top:9px;line-height:1.55}
+  .wxfall b{font-weight:700}
+  .wxload{font-size:10.5px;color:var(--dim2);padding:12px 2px 8px;text-align:center}
+
+  /* ============ FX CALCULATOR ============ */
+  .fxcard{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px 14px 12px;box-shadow:var(--sh)}
+  .fxrow label{display:block;font-size:9.5px;font-weight:700;letter-spacing:.05em;color:var(--dim2);text-transform:uppercase}
+  .fxfield{display:flex;align-items:center;gap:8px;border-bottom:1.5px solid var(--line2);padding:0 0 6px;margin-top:2px}
+  .fxfield:focus-within{border-bottom-color:var(--ocean)}
+  .fxfield input{flex:1;min-width:0;width:100%;border:0;background:none;outline:none;font-family:inherit;font-variant-numeric:tabular-nums;font-size:28px;font-weight:800;letter-spacing:-.045em;color:var(--ink);padding:0}
+  .fxfield input::placeholder{color:#D8CEBE;font-weight:700}
+  .fxfield .u{flex:none;font-size:11px;font-weight:800;color:var(--dim2);letter-spacing:.02em}
+  .fxfield.krw input{color:var(--coral)}
+  .fxswap{display:grid;place-items:center;padding:6px 0 5px}
+  .fxswap .circle{width:28px;height:28px;border-radius:50%;background:var(--card2);border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--dim2)}
+  .fxrate{display:flex;gap:6px;align-items:flex-start;font-size:10.5px;color:var(--dim);line-height:1.5;margin-top:10px}
+  .fxrate .dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--palm);margin-top:5px}
+  .fxrate b{color:var(--ink);font-weight:750;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .fxrate em{font-style:normal;color:var(--dim2);display:block;font-size:9.5px;margin-top:1px}
+  .fxquick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:11px}
+  .fxquick button{font-size:10.5px;font-weight:750;padding:7px 2px 6px;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--dim);line-height:1.25;letter-spacing:-.01em}
+  .fxquick button small{display:block;font-size:9px;font-weight:600;color:var(--dim2);margin-top:2px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.03em}
+  .fxquick button.on{background:var(--ocean);border-color:var(--ocean);color:#fff}
+  .fxquick button.on small{color:rgba(255,255,255,.82)}
+  .fxtip{background:linear-gradient(160deg,#FDF6E9,#FFFDF9);border:1px solid #EFE0C9;border-radius:13px;padding:9px 11px;margin-top:11px;font-size:10.5px;color:#7C6534;line-height:1.6}
+  .fxtip b{color:#8A5A16;font-weight:750}
+  .fxtip .fxe{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;color:#9A7B44;margin-top:3px;letter-spacing:-.03em}
+  .fxref{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center;margin-top:10px;padding-top:9px;border-top:1px dashed var(--line)}
+  .fxref div{font-size:9px;color:var(--dim2);line-height:1.4}
+  .fxref b{display:block;font-size:11.5px;font-weight:800;color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.03em;margin-bottom:1px}
+
+  /* ============ PHRASEBOOK ============ */
+  .pcats{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 9px;margin:0 -2px}
+  .pcats::-webkit-scrollbar{display:none}
+  .pcats button{flex:0 0 auto;font-size:11px;font-weight:650;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--dim);white-space:nowrap}
+  .pcats button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .pgroup{margin-bottom:4px}
+  .pgh{display:flex;align-items:center;gap:6px;margin:15px 2px 7px}
+  .pgh .ic{font-size:13px}
+  .pgh b{font-size:12.5px;font-weight:750;letter-spacing:-.02em}
+  .pgh span{font-size:10px;color:var(--dim2);font-weight:600}
+  .plist{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:var(--sh)}
+  .pitem{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid #F4EEE3;padding:9px 12px}
+  .pitem:first-child{border-top:0}
+  .pitem:active{background:#FFFDF8}
+  .pitem .k{display:block;font-size:10.5px;color:var(--dim);font-weight:600;letter-spacing:-.01em;line-height:1.4}
+  .pitem .v{display:block;font-size:14px;font-weight:750;color:var(--ink);letter-spacing:-.01em;margin-top:1px;line-height:1.35}
+  .pitem .p{display:block;font-size:11px;font-weight:650;color:var(--coral);margin-top:1px;letter-spacing:-.01em}
+  .pitem .go{flex:none;font-size:9.5px;font-weight:700;color:var(--dim2);border:1px solid var(--line);background:var(--card2);border-radius:8px;padding:4px 7px;white-space:nowrap}
+  .pv{position:fixed;inset:0;z-index:96;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(env(safe-area-inset-top) + 58px) 20px calc(env(safe-area-inset-bottom) + 24px);background:linear-gradient(165deg,#133F4E 0%,#0C2A33 60%,#102A26 100%);color:#fff}
+  .pv.on{display:flex}
+  .pv .pvcat{font-size:9.5px;font-weight:700;letter-spacing:.16em;color:#8FD3E8}
+  .pv .pvn{font-size:clamp(26px,8.2vw,52px);font-weight:800;line-height:1.22;letter-spacing:-.01em;margin:16px 0 12px;max-width:15em;word-break:keep-all}
+  .pv .pvp{font-size:clamp(17px,4.8vw,25px);font-weight:700;color:#9BDDEA;letter-spacing:-.01em}
+  .pv .pvk{font-size:clamp(13px,3.6vw,17px);color:rgba(255,255,255,.72);margin-top:12px;font-weight:600;line-height:1.5;max-width:19em}
+  .pv .pvx{position:absolute;top:calc(env(safe-area-inset-top) + 14px);right:14px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;font-size:14px}
+  .pv .pvnb{position:absolute;top:calc(env(safe-area-inset-top) + 24px);left:0;right:0;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.1em}
+  .pv .pvb{display:flex;align-items:center;gap:16px;margin-top:26px}
+  .pv .pvb button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;font-size:16px}
+  .pv .pvb .say{width:auto;padding:0 18px;border-radius:999px;font-size:12px;font-weight:700;height:42px;display:flex;align-items:center;gap:6px}
+  .pv .pvhint{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 12px);left:0;right:0;font-size:9.5px;color:rgba(255,255,255,.38);letter-spacing:-.01em}
+
   #toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:rgba(36,31,26,.92);color:#fff;font-size:11.5px;font-weight:600;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:80}
   #toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -388,7 +470,9 @@
     h1{font-size:32px}
     #map-tab{height:480px}
     .dday{right:calc((100% - 760px)/2 + 18px);top:calc(env(safe-area-inset-top) + 32px)}
-    nav{left:50%;right:auto;transform:translateX(-50%);bottom:14px;width:min(520px,calc(100% - 32px));border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh2);padding:7px 6px}
+    nav{left:50%;right:auto;transform:translateX(-50%);bottom:14px;width:min(620px,calc(100% - 32px));border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh2);padding:7px 6px}
+    nav button{font-size:10px}
+    nav button .ic{font-size:17px}
     .ov-scroll{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:2px 0 6px}
     .ov{flex:none;width:auto}
     body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
@@ -449,16 +533,19 @@
   <nav id="nav">
     <button data-tab="plan" class="on"><span class="ic">📅</span>일정</button>
     <button data-tab="map"><span class="ic">🗺️</span>지도</button>
-    <button data-tab="food"><span class="ic">🍽️</span>먹거리·스파</button>
+    <button data-tab="food"><span class="ic">🍽️</span>먹거리</button>
     <button data-tab="budget"><span class="ic">💰</span>예산</button>
     <button data-tab="prep"><span class="ic">🎒</span>준비</button>
+    <button data-tab="fx"><span class="ic">💱</span>환율</button>
+    <button data-tab="phrase"><span class="ic">🗣️</span>회화</button>
   </nav>
 
   <div class="pfcard" id="pfcard"></div>
 
   <main>
     <section class="tab on" id="tab-plan">
-      <div class="sec" style="margin-top:2px"><h2>예약 요약</h2><span>누르면 상세</span></div>
+      <div id="wxbox" style="margin:0 0 2px"></div>
+      <div class="sec" style="margin-top:14px"><h2>예약 요약</h2><span>누르면 상세</span></div>
       <div class="ov-scroll" id="ovcards"></div>
 
       <div class="sec"><h2>일정</h2><span id="planHint">전체 6일</span></div>
@@ -476,7 +563,7 @@
         위 <b>DAY 버튼</b>을 누르면 그날 일정만, <b>전체</b>를 누르면 6일이 모두 펼쳐집니다.
         일정 카드를 누르면 <b>주소·영업시간·할인 팁</b>이 담긴 상세가 열리고, 왼쪽 번호 핀을 누르면 같은 상세가 열립니다. 지도 탭의 같은 번호가 그 위치입니다.<br>
         카드의 사진을 누르면 <b>크게 보기</b>가 열립니다. 사진 출처는 Wikimedia Commons(CC 라이선스)와 아미아나 리조트 공식 사진입니다.<br>
-        프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다.
+        프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다. 위 <b>날씨</b>는 실시간(연결이 안 되면 2월 평균), 아래 <b>환율·회화</b> 탭은 현지에서 바로 쓰는 도구입니다.
       </p>
     </section>
 
@@ -510,6 +597,33 @@
     <section class="tab" id="tab-prep">
       <div id="prepbody"></div>
     </section>
+
+    <section class="tab" id="tab-fx">
+      <div class="sec" style="margin-top:4px"><h2>💱 베트남 동 ↔ 원 계산기</h2><span id="fxstamp">환율 확인 중</span></div>
+      <div class="fxcard">
+        <div class="fxrow">
+          <label for="fxVnd">베트남 동 (VND)</label>
+          <div class="fxfield"><input id="fxVnd" inputmode="numeric" autocomplete="off" placeholder="0" aria-label="베트남 동"><span class="u">동</span></div>
+        </div>
+        <div class="fxswap" aria-hidden="true"><span class="circle">≈</span></div>
+        <div class="fxrow">
+          <label for="fxKrw">한국 원 (KRW)</label>
+          <div class="fxfield krw"><input id="fxKrw" inputmode="numeric" autocomplete="off" placeholder="0" aria-label="한국 원"><span class="u">원</span></div>
+        </div>
+        <div class="fxrate"><span class="dot"></span><div id="fxrateLine"></div></div>
+        <div class="fxquick" id="fxquick"></div>
+        <div class="fxtip" id="fxtip"></div>
+        <div class="fxref" id="fxref"></div>
+      </div>
+      <p class="footnote">한쪽에 금액을 넣으면 반대쪽이 바로 바뀝니다(양방향). 시장·시클로처럼 현금 받는 곳이 아니면 그랩·카드 결제가 대체로 유리하고, 카드사 환율은 여기 표시보다 1~2% 높게 붙는다고 보면 됩니다.</p>
+    </section>
+
+    <section class="tab" id="tab-phrase">
+      <div class="sec" style="margin-top:4px"><h2>🗣️ 베트남 여행 회화</h2><span>문장을 누르면 크게</span></div>
+      <div class="pcats" id="pcats"></div>
+      <div id="plists"></div>
+      <p class="footnote">한국어 발음은 최대한 가깝게 적은 것이고 성조 표시는 빠져 있어요. 현지에서는 <b>화면을 크게 띄워 보여주는 편</b>이 가장 확실합니다. 발음 듣기는 기기에 베트남어 음성이 있을 때만 됩니다.</p>
+    </section>
   </main>
 </div>
 
@@ -537,6 +651,21 @@
   <button class="lbx" id="lbClose" aria-label="닫기">✕</button>
   <img id="lbImg" src="" alt="">
   <div class="lbcap"><b id="lbCap"></b><span id="lbCredit"></span></div>
+</div>
+
+<div class="pv" id="pv" role="dialog" aria-modal="true" aria-label="회화 크게 보기">
+  <div class="pvnb" id="pvNum">1 / 1</div>
+  <button class="pvx" id="pvClose" aria-label="닫기">✕</button>
+  <div class="pvcat" id="pvCat">인사</div>
+  <div class="pvn" id="pvVn">Xin chào</div>
+  <div class="pvp" id="pvPron">씬 짜오</div>
+  <div class="pvk" id="pvMean">안녕하세요</div>
+  <div class="pvb">
+    <button id="pvPrev" aria-label="이전 문장">◀</button>
+    <button class="say" id="pvSay">🔊 발음 듣기</button>
+    <button id="pvNext" aria-label="다음 문장">▶</button>
+  </div>
+  <div class="pvhint">이 화면을 현지인에게 그대로 보여주세요</div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -909,7 +1038,7 @@ var PHOTO = {
   'coconut-coffee':{ src:'images/coconut-coffee.jpg',cap:'코코넛 커피 한 잔',                   credit:'사진 Wikimedia Commons · Phương Huy (CC BY-SA 4.0)', w:1000, h:1381 },
   'pho'          : { src:'images/pho.jpg',            cap:'베트남 쌀국수 포 (Phở)',             credit:'사진 Wikimedia Commons · Codename5281 (CC BY-SA 3.0)', w:1000, h:666 },
   'po-nagar'     : { src:'images/po-nagar.jpg',       cap:'포나가르 참 탑 (Tháp Bà)',          credit:'사진 Wikimedia Commons · Makarenko Sasha (CC BY-SA 3.0)', w:1000, h:547 },
-  'seafood'      : { src:'images/king-crab.jpg',       cap:'킹크랩(삶음) — 동하이 씨푸드 대표 메뉴', credit:'사진 Wikimedia Commons · 鴻團長的餐桌 (CC BY-SA 2.0)', w:1200, h:800 },
+  'seafood'      : { src:'images/lobster.jpg',        cap:'랍스터 — 동하이 씨푸드 대표 메뉴', credit:'사진 Wikimedia Commons · Benreis (CC BY 3.0)', w:1200, h:800 },
   'sushi'        : { src:'images/sushi.jpg',          cap:'스시 뷔페 — 쿠우쿠우 메뉴 예시',      credit:'사진 Wikimedia Commons · Joli Rumi (CC BY-SA 4.0)', w:1000, h:563 },
   'samgyeopsal'  : { src:'images/samgyeopsal.jpg',    cap:'삼겹살 구이 — 왕뚜껑 메뉴 예시',      credit:'사진 Wikimedia Commons · hellochris (CC BY 2.0)', w:1000, h:750 },
   'vinpearl-cable':{ src:'images/vinpearl-cable.jpg', cap:'빈펄 케이블카 — 바다 위 3.3km',       credit:'사진 Wikimedia Commons · P. Hughes (CC BY 4.0)', w:1000, h:664 },
@@ -1677,7 +1806,8 @@ function renderPrep(){
   html += '<div class="sec"><h2>2월 나트랑 날씨 · 뗏</h2><span>현지 기준</span></div>'
     + '<div class="wx"><div><b>27–28°</b><span>낮 최고</span></div><div><b>21–23°</b><span>밤 최저</span></div><div><b>건기</b><span>강수 적음</span></div></div>'
     + '<div class="warnbox"><b>밤에는 물이 차게 느껴집니다.</b> 보온 래쉬가드·타월을 챙기고 물놀이는 가장 따뜻한 오후 1~3시에. '
-    + '2027년 뗏(설)은 <b>2월 4일(목)~10일(수)</b>, 설 당일은 2/6(토)이라 여행 기간(2/12~17)은 <b>뗏이 끝난 평상시 주간</b>입니다 — 로컬 식당 정상 영업, 명절 추가요금 변수 없음.</div>';
+    + '2027년 뗏(설)은 <b>2월 4일(목)~10일(수)</b>, 설 당일은 2/6(토)이라 여행 기간(2/12~17)은 <b>뗏이 끝난 평상시 주간</b>입니다 — 로컬 식당 정상 영업, 명절 추가요금 변수 없음.<br>'
+    + '지금 나트랑 날씨와 7일 예보는 <b>일정 탭 맨 위 위젯</b>에서 볼 수 있어요.</div>';
 
   html += '<div class="sec"><h2>미결정 체크리스트</h2><span>결정만 하면 되는 것</span></div>';
   OPEN.forEach(function(o){ html += '<div class="open"><span class="oi">'+o.ic+'</span><span class="ot"><b>'+esc(o.t)+'</b><p>'+esc(o.d)+'</p></span></div>'; });
@@ -1708,6 +1838,393 @@ function renderPrep(){
   });
 }
 
+/* ================= 날씨 위젯 (Open-Meteo → MET Norway → 2월 평균) ================= */
+var WX_LS = 'nhatrangWx.v1';
+var WX_CODE = {
+  0:['맑음','☀️'], 1:['대체로 맑음','🌤️'], 2:['구름 조금','⛅'], 3:['흐림','☁️'],
+  45:['안개','🌫️'], 48:['안개','🌫️'],
+  51:['약한 이슬비','🌦️'], 53:['이슬비','🌦️'], 55:['이슬비','🌦️'],
+  56:['어는 이슬비','🌧️'], 57:['어는 이슬비','🌧️'],
+  61:['약한 비','🌦️'], 63:['비','🌧️'], 65:['강한 비','🌧️'],
+  66:['어는 비','🌧️'], 67:['어는 비','🌧️'],
+  71:['약한 눈','🌨️'], 73:['눈','🌨️'], 75:['많은 눈','🌨️'], 77:['눈보라','🌨️'],
+  80:['소나기','🌦️'], 81:['소나기','🌦️'], 82:['강한 소나기','⛈️'],
+  85:['눈 소나기','🌨️'], 86:['눈 소나기','🌨️'],
+  95:['천둥번개','⛈️'], 96:['천둥번개·우박','⛈️'], 99:['천둥번개·우박','⛈️']
+};
+var WX_WD = ['일','월','화','수','목','금','토'];
+function wxInfo(c){ return WX_CODE[c] || ['—','🌡️']; }
+function wxDay(iso){ var d = new Date(iso+'T00:00:00Z'); return isNaN(d) ? '' : WX_WD[d.getUTCDay()]; }
+function wxToday(){ return new Date(Date.now() + 7*3600000).toISOString().slice(0,10); }
+function wxVN(iso){ return new Date(new Date(iso).getTime() + 7*3600000); }
+function wxGet(url, ms){
+  return new Promise(function(ok, no){
+    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var done = false;
+    var t = setTimeout(function(){ done = true; if(ctrl) ctrl.abort(); no(new Error('timeout')); }, ms);
+    fetch(url, ctrl ? { signal:ctrl.signal, cache:'no-store' } : { cache:'no-store' })
+      .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+      .then(function(d){ if(done) return; done = true; clearTimeout(t); ok(d); },
+            function(e){ if(done) return; done = true; clearTimeout(t); no(e); });
+  });
+}
+var WX_OM = 'https://api.open-meteo.com/v1/forecast?latitude=12.2388&longitude=109.1967'
+  + '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m'
+  + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max'
+  + '&timezone=Asia%2FHo_Chi_Minh&forecast_days=7';
+function wxFromOM(){
+  return wxGet(WX_OM, 5000).then(function(d){
+    if(!d || !d.current || !d.daily || !d.daily.time) throw new Error('shape');
+    var days = d.daily.time.map(function(t,i){
+      return { d:t, max:d.daily.temperature_2m_max[i], min:d.daily.temperature_2m_min[i], code:d.daily.weather_code[i] };
+    });
+    var p = String(d.current.time || '').split('T'), at = '';
+    if(p.length > 1){ var md = p[0].split('-'); at = (+md[1]) + '/' + (+md[2]) + ' ' + p[1].slice(0,5); }
+    return { src:'Open-Meteo', at:at, temp:d.current.temperature_2m, feels:d.current.apparent_temperature,
+      hum:d.current.relative_humidity_2m, wind:d.current.wind_speed_10m, code:d.current.weather_code, days:days };
+  });
+}
+var WX_MET = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=12.2388&lon=109.1967';
+function metCode(sym){
+  sym = String(sym || '');
+  if(sym.indexOf('thunder') >= 0) return 95;
+  if(sym.indexOf('sleet') >= 0) return 66;
+  if(sym.indexOf('snow') >= 0) return sym.indexOf('showers') >= 0 ? 85 : 73;
+  if(sym.indexOf('heavyrain') >= 0) return 65;
+  if(sym.indexOf('lightrain') >= 0) return 61;
+  if(sym.indexOf('rainshowers') >= 0) return 80;
+  if(sym.indexOf('rain') >= 0) return 63;
+  if(sym.indexOf('fog') >= 0) return 45;
+  if(sym.indexOf('partlycloudy') >= 0) return 2;
+  if(sym.indexOf('cloudy') >= 0) return 3;
+  if(sym.indexOf('fair') >= 0) return 1;
+  if(sym.indexOf('clearsky') >= 0) return 0;
+  return 2;
+}
+function wxFromMET(){
+  return wxGet(WX_MET, 7000).then(function(d){
+    var ts = d && d.properties && d.properties.timeseries;
+    if(!ts || !ts.length) throw new Error('shape');
+    var map = {}, order = [];
+    ts.forEach(function(e){
+      var det = e.data && e.data.instant && e.data.instant.details;
+      if(!det || typeof det.air_temperature !== 'number') return;
+      var v = wxVN(e.time), key = v.toISOString().slice(0,10);
+      if(!map[key]){ map[key] = { d:key, max:-999, min:999, code:2, sym:'', noon:false }; order.push(key); }
+      var o = map[key], t = det.air_temperature;
+      o.max = Math.max(o.max, t); o.min = Math.min(o.min, t);
+      var nxt = e.data.next_1_hours || e.data.next_6_hours || e.data.next_12_hours || {};
+      var sym = nxt.summary && nxt.summary.symbol_code, lh = v.getUTCHours();
+      if(sym && (!o.sym || (lh >= 11 && !o.noon))){ o.sym = sym; if(lh >= 11) o.noon = true; }
+    });
+    var days = order.slice(0,7).map(function(k){ var o = map[k]; return { d:o.d, max:o.max, min:o.min, code:metCode(o.sym) }; });
+    var now = ts[0], nd = now.data.instant.details;
+    var nsym = ((now.data.next_1_hours || now.data.next_6_hours || {}).summary || {}).symbol_code;
+    var nv = wxVN(now.time), at = (nv.getUTCMonth()+1) + '/' + nv.getUTCDate() + ' '
+      + ('0'+nv.getUTCHours()).slice(-2) + ':' + ('0'+nv.getUTCMinutes()).slice(-2);
+    return { src:'MET Norway', at:at, temp:nd.air_temperature, feels:null, hum:nd.relative_humidity,
+      wind:(typeof nd.wind_speed === 'number' ? nd.wind_speed*3.6 : null), code:metCode(nsym), days:days };
+  });
+}
+function wxClock(ts){
+  var d = new Date(ts + 7*3600000);
+  return (d.getUTCMonth()+1) + '/' + d.getUTCDate() + ' ' + ('0'+d.getUTCHours()).slice(-2) + ':' + ('0'+d.getUTCMinutes()).slice(-2);
+}
+function wxRender(w, note){
+  var box = $('#wxbox'); if(!box) return;
+  if(!w){ wxFallback(); return; }
+  var info = wxInfo(w.code), today = wxToday();
+  var days = (w.days || []).slice(0,7).map(function(d){
+    var i = wxInfo(d.code), isT = (d.d === today);
+    return '<div class="wxday' + (isT ? ' today' : '') + '"><span class="dw">' + (isT ? '오늘' : wxDay(d.d)) + '</span>'
+      + '<span class="de">' + i[1] + '</span><span class="dt">' + Math.round(d.max) + '°<i>/' + Math.round(d.min) + '°</i></span></div>';
+  }).join('');
+  var meta = [];
+  if(w.feels != null) meta.push('체감 ' + Math.round(w.feels) + '°');
+  if(w.hum != null) meta.push('습도 ' + Math.round(w.hum) + '%');
+  if(w.wind != null) meta.push('바람 ' + Math.round(w.wind) + 'km/h');
+  box.innerHTML = '<div class="wxcard">'
+    + '<div class="wxhead"><b>🌤️ 나트랑 지금</b><span class="src">' + esc(w.src) + (w.at ? ' · 현지 ' + esc(w.at) + ' 기준' : '') + '</span></div>'
+    + '<div class="wxmain"><span class="ic">' + info[1] + '</span>'
+    +   '<div class="big"><div class="t">' + Math.round(w.temp) + '°</div><div class="d">' + info[0] + '</div></div>'
+    +   '<div class="wxside">2월 여행 땐<b>22–28°</b>건기</div>'
+    + '</div>'
+    + (meta.length ? '<div class="wxmeta">' + meta.join(' · ') + '</div>' : '')
+    + '<div class="wxdays">' + days + '</div>'
+    + (note ? '<div class="wxfall">' + note + '</div>' : '')
+    + '</div>';
+}
+function wxFallback(){
+  var box = $('#wxbox'); if(!box) return;
+  box.innerHTML = '<div class="wxcard">'
+    + '<div class="wxhead"><b>🌤️ 나트랑 2월 날씨</b><span class="src">평균값 안내</span></div>'
+    + '<div class="wxmain"><span class="ic">☀️</span><div class="big"><div class="t">22–28°</div><div class="d">건기 · 비 적음</div></div>'
+    + '<div class="wxside">낮 최고<b>27–28°</b>밤 21–23°</div></div>'
+    + '<div class="wxfall"><b>실시간 날씨를 못 받았어요.</b> 여행 기간(2/12–18)은 건기로 낮 27~28°, 밤 21~23°가 보통입니다. 전화·와이파이가 되면 다시 열 때 자동으로 최신 날씨를 보여드려요.</div>'
+    + '</div>';
+}
+function wxLoad(){
+  var cached = null;
+  try{ var raw = localStorage.getItem(WX_LS); if(raw){ var p = JSON.parse(raw); if(p && p.w && p.w.days && p.w.days.length) cached = p; } }catch(e){}
+  if(cached){
+    var old = (Date.now() - (cached.t || 0)) > 3*3600000;
+    wxRender(cached.w, old ? '마지막으로 받은 값이에요 (' + wxClock(cached.t) + '). 새 값으로 업데이트 중…' : '');
+  } else {
+    var box = $('#wxbox');
+    if(box) box.innerHTML = '<div class="wxcard"><div class="wxload">나트랑 날씨를 불러오는 중…</div></div>';
+  }
+  function done(w){
+    try{ localStorage.setItem(WX_LS, JSON.stringify({ t:Date.now(), w:w })); }catch(e){}
+    wxRender(w, '');
+  }
+  wxFromOM().then(done, function(){
+    return wxFromMET().then(done, function(){
+      if(cached) wxRender(cached.w, '<b>지금은 실시간 연결이 안 돼요.</b> 마지막으로 받은 값입니다 — 연결되면 다시 열 때 새로 받아옵니다.');
+      else wxFallback();
+    });
+  });
+}
+
+/* ================= 환율 계산기 ================= */
+var FX_LS = 'nhatrangFx.v1';
+var FX = { rate:0.0521, live:false, label:'' };
+var FXQ = [50000, 100000, 500000, 1000000];
+function fxComma(n){ return (Math.round(n || 0)).toLocaleString('ko-KR'); }
+function fxDigits(s){ var v = parseFloat(String(s == null ? '' : s).replace(/[^\d.]/g, '')); return isFinite(v) ? v : NaN; }
+function fxWhen(s){
+  var d = new Date(s); if(isNaN(d)) return '';
+  try{ return d.toLocaleString('ko-KR', { timeZone:'Asia/Seoul', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit', hour12:false }); }
+  catch(e){ return ''; }
+}
+function fxLoad(){
+  try{ var raw = localStorage.getItem(FX_LS); if(raw){ var p = JSON.parse(raw); if(p && p.rate > 0){ FX.rate = p.rate; FX.label = p.label || ''; } } }catch(e){}
+}
+function fxFetch(){
+  wxGet('https://open.er-api.com/v6/latest/VND', 6000).then(function(d){
+    var r = d && d.rates && d.rates.KRW;
+    if(!(r > 0)) throw new Error('shape');
+    FX.rate = r; FX.live = true; FX.label = fxWhen(d.time_last_update_utc);
+    try{ localStorage.setItem(FX_LS, JSON.stringify({ rate:r, label:FX.label })); }catch(e){}
+    fxRateLine();
+    fxConvert($('#fxVnd') && $('#fxVnd').value ? 'vnd' : 'krw');
+  }).catch(function(){
+    FX.live = false; fxRateLine(); fxConvert('vnd');
+  });
+}
+function fxMark(v){
+  $$('#fxquick button').forEach(function(b){
+    b.classList.toggle('on', v != null && !isNaN(v) && Math.abs(v - parseFloat(b.getAttribute('data-v'))) < 0.5);
+  });
+}
+function fxConvert(which){
+  var vnd = $('#fxVnd'), krw = $('#fxKrw');
+  if(!vnd || !krw) return;
+  var from = which || 'vnd';
+  var v = fxDigits(from === 'vnd' ? vnd.value : krw.value);
+  if(isNaN(v)){ if(from === 'vnd'){ krw.value = ''; } else { vnd.value = ''; } fxMark(null); return; }
+  if(from === 'vnd'){ krw.value = fxComma(v * FX.rate); }
+  else { vnd.value = fxComma(v / FX.rate); }
+  fxMark(fxDigits(vnd.value));
+}
+function fxRateLine(){
+  var r = FX.rate;
+  if($('#fxstamp')) $('#fxstamp').textContent = FX.live ? '실시간 환율' : (FX.label ? '마지막 확인 환율' : '기본 환율');
+  if($('#fxrateLine')) $('#fxrateLine').innerHTML = '<b>1동 = ' + r.toFixed(4) + '원</b> · 100동 = ' + (r*100).toFixed(2) + '원'
+    + '<em>' + (FX.live ? ('open.er-api.com 실시간 · ' + esc(FX.label) + ' 기준')
+      : (FX.label ? ('실시간 연결 실패 — 마지막 확인 ' + esc(FX.label) + ' 환율로 계산')
+        : '실시간 연결 실패 — 기본 환율(100동 ≈ 5.2원)로 계산')) + '</em>';
+  if($('#fxquick')){
+    $$('#fxquick button').forEach(function(b){
+      var v = parseFloat(b.getAttribute('data-v'));
+      b.innerHTML = (v/10000) + '만 동<small>' + fxComma(v*r) + '원</small>';
+    });
+  }
+  if($('#fxref')){
+    $('#fxref').innerHTML = [10000, 100000, 1000000].map(function(u){
+      return '<div><b>' + fxComma(u*r) + '원</b>' + fxComma(u) + ' 동</div>';
+    }).join('');
+  }
+  if($('#fxtip')){
+    var low = Math.max(0, Math.round((1 - 0.05/r) * 100));
+    var high = Math.max(0, Math.round((20*r - 1) * 100));
+    $('#fxtip').innerHTML = '<b>암산 팁</b> — 동에서 <b>0 하나 떼고 반으로</b>(÷20) 나누면 원이에요. '
+      + '10만 동 → 10,000 → 5,000원 (실제 ' + fxComma(100000*r) + '원, 약 ' + low + '% 낮게).'
+      + '<span class="fxe">반대로 원 → 동은 두 배 하고 0 하나 붙이기(×20) — 5,000원 → 10만 동, 약 ' + high + '% 높게</span>';
+  }
+}
+function fxBuild(){
+  var q = $('#fxquick');
+  if(q){
+    q.innerHTML = FXQ.map(function(v){ return '<button data-v="' + v + '">' + (v/10000) + '만 동<small>—</small></button>'; }).join('');
+    $$('#fxquick button').forEach(function(b){
+      b.addEventListener('click', function(){
+        var v = parseFloat(b.getAttribute('data-v'));
+        $('#fxVnd').value = fxComma(v);
+        fxConvert('vnd');
+        fxMark(v);
+      });
+    });
+  }
+  [['#fxVnd','vnd'], ['#fxKrw','krw']].forEach(function(pair){
+    var el = $(pair[0]); if(!el) return;
+    el.addEventListener('input', function(){
+      el.value = el.value.replace(/[^\d]/g, '');
+      fxConvert(pair[1]);
+    });
+    el.addEventListener('blur', function(){
+      var v = fxDigits(el.value);
+      el.value = isNaN(v) ? '' : fxComma(v);
+    });
+  });
+}
+
+/* ================= 베트남 여행 회화 ================= */
+var PHRASE = [
+  { g:'인사 · 감사', ic:'👋', items:[
+    { vn:'Xin chào', ko:'씬 짜오', m:'안녕하세요' },
+    { vn:'Cảm ơn', ko:'깜 언', m:'감사합니다' },
+    { vn:'Cảm ơn rất nhiều', ko:'깜 언 랏 니에우', m:'정말 감사합니다' },
+    { vn:'Không có gì', ko:'콩 꺼 지', m:'천만에요' },
+    { vn:'Xin lỗi', ko:'씬 로이', m:'죄송합니다 · 실례합니다' },
+    { vn:'Dạ, vâng', ko:'야, 벙', m:'네 (공손하게)' },
+    { vn:'Không', ko:'콩', m:'아니요' },
+    { vn:'Tạm biệt', ko:'땀 비엣', m:'안녕히 계세요' },
+    { vn:'Tôi là người Hàn Quốc', ko:'또이 라 응어이 한 꾸옥', m:'저는 한국인입니다' },
+    { vn:'Nói tiếng Anh được không?', ko:'노이 띠엥 안 드억 콩', m:'영어 하실 수 있어요?' }
+  ]},
+  { g:'식당 · 주문', ic:'🍜', items:[
+    { vn:'Cho tôi thực đơn', ko:'쩌 또이 특 던', m:'메뉴판 주세요' },
+    { vn:'Cho tôi một cái này', ko:'쩌 또이 못 까이 나이', m:'이거 하나 주세요 (손으로 가리키며)' },
+    { vn:'Không cay', ko:'콩 까이', m:'안 맵게 해주세요' },
+    { vn:'Ít cay', ko:'잇 까이', m:'조금만 맵게 해주세요' },
+    { vn:'Không cho rau mùi', ko:'콩 쩌 라우 무이', m:'고수 빼주세요' },
+    { vn:'Không hành', ko:'콩 한', m:'파(양파) 빼주세요' },
+    { vn:'Không đá', ko:'콩 다', m:'얼음 빼주세요' },
+    { vn:'Cho tôi nước lọc', ko:'쩌 또이 느억 록', m:'생수 주세요' },
+    { vn:'Cho thêm cơm', ko:'쩌 템 껌', m:'밥 좀 더 주세요' },
+    { vn:'Cho tôi hộp mang về', ko:'쩌 또이 합 망 베', m:'포장 용기 주세요' },
+    { vn:'Cho tôi tính tiền', ko:'쩌 또이 띤 띠엔', m:'계산해 주세요' },
+    { vn:'Ngon quá!', ko:'응온 꽈', m:'정말 맛있어요!' }
+  ]},
+  { g:'쇼핑 · 흥정', ic:'🛍️', items:[
+    { vn:'Bao nhiêu tiền?', ko:'바오 니에우 띠엔', m:'얼마예요?' },
+    { vn:'Đắt quá', ko:'닷 꽈', m:'너무 비싸요' },
+    { vn:'Bớt cho tôi một chút', ko:'벗 쩌 또이 못 쭛', m:'조금만 깎아 주세요' },
+    { vn:'Giảm giá được không?', ko:'잠 자 드억 콩', m:'할인해 주실 수 있어요?' },
+    { vn:'Tôi mua cái này', ko:'또이 무아 까이 나이', m:'이거 살게요' },
+    { vn:'Có cái khác không?', ko:'꺼 까이 카억 콩', m:'다른 것 있어요?' },
+    { vn:'Cỡ lớn hơn', ko:'꺼 런 헌', m:'더 큰 사이즈 주세요' },
+    { vn:'Đẹp quá', ko:'뎁 꽈', m:'예쁘네요' },
+    { vn:'Tôi trả bằng thẻ', ko:'또이 짜 방 테', m:'카드로 낼게요' },
+    { vn:'Cho tôi hóa đơn', ko:'쩌 또이 화 언', m:'영수증 주세요' }
+  ]},
+  { g:'그랩 · 이동', ic:'🚗', items:[
+    { vn:'Cho tôi đến địa chỉ này', ko:'쩌 또이 덴 디아 찌 나이', m:'이 주소로 가주세요 (화면의 주소를 보여주세요)' },
+    { vn:'Tôi đã đặt Grab', ko:'또이 다 닷 그랩', m:'그랩 예약했어요' },
+    { vn:'Đi sân bay', ko:'디 선 바이', m:'공항으로 가주세요' },
+    { vn:'Bao lâu?', ko:'바오 러우', m:'얼마나 걸려요?' },
+    { vn:'Dừng ở đây', ko:'즈응 어 더이', m:'여기서 세워 주세요' },
+    { vn:'Đợi tôi một chút', ko:'더이 또이 못 쭛', m:'잠깐만 기다려 주세요' },
+    { vn:'Đi chậm thôi', ko:'디 쨈 토이', m:'천천히 가주세요' },
+    { vn:'Rẽ trái', ko:'제 짜이', m:'왼쪽으로 돌아주세요' },
+    { vn:'Rẽ phải', ko:'제 파이', m:'오른쪽으로 돌아주세요' },
+    { vn:'Đến rồi', ko:'덴 조이', m:'다 왔어요' },
+    { vn:'Nhà vệ sinh ở đâu?', ko:'냐 베 신 어 더우', m:'화장실이 어디예요?' }
+  ]},
+  { g:'마사지 · 체크인', ic:'💆', items:[
+    { vn:'Tôi muốn massage', ko:'또이 무온 마싸지', m:'마사지 받고 싶어요' },
+    { vn:'Ba người', ko:'바 응어이', m:'3명이요' },
+    { vn:'Mạnh hơn', ko:'망 헌', m:'더 세게 해주세요' },
+    { vn:'Nhẹ hơn', ko:'녜 헌', m:'더 약하게 해주세요' },
+    { vn:'Vừa thôi', ko:'브어 토이', m:'적당히 해주세요' },
+    { vn:'Đau', ko:'다우', m:'아파요' },
+    { vn:'Tôi có đặt phòng', ko:'또이 꺼 닷 퐁', m:'방을 예약했습니다' },
+    { vn:'Thêm một giường', ko:'템 못 즈엉', m:'침대 하나 더 주세요' },
+    { vn:'Có trẻ em', ko:'꺼 째 엠', m:'아이가 함께 있어요' },
+    { vn:'Mật khẩu Wi-Fi là gì?', ko:'맛 커우 와이파이 라 지', m:'와이파이 비밀번호가 뭐예요?' },
+    { vn:'Chụp ảnh giúp tôi', ko:'쭙 아잉 줍 또이', m:'사진 좀 찍어 주세요' }
+  ]},
+  { g:'긴급 · 도움', ic:'🆘', items:[
+    { vn:'Giúp tôi với!', ko:'줍 또이 버이', m:'도와주세요!' },
+    { vn:'Tôi bị lạc', ko:'또이 비 락', m:'길을 잃었어요' },
+    { vn:'Tôi không khỏe', ko:'또이 콩 케', m:'몸이 안 좋아요' },
+    { vn:'Gọi bác sĩ', ko:'고이 박 시', m:'의사를 불러 주세요' },
+    { vn:'Bệnh viện ở đâu?', ko:'벤 비엔 어 더우', m:'병원이 어디예요?' },
+    { vn:'Cứu tôi!', ko:'끄우 또이', m:'살려주세요!' }
+  ]}
+];
+var pCat = 'all';
+function renderPhrase(){
+  var cats = $('#pcats');
+  if(cats){
+    var total = PHRASE.reduce(function(a,g){ return a + g.items.length; }, 0);
+    cats.innerHTML = '<button data-p="all" class="' + (pCat === 'all' ? 'on' : '') + '">전체 ' + total + '</button>'
+      + PHRASE.map(function(g){ return '<button data-p="' + esc(g.g) + '" class="' + (pCat === g.g ? 'on' : '') + '">' + g.ic + ' ' + esc(g.g) + '</button>'; }).join('');
+    $$('#pcats button').forEach(function(b){
+      b.addEventListener('click', function(){ pCat = b.getAttribute('data-p'); renderPhrase(); });
+    });
+  }
+  var el = $('#plists'); if(!el) return;
+  el.innerHTML = PHRASE.map(function(g, gi){
+    if(pCat !== 'all' && pCat !== g.g) return '';
+    return '<div class="pgroup"><div class="pgh"><span class="ic">' + g.ic + '</span><b>' + esc(g.g) + '</b><span>' + g.items.length + '문장</span></div>'
+      + '<div class="plist">' + g.items.map(function(it,i){
+          return '<button class="pitem" data-g="' + gi + '" data-i="' + i + '"><span><span class="k">' + esc(it.m) + '</span>'
+            + '<span class="v">' + esc(it.vn) + '</span><span class="p">' + esc(it.ko) + '</span></span><span class="go">크게 ›</span></button>';
+        }).join('') + '</div></div>';
+  }).join('');
+  $$('#plists .pitem').forEach(function(b){
+    b.addEventListener('click', function(){ openPhrase(parseInt(b.getAttribute('data-g'),10), parseInt(b.getAttribute('data-i'),10)); });
+  });
+}
+var pvG = null, pvI = 0;
+function openPhrase(gi, i){
+  if(!PHRASE[gi]) return;
+  pvG = PHRASE[gi]; pvI = i;
+  pvPaint();
+  $('#pv').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function pvPaint(){
+  var it = pvG.items[pvI];
+  $('#pvCat').textContent = pvG.g;
+  $('#pvVn').textContent = it.vn;
+  $('#pvPron').textContent = it.ko;
+  $('#pvMean').textContent = it.m;
+  $('#pvNum').textContent = (pvI+1) + ' / ' + pvG.items.length;
+}
+function pvStep(d){ pvI = (pvI + d + pvG.items.length) % pvG.items.length; pvPaint(); }
+function closePhrase(){
+  $('#pv').classList.remove('on');
+  if(!$('#lightbox').classList.contains('on') && !$('#spotSheet').classList.contains('on')) document.body.style.overflow = '';
+}
+function pvSpeak(){
+  if(!pvG) return;
+  var it = pvG.items[pvI];
+  if(!('speechSynthesis' in window)){ toast('이 브라우저는 발음 듣기를 지원하지 않아요'); return; }
+  var vs = window.speechSynthesis.getVoices() || [];
+  var vi = null;
+  for(var i=0;i<vs.length;i++){ if((vs[i].lang||'').toLowerCase().indexOf('vi') === 0){ vi = vs[i]; break; } }
+  if(!vi){ toast('이 기기에 베트남어 음성이 없어요 — 발음을 보고 따라 해 보세요'); return; }
+  try{
+    var u = new SpeechSynthesisUtterance(it.vn);
+    u.voice = vi; u.lang = vi.lang; u.rate = 0.85;
+    window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+  }catch(e){ toast('발음 재생에 실패했어요'); }
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = function(){}; }
+$('#pvClose').addEventListener('click', closePhrase);
+$('#pvPrev').addEventListener('click', function(){ pvStep(-1); });
+$('#pvNext').addEventListener('click', function(){ pvStep(1); });
+$('#pvSay').addEventListener('click', pvSpeak);
+$('#pv').addEventListener('click', function(e){ if(e.target === $('#pv')) closePhrase(); });
+document.addEventListener('keydown', function(e){
+  if(!$('#pv').classList.contains('on')) return;
+  if(e.key === 'Escape') closePhrase();
+  if(e.key === 'ArrowLeft') pvStep(-1);
+  if(e.key === 'ArrowRight') pvStep(1);
+});
+
 /* ================= tabs ================= */
 function switchTab(name){
   curTab = name;
@@ -1734,6 +2251,12 @@ renderFood();
 renderBudget();
 renderPrep();
 renderMapFilters();
+wxLoad();
+fxLoad();
+fxBuild();
+fxRateLine();
+fxFetch();
+renderPhrase();
 $$('#nav button').forEach(function(b){ b.addEventListener('click', function(){ switchTab(b.getAttribute('data-tab')); }); });
 $('#planMapSw').addEventListener('click', function(){ togglePlanMap(!planMapOn); });
 $('#planMapTab').addEventListener('click', function(e){ e.preventDefault(); switchTab('map'); });
