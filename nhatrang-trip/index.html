@@ -186,7 +186,7 @@
   /* ============ 직원 제시용 예약 확인증 ============ */
   .confirm{margin:8px 0 0;border:2px solid #1E4A72;border-radius:12px;background:#FBFCFE;padding:8px 10px 7px;box-shadow:0 2px 7px rgba(30,74,114,.10)}
   .confirm .ch{display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;color:#1E4A72;letter-spacing:-.02em;line-height:1.3}
-  .confirm .ch span{margin-left:auto;font-size:8px;font-weight:600;color:#8FA1B2;letter-spacing:0}
+  .confirm .ch span{margin-left:auto;font-size:8.5px;font-weight:600;color:#8FA1B2;letter-spacing:.01em}
   .confirm .cr{display:grid;grid-template-columns:44px 1fr;gap:5px;padding:3px 0;border-top:1px dashed #D3DFEA;font-size:10.5px;line-height:1.5}
   .confirm .ch + .cr{margin-top:6px}
   .confirm .cr .k{font-size:9px;font-weight:700;color:#5E7E9B;padding-top:2px;letter-spacing:-.02em}
@@ -301,8 +301,8 @@
   .paicard .ph span{margin-left:auto;flex:none;font-size:9px;font-weight:700;color:#1E6E8C;background:#E6F1F5;border:1px solid #CFE2EA;border-radius:999px;padding:2px 7px}
   .paicard .pwhen{margin-top:6px;font-size:11px;font-weight:750;color:#B4433A;letter-spacing:-.025em;line-height:1.45}
   .paicard ul{margin:5px 0 0;padding:0;list-style:none}
-  .paicard li{display:flex;gap:6px;font-size:10.5px;color:var(--dim);line-height:1.6;padding:3px 0 0}
-  .paicard li:before{content:"·";flex:none;color:#5E93A8;font-weight:800}
+  .paicard li{position:relative;padding:3px 0 0 12px;font-size:10.5px;color:var(--dim);line-height:1.6}
+  .paicard li:before{content:"·";position:absolute;left:2px;top:3px;color:#5E93A8;font-weight:800}
   .paicard li b{color:var(--ink);font-weight:650}
   .paicard .pfoot{margin-top:8px;padding-top:7px;border-top:1px dashed #D8E6EA;font-size:9.5px;color:var(--dim2);line-height:1.55}
   .paicard .pfoot b{color:#B4433A;font-weight:650}
@@ -857,7 +857,7 @@ var SPOTS = [
 
   { id:'d2-11', day:2, t:'18:30', kind:'food', tag:'저녁', title:'아미아나 토요일 BBQ 뷔페',
     sub:'리조트 우든덱 · 라이브 밴드', addr:'아미아나 리조트 내 (해변 앞 우든덱)', addrVn:'Amiana Resort BBQ',
-    hours:'화·토 17:00–21:00', badge:'확정 · 18:30 성인2·아동1', badgeType:'ok',
+    hours:'화·토 17:00–21:00', badge:'확정', badgeType:'ok',
     confirm:{ no:'972599', name:'LEE SANGWOO', pax:'성인 2 · 아동 1',
       when:'2/13(토) 18:30 · Ocean Bar', plan:'바닷가 앞줄 자리 요청', plabel:'플랜',
       note:'현장 결제 · 크레딧 1,000,000동 차감' },
@@ -937,7 +937,7 @@ var SPOTS = [
     sub:'오션뷰 디럭스 킹 62㎡ · 16시 LCO', addr:'44 Trần Phú, Nha Trang', addrVn:'Hyatt Regency Nha Trang',
     badge:'숙소 확정', badgeType:'ok',
     confirm:{ by:'트립온 예약 확정', name:'JANG KYOUNGHWA', pax:'장경화 님 명의 · 3인',
-      when:'2/15(월) 15:00 ~ 2/17(수) 16:00 LCO (2박)', plan:'디럭스 킹 오션뷰 62㎡ · 16시 레이트 체크아웃',
+      when:'2/15(월) 15:00 ~ 2/17(수) 16:00 (2박)', plan:'디럭스 킹 오션뷰 62㎡ · 16시 레이트 체크아웃',
       note:'경화 님 명의 예약 · 프런트 제시용' },
     note:'30층 루프탑 수영장은 29°C 온수지만 바람이 찰 수 있어 한낮 이용·겉옷 지참. 16시 체크아웃 후에는 카드키 반납으로 수영장·샤워실 출입 불가. 엑스트라베드(소아 무료) 명시는 바우처에서 확인.',
     q:'Hyatt Regency Nha Trang', lat:12.240957, lng:109.196202, who:['kyounghwa','siyoon'] },
