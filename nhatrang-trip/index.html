@@ -9,9 +9,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="나트랑 5박7일">
 <title>나트랑 5박 7일 · 2/12–18</title>
-<meta name="description" content="2027.02.12–18 나트랑 5박 7일 가족 여행 대시보드 — 일정·지도·먹거리·스파·예산·준비">
+<meta name="description" content="2027.02.12–18 나트랑 5박 7일 가족 여행 대시보드 — 일정·지도·예산·준비·환율·회화">
 <meta property="og:title" content="나트랑 5박 7일 · 2/12–18">
-<meta property="og:description" content="이상우 · 장경화 · 이시윤 가족 여행 — 일정 · 지도 · 먹거리 · 예산 · 준비">
+<meta property="og:description" content="이상우 · 장경화 · 이시윤 가족 여행 — 일정 · 지도 · 예산 · 준비 · 환율 · 회화">
 <meta property="og:type" content="website">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -36,7 +36,7 @@
     margin:0;background:var(--bg);color:var(--ink);
     font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;
-    padding-bottom:calc(76px + env(safe-area-inset-bottom));overflow-x:hidden;
+    padding-bottom:calc(86px + env(safe-area-inset-bottom));overflow-x:hidden;
   }
   .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
   button{font-family:inherit;color:inherit;cursor:pointer}
@@ -78,18 +78,18 @@
 
   /* ============ NAV ============ */
   nav{
-    position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(7,1fr);
+    position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(6,1fr);
     background:rgba(253,250,243,.95);backdrop-filter:blur(18px) saturate(150%);
     -webkit-backdrop-filter:blur(18px) saturate(150%);border-top:1px solid var(--line);
-    padding:6px 4px calc(5px + env(safe-area-inset-bottom));
+    padding:7px 5px calc(7px + env(safe-area-inset-bottom));
   }
-  nav button{background:none;border:0;color:#9C9285;font-size:9px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:3px 0 2px;letter-spacing:-.02em;white-space:nowrap}
-  nav button .ic{font-size:16px;line-height:1;filter:grayscale(.55) opacity(.75);transition:.15s}
+  nav button{background:none;border:0;color:#9C9285;font-size:10px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0 3px;letter-spacing:-.02em;white-space:nowrap}
+  nav button .ic{font-size:17px;line-height:1;filter:grayscale(.55) opacity(.75);transition:.15s}
   nav button.on{color:var(--coral)}
   nav button.on .ic{filter:none;transform:translateY(-1px)}
 
   /* ============ SHELL ============ */
-  main{padding:14px 14px 26px;max-width:760px;margin:0 auto}
+  main{padding:14px 14px 34px;max-width:760px;margin:0 auto}
   .tab{display:none}
   .tab.on{display:block;animation:fade .2s ease}
   @keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -99,6 +99,8 @@
   .sec span{font-size:10.5px;color:var(--dim2)}
   .footnote{font-size:10.5px;color:var(--dim2);line-height:1.65;margin:14px 2px 0}
   .footnote b{color:var(--dim);font-weight:600}
+  .footnote.plan-fn{margin:20px 2px 6px;padding-top:12px;border-top:1px dashed var(--dash);line-height:1.8;color:#857B6D}
+  .footnote.plan-fn b{color:var(--ink);font-weight:650}
 
   /* ============ PERSON CARD ============ */
   .pfcard{display:none;margin:12px 14px 0;max-width:732px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--mc);border-radius:14px;padding:12px 14px;box-shadow:var(--sh)}
@@ -252,6 +254,51 @@
   .btn:active{transform:scale(.97)}
   .btn.pri{color:#fff;background:var(--coral);border-color:var(--coral)}
   .btn.ghost{background:transparent}
+
+  /* ============ 예산 — 식당·스파 카드 ============ */
+  .sumline{display:flex;align-items:center;gap:10px;background:linear-gradient(160deg,#FDF2E4,#FFFDF9);border:1px solid #EFD9BC;border-radius:14px;padding:10px 12px;margin-bottom:9px;box-shadow:var(--sh)}
+  .sumline .sl{flex:1;min-width:0}
+  .sumline .sl b{display:block;font-size:11.5px;font-weight:750;letter-spacing:-.02em;line-height:1.35}
+  .sumline .sl i{display:block;font-style:normal;font-size:10px;color:var(--dim2);line-height:1.5;margin-top:2px;word-break:keep-all}
+  .sumline .sv{flex:none;text-align:right;font-size:14px;font-weight:800;letter-spacing:-.04em;color:var(--coral);line-height:1.15}
+  .sumline .sv em{display:block;font-style:normal;font-size:9px;font-weight:600;color:var(--dim2);letter-spacing:0;margin-top:2px}
+
+  .mcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px 9px 14px;margin-bottom:8px;box-shadow:var(--sh);overflow:hidden}
+  .mcard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--dc)}
+  .mcard .mhead{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+  .mcard .mdt{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:800;color:var(--dc);letter-spacing:-.03em}
+  .mcard .mtm{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:700;color:var(--dim2)}
+  .mcard .mhead .rpill{margin-left:auto}
+  .rpill{flex:none;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:999px;white-space:nowrap;line-height:1.5;letter-spacing:-.01em}
+  .rpill.ok{color:#2F6647;background:#EAF2E9;border:1px solid #CFE2D2}
+  .rpill.warn{color:#B23A31;background:#FDEDEA;border:1px solid #F6D3CD}
+  .rpill.info{color:#1E6E8C;background:#EAF2F7;border:1px solid #D3E5EE}
+  .rpill.none{color:#6F6659;background:#F6F1E8;border:1px solid var(--line)}
+  .mcard .mname{font-size:12.5px;font-weight:750;letter-spacing:-.025em;line-height:1.35}
+  .mcard .msubb{font-size:10px;color:var(--dim2);line-height:1.45;margin-top:1px;word-break:keep-all}
+  .mcard .mmenu{font-size:10.5px;color:var(--dim);line-height:1.55;margin-top:5px;word-break:keep-all}
+  .mcard .mmenu b{color:#3E362B;font-weight:650}
+  .mcard .mcost{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 7px;margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+  .mcard .mcost .k{flex:none;font-size:9.5px;font-weight:700;color:var(--dim2)}
+  .mcard .mcost b{font-size:11.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.4}
+  .mcard .mcost b em{font-style:normal;color:#B26A18}
+  .mcard .mtip{margin-top:4px;font-size:9.5px;color:var(--dim2);line-height:1.5;word-break:keep-all}
+
+  /* ============ 준비 — 쇼핑·할인 ============ */
+  .scard{display:grid;grid-template-columns:24px 1fr auto;gap:9px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:9px 11px;margin-bottom:7px;box-shadow:var(--sh)}
+  .scard .sic{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;font-size:12px;background:var(--card2);border:1px solid var(--line)}
+  .scard .st{min-width:0}
+  .scard b{display:block;font-size:12px;font-weight:700;letter-spacing:-.025em;line-height:1.35}
+  .scard i{display:block;font-style:normal;font-size:10px;color:var(--dim2);margin-top:1px;line-height:1.45}
+  .scard p{margin:4px 0 0;font-size:10.5px;color:var(--dim);line-height:1.55;word-break:keep-all}
+  .scard .sgo{align-self:center;text-decoration:none;font-size:9.5px;font-weight:700;color:var(--ocean);background:#EDF3F7;border:1px solid #D6E4EC;border-radius:8px;padding:5px 8px;white-space:nowrap;line-height:1.2}
+  .pcards{display:flex;flex-direction:column;gap:7px}
+  .pcard{display:grid;grid-template-columns:26px 1fr;gap:9px;background:linear-gradient(158deg,#FDF9F0,#FFFDF9);border:1px solid #EEDFC6;border-radius:13px;padding:9px 11px;box-shadow:var(--sh)}
+  .pcard .pic{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font-size:13px;background:#FBF0DE;border:1px solid #EDDFC6}
+  .pcard .pt{min-width:0}
+  .pcard b{display:block;font-size:11.5px;font-weight:750;letter-spacing:-.025em;line-height:1.35;color:#5A431A}
+  .pcard p{margin:3px 0 0;font-size:10.5px;color:var(--dim);line-height:1.55;word-break:keep-all}
+  @media(min-width:640px){.pcards{display:grid;grid-template-columns:1fr 1fr;align-items:start}.scard{padding:10px 12px}}
 
   /* ============ BUDGET ============ */
   .btop{display:grid;grid-template-columns:1fr 1fr;gap:9px}
@@ -561,12 +608,12 @@
     h1{font-size:32px}
     #map-tab{height:480px}
     .dday{right:calc((100% - 760px)/2 + 18px);top:calc(env(safe-area-inset-top) + 32px)}
-    nav{left:50%;right:auto;transform:translateX(-50%);bottom:14px;width:min(620px,calc(100% - 32px));border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh2);padding:7px 6px}
-    nav button{font-size:10px}
-    nav button .ic{font-size:17px}
+    nav{left:50%;right:auto;transform:translateX(-50%);bottom:14px;width:min(600px,calc(100% - 32px));border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh2);padding:8px 8px}
+    nav button{font-size:10.5px;gap:5px}
+    nav button .ic{font-size:18px}
     .ov-scroll{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:2px 0 6px}
     .ov{flex:none;width:auto}
-    body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+    body{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
   }
 </style>
 </head>
@@ -624,7 +671,6 @@
   <nav id="nav">
     <button data-tab="plan" class="on"><span class="ic">📅</span>일정</button>
     <button data-tab="map"><span class="ic">🗺️</span>지도</button>
-    <button data-tab="food"><span class="ic">🍽️</span>먹거리</button>
     <button data-tab="budget"><span class="ic">💰</span>예산</button>
     <button data-tab="prep"><span class="ic">🎒</span>준비</button>
     <button data-tab="fx"><span class="ic">💱</span>환율</button>
@@ -651,11 +697,11 @@
       </div>
       <div class="daypills" id="daypills"></div>
       <div id="days"></div>
-      <p class="footnote">
-        위 <b>DAY 버튼</b>을 누르면 그날 일정만, <b>전체</b>를 누르면 6일이 모두 펼쳐집니다.
-        일정 카드를 누르면 <b>주소·영업시간·할인 팁</b>이 담긴 상세가 열리고, 왼쪽 번호 핀을 누르면 같은 상세가 열립니다. 지도 탭의 같은 번호가 그 위치입니다.<br>
-        카드의 사진을 누르면 <b>크게 보기</b>가 열립니다. 사진 출처는 Wikimedia Commons(CC 라이선스)와 아미아나 리조트 공식 사진입니다.<br>
-        프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다. 맨 위 <b>가족 QR 지갑</b>을 누르면 3인 입국 PAI·탑승권 QR을 바로 꺼내 쓸 수 있고(이미지 올리면 이 브라우저에 저장), 위 <b>날씨</b>는 실시간(연결이 안 되면 2월 평균), 아래 <b>환율·회화</b> 탭은 현지에서 바로 쓰는 도구입니다.
+      <p class="footnote plan-fn">
+        <b>DAY 버튼</b>으로 그날만, <b>전체</b>로 6일을 한 번에 봅니다. 카드를 누르면 <b>주소·영업시간·할인 팁</b> 상세가 열리고, 왼쪽 번호 핀은 지도 탭의 같은 번호입니다.<br>
+        <b>사진</b>을 누르면 크게 보기, <b>프로필 칩</b>을 누르면 그 사람이 챙길 일정만 남습니다.<br>
+        맨 위 <b>가족 QR 지갑</b>은 3인 PAI·탑승권 QR(이미지는 이 브라우저에 저장), <b>날씨</b>는 실시간(연결이 안 되면 2월 평균)입니다.<br>
+        식당·마사지 비용은 <b>예산</b> 탭, 쇼핑·할인 혜택은 <b>준비</b> 탭에 모아 두었습니다.
       </p>
     </section>
 
@@ -665,21 +711,6 @@
       <div class="mapnote">숫자가 큰 동그라미는 가까운 곳을 묶은 표시예요 — <b>누르면 확대되며 번호 핀</b>이 나타납니다. 아래 목록을 눌러도 그 위치로 바로 확대됩니다. 깜란공항은 시내에서 35km 남쪽이라 기본 화면 밖에 있고, 목록에서 누르면 이동합니다. 핀은 대략 위치이고 실제 길찾기는 카드의 <b>구글맵</b>이 정확합니다. 타일 © Esri · HERE · Garmin</div>
       <div class="sec"><h2>스팟 목록</h2><span id="mapcount"></span></div>
       <div class="mlist" id="maplist"></div>
-    </section>
-
-    <section class="tab" id="tab-food">
-      <div class="sec" style="margin-top:4px"><h2>🍽️ 이번 여행 식당</h2><span>가격은 확인된 시세 기준</span></div>
-      <div id="foodlist"></div>
-      <div class="sec"><h2>💆 스파 · 마사지</h2><span>예약 필요 표시</span></div>
-      <div id="spalist"></div>
-      <div class="sec"><h2>🛍️ 쇼핑 · 시장</h2><span>동선 순서대로</span></div>
-      <div id="shoplist"></div>
-      <div class="sec"><h2>🎟️ 할인 혜택</h2><span>트립온 · 도깨비</span></div>
-      <div id="perklist"></div>
-      <p class="footnote">
-        가격은 2026-11 확인 시세이며 <b>동(VND)</b> 표기는 현장 결제 기준입니다(1만 동 ≈ 550원 안팎, 환율 변동).
-        <b>++</b>는 세금·봉사료 별도 표시입니다.
-      </p>
     </section>
 
     <section class="tab" id="tab-budget">
@@ -1234,6 +1265,21 @@ var FOOD = [
     menu:'25일 웻에이징 와규·블랙앵거스 · 토마호크 1.3~1.4kg(2~3인) · 티본 · 피카냐 · 세트 949k 동', price:'1인 40~80만 동 + 봉사료 5%·VAT · 3인 약 8~11만 원', tip:'18:00~19:30. 로얄살롱에서 도보 2분. 당일 16:00까지 공홈/WhatsApp 예약. 19:40 로얄살롱 복귀 → 20:00 공항 샌딩.', hours:'10:00–23:00', img:'norden-steak', q:'Norden Steakhouse 79 Bach Dang Nha Trang', lat:12.240611, lng:109.1914335 }
 ];
 
+/* ---------------- 예산 탭 — 식당 예약 상태 (FOOD 배열 순서) ---------------- */
+var FOOD_RES = [
+  { t:'예약 없이', k:'none' },                 /* 1 CCCP */
+  { t:'예약 없이', k:'none' },                 /* 2 냐고비엣 */
+  { t:'#972599 확정', k:'ok' },                /* 3 아미아나 BBQ */
+  { t:'리조트 내 · 예약 없이', k:'none' },      /* 4 아미아나 풀바 */
+  { t:'예약 없이', k:'none' },                 /* 5 동하이 */
+  { t:'예약 없이', k:'none' },                 /* 6 안어이 퍼 */
+  { t:'예약 없이', k:'none' },                 /* 7 나트랑 왕뚜껑 */
+  { t:'공원 내 현장 결제', k:'none' },          /* 8 야미 월드 */
+  { t:'예약 없이 · 현금 권장', k:'none' },      /* 9 라라씨푸드 */
+  { t:'예약 없이', k:'none' },                 /* 10 마담프엉 */
+  { t:'당일 16:00까지 예약', k:'warn' }         /* 11 노르덴 */
+];
+
 /* ---------------- SPA ---------------- */
 var SPA = [
   { time:'2/13 16:15', name:'유스파 (U SPA)', vn:'Đại lộ Phạm Văn Đồng, Bãi Tiên', kind:'오션뷰 마사지 · 무료 픽업',
@@ -1248,6 +1294,15 @@ var SPA = [
     price:'쿠폰 적용 시 확인', tip:'카톡 채널로 사전 예약 필수 — 16:00~17:30 3인 VIP 90분 · 짐 3개 무료 보관 · 20:00 공항 조인 샌딩 탑승 · 트립온 40% 쿠폰 적용을 한 번에 확인. 17:30 종료 → 노르덴 도보 2분.', hours:'09:00–22:00', badge:'사전 예약 필수', q:'Royal Salon Nha Trang', lat:12.241688, lng:109.191442 }
 ];
 
+/* ---------------- 예산 탭 — 스파 예약·혜택 (SPA 배열 순서) ---------------- */
+var SPA_RES = [
+  { t:'카톡 예약 필요', k:'warn', b:'2인 이상 40% 할인 · 의무 팁 없음 · 아미아나 무료 픽드랍', p:'미확인 — 2인+ 40% 적용 시 2시간 3만 원대 초반 수준' },
+  { t:'12/14 예약 오픈', k:'warn', b:'리조트 크레딧 100만 동으로 차감 가능', p:'미확인 (리조트 문의)' },
+  { t:'사전 예약 권장', k:'info', b:'아이 네일·머리 땋기 + 부모 마사지 · 트립온 상품 여부 확인', p:'미확인' },
+  { t:'트립온 40% 확인', k:'warn', b:'트립온 40% 쿠폰 + 베나자 VIP 카드 (콩카페 8% 등)', p:'미확인 — 40% 쿠폰 적용가로 확인' },
+  { t:'카톡 예약 필수', k:'warn', b:'VIP 90분 · 짐 3개 무료 보관 · 20:00 공항 조인 샌딩', p:'미확인 — 트립온 40% 적용가로 확인' }
+];
+
 /* ---------------- SHOP ---------------- */
 var SHOP = [
   { name:'담시장 (Chợ Đầm)', vn:'Đ. Phan Bội Châu', kind:'시장 · 커피·건과·소품', tip:'흥정 필수(첫 값의 60~70%부터). 2/13 10:30–12:00.', hours:'05:00–18:30', q:'Dam Market Nha Trang', lat:12.254951, lng:109.191816 },
@@ -1260,11 +1315,13 @@ var SHOP = [
 
 /* ---------------- PERKS ---------------- */
 var PERKS = [
-  { ic:'🎟️', t:'트립온 제휴스파 40% 할인권', d:'하얏트 예약 혜택. 베나자 풋스파·라운지스파·로얄살롱 사용 가능. 1인 1매·유효기간·사전 예약 조건 확인 필요.' },
-  { ic:'💳', t:'베나자 VIP 카드 연계', d:'트립온 예약 시 자동 연계. 콩카페 8%, 제시 프루츠 망고 5%, 시내 스파 등 제휴 할인.' },
-  { ic:'👺', t:'나트랑 도깨비 10% 할인', d:'동하이 씨푸드 · 라라씨푸드(회원 등급 무관 10%) · 갓갓 레스토랑 등 제휴. 결제 전에 제휴 여부를 말하면 적용.' },
-  { ic:'💵', t:'라라씨푸드 현금 결제', d:'도깨비 10% 할인은 적용되지만 카드로 계산하면 3% 수수료가 붙는다 — 동화 현금이 낫다.' },
-  { ic:'🏨', t:'아미아나 리조트 크레딧 1,000,000 VND', d:'프로모 코드 AMIANA 혜택. 미사용분 환불 불가 → BBQ·머드스파·풀바에서 소진.' },
+  { ic:'🏨', t:'아미아나 크레딧 1,000,000 VND', d:'프로모 코드 AMIANA 혜택. 미사용분 환불 불가 — BBQ 뷔페·머드스파·풀바에서 소진하면 현금 지출이 그만큼 줄어듭니다.' },
+  { ic:'🎟️', t:'트립온 제휴스파 40% 할인권', d:'하얏트 예약 혜택. 베나자 풋스파·라운지스파·로얄살롱 사용 가능. 1인 1매·유효기간·사전 예약 조건을 예약 전에 확인.' },
+  { ic:'💆', t:'유스파 2인 이상 40% 할인', d:'3인이 함께라 그대로 적용됩니다. 의무 팁 없음, 아미아나 무료 픽드랍. 전신 아로마·핫스톤 60/90/120분 코스.' },
+  { ic:'👺', t:'나트랑 도깨비 10% 할인', d:'동하이 씨푸드 · 라라씨푸드(회원 등급 무관 10%) 등 제휴. 결제 전에 제휴 여부를 먼저 말하면 적용됩니다.' },
+  { ic:'💵', t:'라라씨푸드 현금 결제', d:'도깨비 10%는 적용되지만 카드로 계산하면 3% 수수료가 붙습니다 — 동화 현금이 낫습니다.' },
+  { ic:'💳', t:'베나자 VIP 카드', d:'트립온 예약 시 자동 연계. 콩카페 8%, 제시 프루츠 망고 5%, 시내 스파 등 제휴 할인.' },
+  { ic:'💳', t:'삼성 iD EV 해외 1% 결제일할인', d:'전월 실적·한도 조건 없이 해외 가맹점 1% 할인. 마스터 1% + 삼성 0.2% 수수료에 1%가 돌아와 실질 수수료 0.2% — 해외겸용(마스터) 카드로 결제하면 됩니다.' },
   { ic:'🚐', t:'아미아나 시내 무료 셔틀', d:'예약제. 11:00·15:00 / 11:25·15:25. 2/13 시내 반일과 겹치는지 체크인 때 확인.' }
 ];
 
@@ -2019,47 +2076,53 @@ document.addEventListener('keydown', function(e){
   if(e.key==='Escape' && $('#lightbox').classList.contains('on')) closePhoto();
 });
 
-/* ================= food ================= */
-function renderFood(){
-  $('#foodlist').innerHTML = FOOD.map(function(f,i){
-    var D = DAY[f.d];
-    return '<div class="fcard" style="--dc:'+D.color+'">'
-      + '<div class="fh"><span class="fno">'+(i+1)+'</span><div class="ft"><b>'+esc(f.name)+'</b><i>'+esc(f.vn)+'</i></div><span class="when">'+esc(f.time)+'</span></div>'
-      + (function(){ var ph = f.img ? PHOTO[f.img] : null; return ph ? '<figure class="fphoto" data-photo="'+f.img+'"><img src="'+ph.src+'" alt="'+esc(ph.cap)+'" loading="lazy" width="'+ph.w+'" height="'+ph.h+'"><figcaption>'+esc(ph.cap)+'</figcaption><span class="zoom">사진 크게 보기</span></figure>' : ''; })()
-      + '<div class="frow"><span class="k">종류</span><span class="v">'+esc(f.kind)+'</span></div>'
-      + '<div class="frow"><span class="k">대표</span><span class="v">'+esc(f.menu)+'</span></div>'
-      + '<div class="frow"><span class="k">가격</span><span class="v"><b>'+esc(f.price)+'</b></span></div>'
-      + '<div class="frow"><span class="k">팁</span><span class="v">'+esc(f.tip)+'</span></div>'
-      + '<div class="frow"><span class="k">영업</span><span class="v">'+esc(f.hours)+'</span></div>'
-      + '<div class="facts"><a class="btn pri" href="'+gmapDir(f.q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a>'
-      + '<a class="btn ghost" href="'+gmapSearch(f.q)+'" target="_blank" rel="noopener">🔎 정보</a></div></div>';
-  }).join('');
+/* ================= 예산 탭 — 식당 · 스파 카드 ================= */
+function splitWhen(s){
+  var p = String(s||'').split(' ');
+  return { d: p[0] || '', t: p[1] || '' };
+}
+function mealCard(f, i){
+  var D = DAY[f.d] || { color:'var(--coral)' };
+  var w = splitWhen(f.time);
+  var r = FOOD_RES[i] || { t:'예약 없이', k:'none' };
+  var k = (String(f.price).indexOf('3인') === 0) ? '3인 예상' : '비용';
+  return '<div class="mcard" style="--dc:'+D.color+'">'
+    + '<div class="mhead"><span class="mdt">'+esc(w.d)+'</span><span class="mtm">'+esc(w.t)+'</span>'
+    + '<span class="rpill '+r.k+'">'+esc(r.t)+'</span></div>'
+    + '<div class="mname">'+esc(f.name)+'</div>'
+    + '<div class="msubb">'+esc(f.vn)+' · '+esc(f.kind)+'</div>'
+    + '<div class="mmenu">'+esc(f.menu)+'</div>'
+    + '<div class="mcost"><span class="k">'+k+'</span><b>'+esc(f.price)+'</b></div>'
+    + (f.tip ? '<div class="mtip">'+esc(f.tip)+'</div>' : '')
+    + '</div>';
+}
+function spaCard(s, i){
+  var w = splitWhen(s.time);
+  var r = SPA_RES[i] || { t:'', k:'info' };
+  return '<div class="mcard" style="--dc:var(--plum)">'
+    + '<div class="mhead"><span class="mdt">'+esc(w.d)+'</span><span class="mtm">'+esc(w.t)+'</span>'
+    + '<span class="rpill '+r.k+'">'+esc(r.t)+'</span></div>'
+    + '<div class="mname">'+esc(s.name)+'</div>'
+    + '<div class="msubb">'+esc(s.vn)+' · '+esc(s.kind)+'</div>'
+    + (r.b ? '<div class="mmenu">'+esc(r.b)+'</div>' : '')
+    + '<div class="mcost"><span class="k">비용</span><b>'+esc(r.p || s.price)+'</b></div>'
+    + (s.tip ? '<div class="mtip">'+esc(s.tip)+'</div>' : '')
+    + '</div>';
+}
 
-  $$('#foodlist .fphoto').forEach(function(fg){
-    fg.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); openPhoto(fg.getAttribute('data-photo')); });
-  });
-
-  $('#spalist').innerHTML = SPA.map(function(s){
-    return '<div class="fcard" style="--dc:var(--coral)">'
-      + '<div class="fh"><span class="fno">💆</span><div class="ft"><b>'+esc(s.name)+'</b><i>'+esc(s.vn)+' · '+esc(s.kind)+'</i></div><span class="when">'+esc(s.time)+'</span></div>'
-      + '<div class="frow"><span class="k">가격</span><span class="v"><b>'+esc(s.price)+'</b></span></div>'
-      + '<div class="frow"><span class="k">팁</span><span class="v">'+esc(s.tip)+'</span></div>'
-      + '<div class="frow"><span class="k">영업</span><span class="v">'+esc(s.hours)+'</span></div>'
-      + '<div class="facts">'+(s.badge? '<span class="badge warn">'+esc(s.badge)+'</span>' : '')
-      + '<a class="btn pri" href="'+gmapDir(s.q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a></div></div>';
-  }).join('');
-
-  $('#shoplist').innerHTML = SHOP.map(function(s){
-    return '<div class="fcard" style="--dc:var(--plum)">'
-      + '<div class="fh"><span class="fno">🛍️</span><div class="ft"><b>'+esc(s.name)+'</b><i>'+esc(s.vn)+' · '+esc(s.kind)+'</i></div><span class="when">'+esc(s.hours)+'</span></div>'
-      + '<div class="frow"><span class="k">팁</span><span class="v">'+esc(s.tip)+'</span></div>'
-      + '<div class="facts"><a class="btn pri" href="'+gmapDir(s.q)+'" target="_blank" rel="noopener">🗺️ 길찾기</a></div></div>';
-  }).join('');
-
-  $('#perklist').innerHTML = PERKS.map(function(p){
-    return '<div class="fcard" style="--dc:var(--gold)"><div class="fh"><span class="fno">'+p.ic+'</span>'
-      + '<div class="ft"><b>'+esc(p.t)+'</b><i style="margin-top:4px;color:var(--dim);line-height:1.6">'+esc(p.d)+'</i></div></div></div>';
-  }).join('');
+/* ================= 준비 탭 — 쇼핑 · 할인 ================= */
+function shopCard(s){
+  return '<div class="scard">'
+    + '<span class="sic">🛍️</span>'
+    + '<div class="st"><b>'+esc(s.name)+'</b>'
+    + '<i>'+esc(s.vn)+' · '+esc(s.kind)+' · '+esc(s.hours)+'</i>'
+    + '<p>'+esc(s.tip)+'</p></div>'
+    + '<a class="sgo" href="'+gmapDir(s.q)+'" target="_blank" rel="noopener">지도</a>'
+    + '</div>';
+}
+function perkCard(p){
+  return '<div class="pcard"><span class="pic">'+p.ic+'</span>'
+    + '<div class="pt"><b>'+esc(p.t)+'</b><p>'+esc(p.d)+'</p></div></div>';
 }
 
 /* ================= budget ================= */
@@ -2109,6 +2172,22 @@ function renderBudget(){
     + '<p class="footnote">식사 52~60만 원은 아미아나 100만 동 크레딧을 차감한 뒤의 5일 식비입니다. BBQ·시윤이 조식 같은 현장 부과분이 이 안에 들어 있는지 예약 내역에서 한 번 더 확인하세요.<br>'
     + '스파·빈원더스 티켓·그랩·쇼핑은 아직 확정 금액이 없어 <b>115만 원 배정 여유</b>로만 잡았습니다. 총 450만 원 감각(새로 마련할 돈 약 280만 원 선)과 맞춘 숫자입니다.</p>';
 
+  html += '<div class="sec"><h2>🍽️ 점심·저녁 식당별 예상 비용</h2><span>2/13–2/17 · 11곳</span></div>'
+    + '<div class="sumline">'
+    +   '<div class="sl"><b>5일 점심·저녁 11곳</b><i>아미아나 100만 동 크레딧을 차감한 뒤 기준 · 실제 예약이 필요한 곳은 <b>BBQ(#972599)</b>와 <b>노르덴</b> 둘뿐입니다.</i></div>'
+    +   '<div class="sv">52~60만<em>원 · 식비 배정</em></div>'
+    + '</div>'
+    + FOOD.map(mealCard).join('')
+    + '<p class="footnote">가격은 2026-11 확인 시세입니다. <b>동(VND)</b>은 현장 결제 기준(1만 동 ≈ 550원 안팎, 환율 변동), <b>++</b>는 세금·봉사료 별도입니다. 나머지 9곳은 예약 없이 들르는 곳이라 시간만 맞춰 가면 됩니다.</p>';
+
+  html += '<div class="sec"><h2>💆 마사지·스파 예약 확인 &amp; 비용</h2><span>5곳 · 예약 진행 중</span></div>'
+    + '<div class="sumline">'
+    +   '<div class="sl"><b>예약 끝난 곳 0곳</b><i>12/14 머드스파 → 1/31 트립온 쿠폰 조건 → 2/10 로얄살롱·유스파 카톡 순서로 마무리하면 됩니다.</i></div>'
+    +   '<div class="sv">미확정<em>115만 배정 안에서</em></div>'
+    + '</div>'
+    + SPA.map(spaCard).join('')
+    + '<p class="footnote">스파 가격은 홈페이지에 공개되지 않아 대부분 예약할 때 확정됩니다. 확정된 금액만 예산에 반영하고, 나머지는 <b>스파·빈원더스·교통·쇼핑 115만 원 배정</b> 안에서 조정하세요.</p>';
+
   html += '<div class="sec"><h2>미결정 항목</h2><span>예산에 영향</span></div>';
   OPEN.forEach(function(o){ html += '<div class="open"><span class="oi">'+o.ic+'</span><span class="ot"><b>'+esc(o.t)+'</b><p>'+esc(o.d)+'</p></span></div>'; });
 
@@ -2132,6 +2211,14 @@ function renderPrep(){
       + b.rows.map(function(r){ return '<div class="r"><span class="k">'+esc(r[0])+'</span><span class="v"><b>'+esc(r[1])+'</b></span></div>'; }).join('')
       + '</div>';
   });
+
+  html += '<div class="sec"><h2>🛍️ 쇼핑 스팟</h2><span>동선 순서대로 · 누르면 지도</span></div>';
+  SHOP.forEach(function(s){ html += shopCard(s); });
+  html += '<p class="footnote">담시장·중앙시장은 <b>현금</b>과 흥정이 기본(첫 값의 60~70%부터), 마트·Kissa는 카드가 됩니다. 무거운 생수·기념품은 마지막 날 <b>4U마트</b>에서 모아 사면 짐이 줄어듭니다.</p>';
+
+  html += '<div class="sec"><h2>🏷️ 할인 혜택 팁</h2><span>결제 전에 한마디</span></div>'
+    + '<div class="pcards">' + PERKS.map(perkCard).join('') + '</div>'
+    + '<p class="footnote">할인은 직원에게 <b>제휴 여부를 먼저 말해야</b> 적용되는 경우가 많습니다. 트립온 쿠폰은 1인 1매·유효기간이 있으니 스파 예약 전에 조건을 확인하세요.</p>';
 
   html += '<div class="sec"><h2>체크리스트</h2><span id="ckcount">'+done+' / '+total+'</span></div>'
     + '<div class="ckbar"><div class="tb"><i id="ckfill" style="width:'+(total? Math.round(done/total*100):0)+'%"></i></div><span id="ckpct">'+(total? Math.round(done/total*100):0)+'%</span></div>';
@@ -2615,7 +2702,6 @@ renderOV();
 renderDayPills();
 updatePlanHint();
 renderDays();
-renderFood();
 renderBudget();
 renderPrep();
 renderMapFilters();
