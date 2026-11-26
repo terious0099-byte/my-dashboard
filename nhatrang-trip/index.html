@@ -309,6 +309,49 @@
   .paicard .pact{display:flex;gap:6px;margin-top:9px}
   .paicard .pact a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:700;padding:8px 6px;border-radius:9px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--dim);line-height:1.2}
   .paicard .pact a.pri{color:#fff;background:var(--ocean);border-color:var(--ocean)}
+  .paicard .pact button{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:700;padding:8px 6px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--dim);line-height:1.2}
+
+  /* ---- 가족 3인 QR 지갑 ---- */
+  .qrw{background:linear-gradient(158deg,#F1F8FA,#FFFDF9 62%);border:1px solid #D5E4EA;border-radius:16px;padding:10px 11px 9px;margin:2px 0 11px;box-shadow:var(--sh)}
+  .qwh{display:flex;align-items:center;gap:7px;padding-bottom:8px;border-bottom:1px solid #E4EEF1}
+  .qwh .qi{width:25px;height:25px;border-radius:8px;background:#E6F1F5;border:1px solid #CFE2EA;display:grid;place-items:center;font-size:12px;flex:none}
+  .qwh .qt{flex:1;min-width:0;line-height:1.25}
+  .qwh .qt b{display:block;font-size:12px;font-weight:750;letter-spacing:-.025em;color:#17475C}
+  .qwh .qt i{display:block;font-style:normal;font-size:9.5px;color:#5E7A86;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qwh .qn{flex:none;font-size:9px;font-weight:700;color:#1E6E8C;background:#E6F1F5;border:1px solid #CFE2EA;border-radius:999px;padding:2px 7px}
+  .qrow{display:flex;align-items:center;gap:7px;padding-top:7px}
+  .qrow+.qrow{margin-top:6px;border-top:1px dashed #E1EBEF}
+  .qwho{flex:none;width:64px;display:flex;align-items:center;gap:5px;min-width:0}
+  .qwho .av{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;flex:none}
+  .qwho b{font-size:10.5px;font-weight:700;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qbtns{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px;min-width:0}
+  .qb{display:flex;align-items:center;gap:5px;padding:5px 6px;border-radius:9px;border:1px solid #E3EBEF;background:#fff;text-align:left;line-height:1.15;min-width:0;transition:.13s}
+  .qb .qbi{font-size:11px;flex:none;line-height:1}
+  .qb .qbt{min-width:0;flex:1}
+  .qb .qbt b{display:block;font-size:9.5px;font-weight:700;letter-spacing:-.02em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qb .qbt i{display:block;font-style:normal;font-size:8.5px;color:var(--dim2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qb.ok{background:#EFF8F3;border-color:#CFE6D8}
+  .qb.ok .qbt i{color:var(--palm);font-weight:650}
+  .qb:active{transform:scale(.985)}
+  .qwn{margin:8px 0 0;font-size:9px;color:var(--dim2);line-height:1.5;word-break:keep-all}
+
+  /* ---- QR 모달 ---- */
+  .qempty{border:1.5px dashed #C9DDE4;border-radius:14px;background:#F7FBFC;padding:17px 12px;text-align:center;margin:2px 0 6px}
+  .qempty .qe{font-size:30px;line-height:1}
+  .qempty b{display:block;margin-top:7px;font-size:12px;font-weight:750;letter-spacing:-.02em;color:#17475C}
+  .qempty span{display:block;margin-top:3px;font-size:10.5px;color:var(--dim2);line-height:1.55;word-break:keep-all}
+  .qrimg{position:relative;border:1px solid var(--line);border-radius:14px;background:#fff;padding:10px;text-align:center;margin:2px 0 6px;box-shadow:var(--sh)}
+  .qrimg img{max-width:100%;max-height:46vh;border-radius:8px;display:block;margin:0 auto;cursor:zoom-in}
+  .qrimg .qz{position:absolute;right:8px;bottom:8px;font-size:9.5px;font-weight:700;color:#fff;background:rgba(20,16,12,.55);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:3px 8px}
+  .qrimg.zoom{position:fixed;inset:0;z-index:80;border:0;border-radius:0;background:#0B0908;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 14px) 12px calc(env(safe-area-inset-bottom) + 14px);margin:0}
+  .qrimg.zoom img{max-height:86vh;max-width:94vw;object-fit:contain;box-shadow:0 24px 60px rgba(0,0,0,.55);cursor:zoom-out}
+  .qrimg.zoom .qz{bottom:calc(env(safe-area-inset-bottom) + 12px);right:50%;transform:translateX(50%)}
+  .qrmeta{font-size:9.5px;color:var(--dim2);margin:0 2px 4px;line-height:1.55;word-break:keep-all}
+  .shead .qpin{width:30px;height:30px;border-radius:9px;background:#E6F1F5;border:1px solid #CFE2EA;color:#17475C;font-family:inherit;font-size:14px;box-shadow:0 0 0 3px #fff}
+  .qsact{display:flex;gap:6px;margin-top:11px}
+  .qsact button,.qsact a{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:700;padding:9px 5px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--dim);text-decoration:none;line-height:1.2;white-space:nowrap}
+  .qsact .pri{background:var(--ocean);border-color:var(--ocean);color:#fff}
+  .qsact .del{color:#B23A31;border-color:#F1D5CF;background:#FFF7F5;flex:none;padding-left:11px;padding-right:11px}
 
   .ckgroup{background:var(--card);border:1px solid var(--line);border-radius:15px;margin-bottom:9px;overflow:hidden;box-shadow:var(--sh)}
   .ckgroup .gh{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--card2);border-bottom:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:-.01em}
@@ -592,6 +635,7 @@
 
   <main>
     <section class="tab on" id="tab-plan">
+      <div class="qrw" id="qrw"></div>
       <div id="wxbox" style="margin:0 0 2px"></div>
       <div class="sec" style="margin-top:14px"><h2>예약 요약</h2><span>누르면 상세</span></div>
       <div class="ov-scroll" id="ovcards"></div>
@@ -611,7 +655,7 @@
         위 <b>DAY 버튼</b>을 누르면 그날 일정만, <b>전체</b>를 누르면 6일이 모두 펼쳐집니다.
         일정 카드를 누르면 <b>주소·영업시간·할인 팁</b>이 담긴 상세가 열리고, 왼쪽 번호 핀을 누르면 같은 상세가 열립니다. 지도 탭의 같은 번호가 그 위치입니다.<br>
         카드의 사진을 누르면 <b>크게 보기</b>가 열립니다. 사진 출처는 Wikimedia Commons(CC 라이선스)와 아미아나 리조트 공식 사진입니다.<br>
-        프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다. 위 <b>날씨</b>는 실시간(연결이 안 되면 2월 평균), 아래 <b>환율·회화</b> 탭은 현지에서 바로 쓰는 도구입니다.
+        프로필 칩을 누르면 그 사람이 챙길 일정만 표시됩니다. 맨 위 <b>가족 QR 지갑</b>을 누르면 3인 입국 PAI·탑승권 QR을 바로 꺼내 쓸 수 있고(이미지 올리면 이 브라우저에 저장), 위 <b>날씨</b>는 실시간(연결이 안 되면 2월 평균), 아래 <b>환율·회화</b> 탭은 현지에서 바로 쓰는 도구입니다.
       </p>
     </section>
 
@@ -676,6 +720,19 @@
 </div>
 
 <div id="toast"></div>
+<input type="file" id="qrFile" accept="image/*" hidden>
+
+<div class="sheet" id="qrSheet">
+  <div class="sheetbox">
+    <div class="grab"></div>
+    <div class="shead">
+      <span class="pin qpin" id="qrPin">🛂</span>
+      <div class="t"><div class="sday" id="qrDay">가족 QR 지갑</div><h3 id="qrTitle">입국 PAI QR</h3></div>
+      <button class="x" id="qrClose" aria-label="닫기">✕</button>
+    </div>
+    <div id="qrBody"></div>
+  </div>
+</div>
 
 <div class="sheet" id="spotSheet">
   <div class="sheetbox">
@@ -726,21 +783,21 @@
 var TRIP = { start:'2027-02-12T19:30:00+09:00', end:'2027-02-18T06:20:00+09:00' };
 
 var MEMBERS = [
-  { id:'sangwoo', name:'이상우', initial:'상', color:'#E4624F', role:'예약·결제 총괄',
+  { id:'sangwoo', name:'이상우', initial:'상', en:'LEE SANGWOO', color:'#E4624F', role:'예약·결제 총괄',
     memo:[
       '<b>아미아나 등록 삼성카드 실물</b> 지참 — 12/30 자동 선결제, 체크인 시 카드 확인',
       '<b>아미아나 BBQ #972599</b>는 식사 후 현장 결제',
       '항공 <b>KU7243</b> 예약자 · 탑승자 3인 발권 완료',
       '그랩 카드 자동결제 등록 → 2/13 오전 환전 전까지 현금 거의 불필요'
     ] },
-  { id:'kyounghwa', name:'장경화', initial:'경', color:'#1E6E8C', role:'하얏트 예약 명의',
+  { id:'kyounghwa', name:'장경화', initial:'경', en:'JANG KYOUNGHWA', color:'#1E6E8C', role:'하얏트 예약 명의',
     memo:[
       '하얏트 <b>숙소 확정</b> — 경화 님 트립온 계정 예약 · 16시 LCO · 바우처 확인은 그 계정에서',
       '<b>트립온 제휴스파 40% 쿠폰</b> 보유 → 2/16·17 마사지에 사용',
       '2/17 저녁 <b>노르덴</b> 확정 · 스파 변경 의견 회신 대기',
       '숙소 3곳(르모어 · 아미아나 · 하얏트) <b>모두 확정</b> — 빈펄 비교는 끝'
     ] },
-  { id:'siyoon', name:'이시윤', initial:'시', color:'#3E7A50', role:'만 10세 · 초4',
+  { id:'siyoon', name:'이시윤', initial:'시', en:'LEE SIYOON', color:'#3E7A50', role:'만 10세 · 초4',
     memo:[
       '아미아나 <b>보트베드 1.1m×2m 고정형</b> — 엑스트라베드 불가, 3인 1객실',
       '시윤이 <b>조식 별도 부과</b>(만 8~11세 약관) — 2박분 현장 결제',
@@ -1410,6 +1467,162 @@ function applyHighlight(){
   });
 }
 
+/* ================= 가족 QR 지갑 (PAI · 탑승권) ================= */
+var QRLS = 'nhatrangTrip.qr.v1';
+var qrStore = (function(){ try{ var raw = localStorage.getItem(QRLS); var o = raw ? JSON.parse(raw) : null; return (o && typeof o === 'object') ? o : {}; }catch(e){ return {}; } })();
+function qrKey(mid, type){ return mid+':'+type; }
+function qrGet(mid, type){ var it = qrStore[qrKey(mid,type)]; return (it && it.img) ? it : null; }
+function qrSaveAll(){ try{ localStorage.setItem(QRLS, JSON.stringify(qrStore)); return true; }catch(e){ return false; } }
+
+var QRT = {
+  pai:{ ic:'🛂', name:'입국 PAI QR', short:'입국 PAI', when:'2/9 이후', whenFull:'2/9(화) 22:30 이후',
+    hint:'2/9 22:30 이후 PAI 등록 후 QR 저장 예정',
+    link:'https://prearrival.immigration.gov.vn' },
+  board:{ ic:'✈️', name:'탑승권 QR', short:'탑승권', when:'2/11 이후', whenFull:'2/11(목) 19:20 이후',
+    hint:'2/11 19:20 에어로케이 체크인 후 탑승권 QR 추가 예정' }
+};
+var QRCUR = null;
+
+function qrStoredCount(){
+  var n = 0;
+  MEMBERS.forEach(function(m){ ['pai','board'].forEach(function(t){ if(qrGet(m.id,t)) n++; }); });
+  return n;
+}
+function renderQR(){
+  var el = $('#qrw'); if(!el) return;
+  var total = MEMBERS.length*2, n = qrStoredCount();
+  var html = '<div class="qwh"><span class="qi">🛂</span><div class="qt"><b>가족 QR 지갑</b><i>2/9 밤 PAI 등록 → 2/11 탑승권</i></div>'
+    + '<span class="qn">'+(n? n+'/'+total+' 저장' : '발급 전')+'</span></div>';
+  MEMBERS.forEach(function(m){
+    html += '<div class="qrow"><div class="qwho"><span class="av" style="background:'+m.color+'">'+m.initial+'</span><b>'+esc(m.name)+'</b></div><div class="qbtns">';
+    ['pai','board'].forEach(function(t){
+      var T = QRT[t], got = qrGet(m.id,t);
+      html += '<button class="qb'+(got?' ok':'')+'" data-qr="'+m.id+'|'+t+'" aria-label="'+esc(m.name)+' '+esc(T.name)+'">'
+        + '<span class="qbi">'+T.ic+'</span><span class="qbt"><b>'+esc(T.short)+'</b><i>'+(got? '저장됨' : esc(T.when))+'</i></span></button>';
+    });
+    html += '</div></div>';
+  });
+  html += '<p class="qwn">아직 발급 전이에요. 2/9 22:30 이후 PAI QR을, 2/11 19:20 체크인 뒤 탑승권을 사진으로 올리면 3인 모두 여기서 바로 꺼내 쓸 수 있어요.</p>';
+  el.innerHTML = html;
+  $$('#qrw .qb').forEach(function(b){
+    b.addEventListener('click', function(){ var p = b.getAttribute('data-qr').split('|'); openQR(p[0], p[1]); });
+  });
+}
+function qrRows(m, type){
+  if(type === 'pai'){
+    return [
+      ['준비 시점', QRT.pai.whenFull+' — 도착 <b>72시간 전</b>부터 열립니다'],
+      ['방법', '<b>prearrival.immigration.gov.vn</b> 공식 사이트에서 무료. 수수료·카드 결제를 요구하면 가짜 사이트'],
+      ['입력값', '여권 영문명 <b>'+esc(m.en)+'</b> · 편명 <b>RF557</b> · 2/12 22:30 깜란(CXR) · 첫 숙소 르모어'],
+      ['인원', '아이 포함 <b>1인 1건</b> — 대표자가 일행을 추가해도 QR은 사람마다 따로 나옵니다'],
+      ['제시', '입국심사에서 여권과 함께 — 휴대폰 캡처 + 인쇄본'],
+      ['주의', '<b>패스트트랙을 써도 PAI는 따로</b> 필요합니다']
+    ];
+  }
+  return [
+    ['준비 시점', QRT.board.whenFull+' — 에어로케이 온라인 체크인 오픈 후'],
+    ['방법', '에어로케이 앱·홈페이지 → 예약번호 <b>KU7243</b> → 체크인 → 모바일 탑승권을 캡처'],
+    ['탑승자', '여권 영문명 <b>'+esc(m.en)+'</b>'],
+    ['가는 편', 'RF557 2/12(금) 19:30 청주 → 22:30 깜란'],
+    ['오는 편', 'RF558 2/17(수) 23:30 깜란 → 2/18(목) 06:20 청주'],
+    ['제시', '청주공항 탑승구·수하물 위탁 — 통신이 끊겨도 보이도록 캡처해 두기']
+  ];
+}
+function openQR(mid, type){
+  var m = member(mid), T = QRT[type]; if(!m || !T) return;
+  QRCUR = { mid:mid, type:type };
+  var got = qrGet(mid, type);
+  $('#qrPin').textContent = T.ic;
+  $('#qrDay').textContent = '가족 QR 지갑 · ' + m.name + (type==='board' ? ' · 탑승권' : '');
+  $('#qrTitle').textContent = T.name;
+  var b = '';
+  if(got){
+    b += '<div class="qrimg" id="qrImgBox"><img src="'+got.img+'" alt="'+esc(m.name)+' '+esc(T.name)+'"><button class="qz" id="qrZoom">🔍 크게</button></div>'
+      + '<div class="qrmeta">'+(got.at? esc(got.at)+' 저장 · ' : '')+'이 브라우저(localStorage)에만 저장돼요 — 다른 폰에서는 보이지 않습니다.</div>';
+  } else {
+    b += '<div class="qempty"><div class="qe">'+T.ic+'</div><b>아직 QR이 없습니다</b><span>'+esc(T.hint)+'</span></div>';
+  }
+  b += qrRows(m, type).map(function(r){ return '<div class="srow"><span class="k">'+esc(r[0])+'</span><span class="v">'+r[1]+'</span></div>'; }).join('');
+  b += '<div class="qsact">';
+  b += (type==='pai')
+    ? '<a class="pri" href="'+QRT.pai.link+'" target="_blank" rel="noopener">🌐 공식 사이트</a>'
+    : '<button id="qrCopyNo">📋 예약번호 복사</button>';
+  b += '<button id="qrUpload">🖼 '+(got? '다시 올리기' : '이미지 올리기')+'</button>';
+  if(got) b += '<button class="del" id="qrDel">삭제</button>';
+  b += '</div>';
+  $('#qrBody').innerHTML = b;
+
+  var file = $('#qrFile');
+  $('#qrUpload').addEventListener('click', function(){ try{ file.value=''; }catch(e){} file.click(); });
+  if(type === 'board'){
+    $('#qrCopyNo').addEventListener('click', function(){ copyText('KU7243', '예약번호 KU7243을 복사했어요'); });
+  }
+  if(got){
+    $('#qrZoom').addEventListener('click', function(e){ e.stopPropagation(); $('#qrImgBox').classList.toggle('zoom'); });
+    $('#qrImgBox').addEventListener('click', function(){ if(this.classList.contains('zoom')) this.classList.remove('zoom'); });
+    $('#qrDel').addEventListener('click', function(){
+      if(!window.confirm('이 QR 이미지를 삭제할까요? 앨범에서 다시 올리면 복구됩니다.')) return;
+      delete qrStore[qrKey(mid,type)]; qrSaveAll();
+      toast('QR을 삭제했어요'); renderQR(); openQR(mid, type);
+    });
+  }
+  $('#qrSheet').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeQR(){
+  var box = $('#qrImgBox'); if(box) box.classList.remove('zoom');
+  $('#qrSheet').classList.remove('on');
+  if(!$('#spotSheet').classList.contains('on') && !$('#lightbox').classList.contains('on')) document.body.style.overflow = '';
+}
+function readQRImage(file, cb){
+  if(!file) return;
+  if(!/^image\//.test(file.type)){ toast('이미지 파일만 올릴 수 있어요'); return; }
+  var fr = new FileReader();
+  fr.onload = function(){
+    var im = new Image();
+    im.onload = function(){
+      var max = 900, w = im.naturalWidth, h = im.naturalHeight;
+      if(w > max || h > max){ var r = Math.min(max/w, max/h); w = Math.round(w*r); h = Math.round(h*r); }
+      var cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      var cx = cv.getContext('2d'); cx.fillStyle = '#fff'; cx.fillRect(0,0,w,h); cx.drawImage(im,0,0,w,h);
+      var data;
+      try{ data = cv.toDataURL('image/jpeg', 0.85); }catch(e){ data = fr.result; }
+      cb(data);
+    };
+    im.onerror = function(){ toast('이미지를 읽지 못했어요'); };
+    im.src = fr.result;
+  };
+  fr.onerror = function(){ toast('파일을 읽지 못했어요'); };
+  fr.readAsDataURL(file);
+}
+$('#qrClose').addEventListener('click', closeQR);
+$('#qrSheet').addEventListener('click', function(e){ if(e.target === $('#qrSheet')) closeQR(); });
+document.addEventListener('keydown', function(e){
+  if(e.key !== 'Escape' || !$('#qrSheet').classList.contains('on')) return;
+  var box = $('#qrImgBox');
+  if(box && box.classList.contains('zoom')){ box.classList.remove('zoom'); return; }
+  closeQR();
+});
+$('#qrFile').addEventListener('change', function(e){
+  var f = e.target.files && e.target.files[0]; if(!f || !QRCUR) return;
+  var cur = { mid:QRCUR.mid, type:QRCUR.type };
+  readQRImage(f, function(data){
+    var k = qrKey(cur.mid, cur.type), prev = qrStore[k];
+    qrStore[k] = { img:data, at:new Date().toLocaleString('ko-KR', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' }) };
+    if(!qrSaveAll()){
+      if(prev) qrStore[k] = prev; else delete qrStore[k];
+      toast('저장 공간이 부족해요 — 이미지를 줄여 다시 올려 주세요'); return;
+    }
+    toast('QR을 저장했어요');
+    renderQR(); openQR(cur.mid, cur.type);
+  });
+});
+document.addEventListener('click', function(e){
+  var t = e.target && e.target.closest ? e.target.closest('#paiQrOpen') : null;
+  if(!t) return;
+  e.preventDefault(); switchTab('plan');
+});
+
 /* ================= reservations ================= */
 function renderOV(){
   var ov = [
@@ -1793,6 +2006,12 @@ function copyAddr(id){
     navigator.clipboard.writeText(t).then(done, function(){ fallbackCopy(t); done(); });
   } else { fallbackCopy(t); done(); }
 }
+function copyText(t, msg){
+  function done(){ toast(msg || '복사했어요'); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done, function(){ fallbackCopy(t); done(); });
+  } else { fallbackCopy(t); done(); }
+}
 $('#lbClose').addEventListener('click', closePhoto);
 $('#lightbox').addEventListener('click', function(e){ if(e.target===$('#lightbox') || e.target===$('#lbImg')) closePhoto(); });
 $('#spCopy').addEventListener('click', function(){ var id=this.getAttribute('data-addr'); if(id) copyAddr(id); });
@@ -1938,7 +2157,7 @@ function renderPrep(){
     +     '<li><b>제시</b> QR을 사진으로 저장하고 인쇄본도. 입국심사에서 여권과 함께. 제출 뒤에는 수정이 안 되니 편명을 글자 단위로 대조.</li>'
     +   '</ul>'
     +   '<div class="pfoot">미신고로 가면 공항 키오스크에서 다시 쓰고 15~40분 더 걸릴 수 있습니다. <b>패스트트랙을 신청해도 PAI는 따로 필요</b>합니다. 깜란공항은 시행 시기·의무 여부 안내가 엇갈리지만 무료라서 미리 해 두면 손해가 없습니다.</div>'
-    +   '<div class="pact"><a class="pri" href="https://prearrival.immigration.gov.vn" target="_blank" rel="noopener">공식 사이트 열기</a></div>'
+    +   '<div class="pact"><a class="pri" href="https://prearrival.immigration.gov.vn" target="_blank" rel="noopener">공식 사이트 열기</a><button type="button" id="paiQrOpen">3인 QR 지갑 열기</button></div>'
     + '</div>';
 
   html += '<div class="sec"><h2>2월 나트랑 날씨 · 뗏</h2><span>현지 기준</span></div>'
@@ -2391,6 +2610,7 @@ function switchTab(name){
 renderDday();
 renderProfiles();
 renderPfcard();
+renderQR();
 renderOV();
 renderDayPills();
 updatePlanHint();
