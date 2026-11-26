@@ -2319,7 +2319,7 @@ function renderBudget(){
     +   '<div class="sv">52~60만 원<em>약 '+num(vndOfKrw(520000)/10000)+'~'+num(vndOfKrw(600000)/10000)+'만 동</em></div>'
     + '</div>'
     + FOOD.map(mealCard).join('')
-    + '<p class="footnote">가격은 2026-11 확인 시세입니다. <b>동(VND)</b>은 현장 결제 기준(1만 동 ≈ 550원 안팎, 환율 변동), <b>++</b>는 세금·봉사료 별도입니다. 나머지 9곳은 예약 없이 들르는 곳이라 시간만 맞춰 가면 됩니다.</p>';
+    + '<p class="footnote">가격은 2026-11 확인 시세입니다. 동화는 현장 결제 기준이고 원화는 <b>1만 동 = ₩'+num(rate * 10000)+'</b>(환율 탭 실시간 환율)로 환산했습니다. <b>++</b>는 세금·봉사료 별도입니다. 나머지 9곳은 예약 없이 들르는 곳이라 시간만 맞춰 가면 됩니다.</p>';
 
   html += '<div class="sec"><h2>💆 마사지·스파 예약 확인 &amp; 비용</h2><span>5곳 · 예약 진행 중</span></div>'
     + '<div class="sumline">'
