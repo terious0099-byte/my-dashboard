@@ -313,6 +313,26 @@
   .pcard p{margin:3px 0 0;font-size:10.5px;color:var(--dim);line-height:1.55;word-break:keep-all}
   @media(min-width:640px){.pcards{display:grid;grid-template-columns:1fr 1fr;align-items:start}.scard{padding:10px 12px}}
 
+  /* ---- 준비 — 살 것 리스트(경화 님 요청) ---- */
+  .shopref{display:flex;align-items:center;gap:9px;background:linear-gradient(158deg,#FFF8F2,#FFFFFF 72%);border:1px solid #F1DDCA;border-radius:14px;padding:8px 9px;margin-bottom:8px;box-shadow:var(--sh)}
+  .shopref .th{flex:none;width:50px;height:50px;cursor:zoom-in;border-radius:10px;overflow:hidden;border:1px solid #EBD9C6;background:#fff}
+  .shopref .th img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+  .shopref .tx{flex:1;min-width:0}
+  .shopref .tx b{display:block;font-size:11.5px;font-weight:750;color:#8A4B1E;letter-spacing:-.02em;line-height:1.35}
+  .shopref .tx i{display:block;font-style:normal;font-size:9.5px;color:var(--dim2);line-height:1.45;margin-top:2px}
+  .shopref button{flex:none;font-size:9.5px;font-weight:700;color:#B4536B;background:#FCEFF3;border:1px solid #F2D8E0;border-radius:8px;padding:6px 8px;white-space:nowrap;line-height:1.2}
+  .sck{display:flex;gap:9px;align-items:flex-start;padding:9px 12px;border-top:1px solid #EAF5F7;width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0}
+  .sck:first-of-type{border-top:0}
+  .sck .box{flex:none;width:17px;height:17px;border-radius:5px;border:1.5px solid var(--line2);margin-top:1px;display:grid;place-items:center;font-size:11px;color:#fff;background:#fff;transition:.12s}
+  .sck .lbl{flex:1;min-width:0}
+  .sck .lbl b{display:block;font-size:11.5px;font-weight:650;letter-spacing:-.02em;line-height:1.4}
+  .sck .lbl b em{font-style:normal;margin-right:4px}
+  .sck .lbl i{display:block;font-style:normal;font-size:10px;color:var(--dim2);line-height:1.45;margin-top:1px;word-break:keep-all}
+  .sck .where{flex:none;align-self:center;font-size:8.5px;font-weight:700;color:#0E7490;background:#E9F4F8;border:1px solid #D2E7EF;border-radius:7px;padding:3px 5px;line-height:1.25;text-align:center;max-width:78px;word-break:keep-all}
+  .sck.on .box{background:var(--palm);border-color:var(--palm)}
+  .sck.on .lbl b{color:var(--dim2);text-decoration:line-through;text-decoration-color:#A7C4CB}
+  .sck.on .where{opacity:.55}
+
   /* ============ 예산 — 카테고리·항목 ============ */
   .catbox{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:11px 12px 4px;box-shadow:var(--sh)}
   .catrow{display:grid;grid-template-columns:20px 1fr 34px;gap:8px;align-items:center;margin-bottom:9px}
@@ -1340,7 +1360,8 @@ var PHOTO = {
   'aquarium-tunnel':{ src:'images/aquarium-tunnel.jpg', cap:'아쿠아리움 수중 터널 (예시 사진)',  credit:'사진 Wikimedia Commons · Shreveport Aquarium (CC BY-SA 4.0)', w:1198, h:800 },
   'sky-wheel'    : { src:'images/sky-wheel.jpg',      cap:'빈원더스 나트랑 대관람차(스카이 휠) 야경', credit:'사진 Wikimedia Commons · 유자차 (CC BY-SA 4.0)', w:1000, h:1040 },
   'madam-phuong' : { src:'images/madam-phuong.jpg',   cap:'분짜(Bún chả) — 베트남 가정식',      credit:'사진 Wikimedia Commons · Phương Huy (CC BY-SA 4.0)', w:1200, h:779 },
-  'spa-room'     : { src:'images/spa-room.jpg',       cap:'스파 트리트먼트 룸 (예시 사진)',     credit:'사진 Wikimedia Commons · Paradisus Bali (CC BY-SA 4.0)', w:1157, h:1000 }
+  'spa-room'     : { src:'images/spa-room.jpg',       cap:'스파 트리트먼트 룸 (예시 사진)',     credit:'사진 Wikimedia Commons · Paradisus Bali (CC BY-SA 4.0)', w:1157, h:1000 },
+  'shop-list-ref': { src:'images/shopping-list-ref.jpg', cap:'경화 님이 보낸 나트랑 쇼핑리스트 — 제품 사진 참고용', credit:'사진 장경화 님 전달 · 14종', w:1048, h:1150 }
 };
 
 /* 일정 ID → 사진. 사진이 있는 카드에만 이미지가 붙는다. */
@@ -1426,6 +1447,19 @@ var SHOP = [
   { name:'Central Market', vn:'137 Huỳnh Thúc Kháng', kind:'시장 · 기념품', tip:'2/17 13:30 쇼핑 동선 첫 곳.', hours:'09:00–21:00', q:'Central Market Nha Trang', lat:12.242057, lng:109.191827 },
   { name:'Nha Trang Memory', vn:'03 Ngô Gia Tự', kind:'기념품·엽서', tip:'2/17 쇼핑 동선. 포장이 예쁘다.', hours:'09:00–21:00', q:'NHA TRANG MEMORY Gift and Souvenirs', lat:12.244493, lng:109.191427 },
   { name:'4U Mart', vn:'09 Nguyễn Thiện Thuật', kind:'마트·기념품', tip:'2/17 마지막 장보기. 23:00까지.', hours:'07:00–23:00', q:'4U Mart Nha Trang', lat:12.240645, lng:109.193445 }
+];
+
+/* ---------------- 살 것 리스트 (경화 님 요청 2026-11-28) ---------------- */
+var SHOPLIST = [
+  { id:'sl-tooth',  ic:'🦷', l:'치약류',                  s:'하트·해리포터·콜게이트 등 캐릭터 치약 — 낱개보다 묶음', w:'롯데마트·4U마트·약국' },
+  { id:'sl-coffee', ic:'☕', l:'베트남 커피 (콩카페 스틱)', s:'Cộng Cà Phê 3in1 스틱 — 선물은 박스가 깔끔', w:'롯데마트·담시장' },
+  { id:'sl-mango',  ic:'🥭', l:'미스터비엣 초코망고',      s:'Mr.VIET 초콜릿 망고 — 낱개·박스 모두', w:'롯데마트·4U마트' },
+  { id:'sl-tshirt', ic:'👕', l:'반미·쌀국수 티셔츠',        s:'시윤이 사이즈(145cm·아동 8~10호) 먼저 확인', w:'Kissa·야시장' },
+  { id:'sl-under',  ic:'🩲', l:'속옷 (질러팬티)',           s:'Zill 기본 팬티 — 표기가 작아 한 치수 크게', w:'롯데마트·4U마트' },
+  { id:'sl-soft',   ic:'🧺', l:'다우니·하이젠 (섬유유연제)', s:'현지 향이 달라 선물용 인기 — 1L 넘으면 위탁', w:'롯데마트·4U마트' },
+  { id:'sl-jelly',  ic:'🍮', l:'체리쉬 젤리 (망고스틴 푸딩)', s:'Cherish 망고스틴 푸딩 — 파우치·컵', w:'롯데마트·담시장' },
+  { id:'sl-scrub',  ic:'🧴', l:'바디스크럽 (도브·코콘 커피 등)', s:'코코넛 커피 스크럽은 담시장이 쌉니다', w:'롯데마트·담시장' },
+  { id:'sl-hair',   ic:'💧', l:'헤어팩류 (엠포로스·썬실크 등)', s:'SunSilk 파워샷·트리트먼트 — 100ml 넘으면 위탁', w:'롯데마트·4U마트' }
 ];
 
 /* ---------------- PERKS ---------------- */
@@ -1580,12 +1614,13 @@ var LS = 'nhatrangTrip.v1';
 var COST_VER = 4;
 var state = load();
 function load(){
-  var d = { checks:{}, profile:'', planDay:'all', costs:null, costVer:COST_VER };
+  var d = { checks:{}, shopCk:{}, profile:'', planDay:'all', costs:null, costVer:COST_VER };
   try{
     var raw = localStorage.getItem(LS);
     if(raw){
       var p = JSON.parse(raw);
       if(p && p.checks) d.checks = p.checks;
+      if(p && p.shopCk) d.shopCk = p.shopCk;
       if(p && p.profile) d.profile = p.profile;
       if(p && Object.prototype.toString.call(p.costs) === '[object Array]' && p.costVer === COST_VER) d.costs = p.costs;
     }
@@ -2502,6 +2537,25 @@ function renderPrep(){
   SHOP.forEach(function(s){ html += shopCard(s); });
   html += '<p class="footnote">담시장·중앙시장은 <b>현금</b>과 흥정이 기본(첫 값의 60~70%부터), 마트·Kissa는 카드가 됩니다. 무거운 생수·기념품은 마지막 날 <b>4U마트</b>에서 모아 사면 짐이 줄어듭니다.</p>';
 
+  var sDone = SHOPLIST.filter(function(x){ return state.shopCk[x.id]; }).length;
+  var sPct = Math.round(sDone / SHOPLIST.length * 100);
+  html += '<div class="sec"><h2>🛍️ 살 것 리스트</h2><span>경화 님 요청 · 9종</span></div>'
+    + '<div class="shopref">'
+    +   '<div class="th"><img src="images/shopping-list-ref.jpg" alt="경화 님이 보낸 나트랑 쇼핑리스트 제품 사진"></div>'
+    +   '<div class="tx"><b>경화 님이 보낸 쇼핑리스트</b><i>제품 사진 참고용 · 14종 · 눌러서 크게 보기</i></div>'
+    +   '<button type="button" id="shopRefOpen">사진 보기</button>'
+    + '</div>'
+    + '<div class="ckbar"><div class="tb"><i id="sckfill" style="width:'+sPct+'%"></i></div><span id="sckpct">'+sPct+'%</span></div>'
+    + '<div class="ckgroup"><div class="gh">장볼 것<span id="sckcount">'+sDone+' / '+SHOPLIST.length+'</span></div>';
+  SHOPLIST.forEach(function(it){
+    var on = !!state.shopCk[it.id];
+    html += '<button class="sck'+(on?' on':'')+'" data-sck="'+it.id+'"><span class="box">'+(on?'✓':'')+'</span>'
+      + '<span class="lbl"><b><em>'+it.ic+'</em>'+esc(it.l)+'</b><i>'+esc(it.s)+'</i></span>'
+      + '<span class="where">'+esc(it.w)+'</span></button>';
+  });
+  html += '</div>'
+    + '<p class="footnote">2/15 밤 <b>롯데마트</b>에서 한 번에 모으고, 짐이 되면 2/17 마지막 날 <b>4U마트</b>에서 채우세요. 캐릭터 치약·헤어팩은 마트보다 약국(Pharmacity·Long Châu)이 종류가 많습니다. 섬유유연제·바디스크럽처럼 100ml가 넘는 액체는 <b>기내 반입이 안 되니 위탁 수하물</b>로 보내야 합니다. 쇼핑 예산은 30만 원 안에서 봅니다(예산 탭 「쇼핑 · 기념품」).</p>';
+
   html += '<div class="sec"><h2>🏷️ 할인 혜택 팁</h2><span>결제 전에 한마디</span></div>'
     + '<div class="pcards">' + PERKS.map(perkCard).join('') + '</div>'
     + '<p class="footnote">할인은 직원에게 <b>제휴 여부를 먼저 말해야</b> 적용되는 경우가 많습니다. 트립온 쿠폰은 1인 1매·유효기간이 있으니 스파 예약 전에 조건을 확인하세요.</p>';
@@ -2546,6 +2600,25 @@ function renderPrep(){
     + '체크 상태는 이 브라우저에 저장되고, 다른 기기·다른 브라우저와는 공유되지 않습니다.</p>';
 
   $('#prepbody').innerHTML = html;
+
+  $$('#prepbody .sck').forEach(function(b){
+    b.addEventListener('click', function(){
+      var id = b.getAttribute('data-sck');
+      state.shopCk[id] = !state.shopCk[id];
+      save();
+      b.classList.toggle('on', !!state.shopCk[id]);
+      b.querySelector('.box').textContent = state.shopCk[id] ? '✓' : '';
+      var d = SHOPLIST.filter(function(x){ return state.shopCk[x.id]; }).length;
+      var p = Math.round(d / SHOPLIST.length * 100);
+      $('#sckcount').textContent = d + ' / ' + SHOPLIST.length;
+      $('#sckfill').style.width = p + '%';
+      $('#sckpct').textContent = p + '%';
+    });
+  });
+  var srBtn = $('#shopRefOpen');
+  if(srBtn) srBtn.addEventListener('click', function(){ openPhoto('shop-list-ref'); });
+  var srTh = $('.shopref .th');
+  if(srTh) srTh.addEventListener('click', function(){ openPhoto('shop-list-ref'); });
 
   $$('#prepbody .ck').forEach(function(b){
     b.addEventListener('click', function(){
