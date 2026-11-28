@@ -960,7 +960,7 @@ var DAY = {
   1:{ date:'2/12 (금)', title:'출국 · 르모어 0.5박', color:'#C9412A', sub:'청주 19:30 → 깜란 22:30', short:'출국' },
   2:{ date:'2/13 (토)', title:'시내 반일 → 아미아나 · 유스파 & BBQ', color:'#0E7490', sub:'담시장·Kissa·냐고비엣 → 14:25 체크인', short:'시내·아미아나' },
   3:{ date:'2/14 (일)', title:'머드스파 · 동하이 씨푸드', color:'#0F766E', sub:'발렌타인데이 · 리조트 하루', short:'머드스파' },
-  4:{ date:'2/15 (월)', title:'하얏트 이동 · 포나가르 & 왕뚜껑', color:'#B45309', sub:'안어이 퍼 → 참 탑 → 왕뚜껑 저녁', short:'이동·시내' },
+  4:{ date:'2/15 (월)', title:'하얏트 이동 · 포나가르 & 왕뚜껑', color:'#B45309', sub:'라냐 → 참 탑 → 왕뚜껑 저녁', short:'이동·시내' },
   5:{ date:'2/16 (화)', title:'빈원더스 (평일)', color:'#7A5A92', sub:'케이블카 10:00 · 18:15 퇴장', short:'빈원더스' },
   6:{ date:'2/17 (수)', title:'귀국 · LCO · 그랜드 스파 & 조니스테이크 3호점', color:'#1C6E8F', sub:'마사지 16:00 → 조니스테이크 18:00 → 20:45 샌딩', short:'귀국' }
 };
@@ -1122,17 +1122,17 @@ var SPOTS = [
     q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872, who:['sangwoo'] },
 
   { id:'d4-2', day:4, t:'12:30', kind:'move', tag:'이동', title:'7인승 그랩 → 시내',
-    sub:'아미아나 → 홍방(Hồng Bàng) 약 25분', addr:'Phạm Văn Đồng → Hồng Bàng', addrVn:'',
-    note:'짐은 리조트에 두고 사람만 이동.',
-    q:'80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
+    sub:'아미아나 → 라냐(102 Hồng Bàng) 약 25분', addr:'Phạm Văn Đồng → 102 Hồng Bàng', addrVn:'Là Nhà',
+    note:'짐은 리조트에 두고 사람만 이동. 12:30 출발해 13:00 라냐 도착.',
+    q:'La Nha 102 Hong Bang Nha Trang', lat:12.2397861, lng:109.1904295 },
 
-  { id:'d4-3', day:4, t:'13:00', kind:'food', tag:'점심', title:'안어이 퍼 (Anh Ơi Phở)',
-    sub:'80 Hồng Bàng · 하얏트 도보 9분', addr:'80 Đ. Hồng Bàng, Nha Trang', addrVn:'Anh Ơi Phở',
-    hours:'09:00–21:00', badge:'13:40 마쳐야 포나가르 14:00', badgeType:'info',
-    menuList:{ items:[['스페셜 소고기 쌀국수','80,000~110,000동'],['왕갈비 쌀국수','180,000동'],['분짜','160,000동'],['넴 · 짜조 · 음료','']],
-      sum:'3인 약 2~3만 원' },
-    note:'환전소가 도보 3분 거리. 14:00 포나가르로 이동하려면 13:40에는 마쳐야 한다.',
-    q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
+  { id:'d4-3', day:4, t:'13:00', kind:'food', tag:'점심', title:'라냐 (Là Nhà)',
+    sub:'102 Hồng Bàng · 하얏트 도보 14분', addr:'102 Đ. Hồng Bàng, Nha Trang', addrVn:'Là Nhà',
+    hours:'11:00–22:00', badge:'인스타 @lanha.vn 예약 권장 · 13:40 마쳐야 14:00 탑', badgeType:'warn',
+    menuList:{ items:[['매운 소곱창 쌀국수',''],['넴느엉 · 돼지고기 계란조림',''],['맛조개 모닝글로리 · 연두부 튀김',''],['분짜 스페셜 · 2~3인 세트','230,000~395,000동']],
+      sum:'3인 약 2~3만 원대', foot:'평점 4.5 (리뷰 3,997) · 베트남 가정식' },
+    note:'점심엔 웨이팅이 있을 수 있어 인스타 @lanha.vn로 미리 예약하는 게 좋다. 13:40 마무리 후 그랩 14분(4.3km) → 포나가르 14:00. 하얏트까지 도보 14분(1.0km). 전화 +84 258 2477 377.',
+    q:'La Nha 102 Hong Bang Nha Trang', lat:12.2397861, lng:109.1904295, img:'la-nha' },
 
   { id:'d4-4', day:4, t:'14:00', kind:'sight', tag:'관광', title:'포나가르 참 탑 (Tháp Bà)',
     sub:'월요일로 이동 확정 · 1시간', addr:'61 Hai Tháng Tư, Bắc Nha Trang', addrVn:'Tháp Bà Ponagar',
@@ -1326,6 +1326,7 @@ var PHOTO = {
   'lala-seafood' : { src:'images/lobster.jpg',        cap:'랍스터 구이 — 라라씨푸드 메뉴 예시', credit:'사진 Wikimedia Commons · Benreis (CC BY 3.0)', w:1200, h:800 },
   'samgyeopsal'  : { src:'images/samgyeopsal.jpg',    cap:'삼겹살 구이 — 왕뚜껑 메뉴 예시',      credit:'사진 Wikimedia Commons · hellochris (CC BY 2.0)', w:1000, h:750 },
   'johnny-steak' : { src:'images/johnny-steak.jpg',   cap:'토마호크 스테이크 — 조니스테이크 하우스 스테이크 예시', credit:'사진 Wikimedia Commons · Pannet (CC BY-SA 4.0)', w:1200, h:622 },
+  'la-nha'       : { src:'images/la-nha.jpg',         cap:'라냐 (Là Nhà) — 102 Hồng Bàng 매장',  credit:'사진 Google Maps · Là Nhà', w:800, h:534 },
   'vinpearl-cable':{ src:'images/vinpearl-cable.jpg', cap:'빈펄 케이블카 — 바다 위 3.3km',       credit:'사진 Wikimedia Commons · P. Hughes (CC BY 4.0)', w:1000, h:664 },
   'vinwonders'   : { src:'images/vinwonders-rides.jpg',cap:'빈원더스 놀이기구 · 롤러코스터',      credit:'사진 Wikimedia Commons · Martin Lewison (CC BY 2.0)', w:1200, h:760 },
   'night-market' : { src:'images/night-market.jpg',   cap:'나트랑 야시장',                      credit:'사진 Wikimedia Commons · The Erica Chang (CC BY 3.0)', w:1000, h:750 },
@@ -1349,7 +1350,7 @@ var SPOT_IMG = {
   'd2-3':'coconut-coffee', 'd2-4':'dam-market', 'd2-6':'nha-go-viet', 'd2-8':'amiana-resort', 'd2-9':'nha-trang-bay',
   'd2-11':'amiana-bbq', 'd2-12':'amiana-ocean-bar',
   'd3-1':'nha-trang-bay', 'd3-2':'amiana-pool-bar', 'd3-3':'amiana-mud-spa', 'd3-5':'seafood',
-  'd4-3':'pho', 'd4-4':'po-nagar', 'd4-5':'nha-trang-beach', 'd4-7':'samgyeopsal', 'd4-8':'lotte-mart', 'd4-9':'cyclo', 'd4-10':'night-market',
+  'd4-3':'la-nha', 'd4-4':'po-nagar', 'd4-5':'nha-trang-beach', 'd4-7':'samgyeopsal', 'd4-8':'lotte-mart', 'd4-9':'cyclo', 'd4-10':'night-market',
   'd5-2':'vinpearl-cable', 'd5-3':'vinwonders', 'd5-5':'aquarium-tunnel', 'd5-7':'sky-wheel', 'd5-8':'lala-seafood', 'd5-9':'night-market',
   'd6-4':'madam-phuong', 'd6-8':'spa-room', 'd6-9':'johnny-steak',
   'd6-11':'cxr-airport'
@@ -1368,8 +1369,8 @@ var FOOD = [
     menu:'버거·피자·파스타·쌀국수·음료 (또는 룸 배달)', pl:'3인', pv:[770000,1150000], pn:'리조트 크레딧 사용', tip:'머드스파 전에 가볍게. 과식하면 스파가 힘들다.', hours:'리조트 운영시간', q:'Amiana Resort Nha Trang', lat:12.295209, lng:109.233872 },
   { d:3, time:'2/14 18:30', name:'동하이 씨푸드 (Đông Hải)', vn:'24 Tô Hiến Thành', kind:'저녁 · 해산물',
     menu:'버터·갈릭 랍스터·새우·조개 · 모닝글로리·해산물 볶음밥', pl:'3인', pv:[1730000,2500000], pn:'랍스터 싯가', tip:'2·3층 에어컨석. 결제 전 제휴 할인 적용 확인.', hours:'11:00–23:00', q:'Nha Hang Hai San Dong Hai Nha Trang', lat:12.239354, lng:109.192162 },
-  { d:4, time:'2/15 13:00', name:'안어이 퍼 (Anh Ơi Phở)', vn:'80 Hồng Bàng', kind:'점심 · 쌀국수',
-    menu:'스페셜 소고기 쌀국수 8~11만 동 · 왕갈비 쌀국수 18만 동 · 분짜 16만 동', pl:'3인', pv:[380000,580000], pn:'쌀국수 1인 8~11만 동', tip:'하얏트 도보 9분, 환전소 도보 3분. 국물 위주라 아이도 무난.', hours:'09:00–21:00', q:'Anh Oi Pho 80 Hong Bang Nha Trang', lat:12.240327, lng:109.189777 },
+  { d:4, time:'2/15 13:00', name:'라냐 (Là Nhà)', vn:'102 Hồng Bàng', kind:'점심 · 베트남 가정식',
+    menu:'매운 소곱창 쌀국수 · 넴느엉 · 돼지고기 계란조림 · 맛조개 모닝글로리 · 연두부 튀김 · 분짜 스페셜', pl:'3인', pv:[400000,650000], pn:'2~3인 세트 23~39.5만 동', tip:'인스타 @lanha.vn 사전 예약 권장(점심 웨이팅). 하얏트 도보 14분, 포나가르까지 그랩 14분(4.3km).', hours:'11:00–22:00', img:'la-nha', q:'La Nha 102 Hong Bang Nha Trang', lat:12.2397861, lng:109.1904295 },
   { d:4, time:'2/15 19:00', name:'나트랑 왕뚜껑', vn:'233 Nguyễn Thiện Thuật', kind:'저녁 · 한식 BBQ (확정)',
     menu:'삼겹살·목살·된장찌개·공기밥', pl:'3인', pv:[960000,1150000], pn:'', tip:'브레이크타임 14:30~16:30. 20:00 전 마무리 → 20:15 롯데마트(그랩 5분).', hours:'11:00–14:30 / 16:30–24:00', img:'samgyeopsal', q:'Nha Trang Wang Ttukkeong 233 Nguyen Thien Thuat', lat:12.234697, lng:109.194606 },
   { d:5, time:'2/16 13:00', name:'야미 월드 가든 (Yummy Land)', vn:'빈원더스 내', kind:'점심 · 공원 식당',
@@ -1389,7 +1390,7 @@ var FOOD_RES = [
   { t:'#972599 확정', k:'ok' },                /* 3 아미아나 BBQ */
   { t:'리조트 내 · 예약 없이', k:'none' },      /* 4 아미아나 풀바 */
   { t:'예약 없이', k:'none' },                 /* 5 동하이 */
-  { t:'예약 없이', k:'none' },                 /* 6 안어이 퍼 */
+  { t:'인스타 @lanha.vn 예약 권장', k:'warn' },   /* 6 라냐 */
   { t:'예약 없이', k:'none' },                 /* 7 나트랑 왕뚜껑 */
   { t:'공원 내 현장 결제', k:'none' },          /* 8 야미 월드 */
   { t:'예약 없이 · 현금 권장', k:'none' },      /* 9 라라씨푸드 */
